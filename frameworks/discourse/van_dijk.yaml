@@ -1,0 +1,64 @@
+id: van-dijk-discourse
+name: Teun A. van Dijk Critical Discourse Analysis
+version: 0.1.0
+domain: critical_discourse_analysis
+purpose: Analyze how discourse constructs in-groups, out-groups, ideology, racism, and group hierarchies.
+intents:
+  - discourse_analysis
+  - minority_effects
+triggers:
+  - gruppe
+  - minderheit
+  - iraner
+  - somalier
+  - migranten
+  - muslime
+  - rassismus
+  - othering
+  - kontrast
+anti_triggers:
+  - unit conversion
+evidence_statuses:
+  - O1
+  - O2
+  - D1
+  - S1
+  - H1
+concepts:
+  - positive self-presentation
+  - negative other-presentation
+  - ideological square
+  - othering
+  - polarization
+  - denial or disclaimer pattern
+  - strategic exception
+workflow:
+  - Identify groups named or implied.
+  - Identify who is normalized, praised, problematized, or excluded.
+  - Detect contrastive group usage.
+  - Separate explicit claims from discourse interpretation.
+  - Assess possible social effects cautiously.
+decision_rules:
+  - IF one minority is praised while another is rejected THEN check contrastive othering.
+  - IF speaker says not against X but rejects Y THEN check disclaimer pattern.
+  - IF group traits are generalized THEN check negative other-presentation.
+analysis_questions:
+  - Who is the in-group?
+  - Who is the out-group?
+  - Which group is used as an acceptable exception?
+  - What hierarchy is constructed?
+  - What remains implicit?
+output_fields:
+  - in_group
+  - out_group
+  - accepted_group
+  - rejected_group
+  - discourse_strategy
+  - possible_social_effect
+limitations:
+  - Does not prove intention.
+  - Requires textual or observable evidence.
+references:
+  - title: Discourse and Power
+    author: Teun A. van Dijk
+    concept: positive self-presentation and negative other-presentation

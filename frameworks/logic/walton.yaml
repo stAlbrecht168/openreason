@@ -1,0 +1,60 @@
+id: walton-informal-logic
+name: Douglas Walton Informal Logic
+version: 0.1.0
+domain: informal_logic
+purpose: Analyze everyday arguments through premises, conclusions, burden of proof, argument schemes, and critical questions.
+intents:
+  - logical_analysis
+  - debate_analysis
+triggers:
+  - argument
+  - logic
+  - fallacy
+  - fehlschluss
+  - prämisse
+  - premise
+  - conclusion
+  - schlussfolgerung
+anti_triggers:
+  - weather
+  - unit conversion
+evidence_statuses:
+  - O2
+  - L1
+  - H1
+concepts:
+  - premise
+  - conclusion
+  - burden of proof
+  - argument scheme
+  - critical question
+  - defeasible reasoning
+workflow:
+  - Extract explicit claims.
+  - Reconstruct premises and conclusion.
+  - Identify hidden assumptions.
+  - Ask critical questions.
+  - Evaluate whether the conclusion follows.
+  - Mark uncertainty and missing evidence.
+decision_rules:
+  - IF conclusion does not follow from premises THEN mark possible non sequitur.
+  - IF speaker treats one group as exception without criterion THEN check special pleading.
+  - IF broad group claim lacks representative evidence THEN check hasty generalization.
+analysis_questions:
+  - What is the conclusion?
+  - Which premises support it?
+  - What assumption connects premise and conclusion?
+  - Who carries the burden of proof?
+output_fields:
+  - premises
+  - conclusion
+  - hidden_assumptions
+  - possible_fallacies
+  - confidence
+limitations:
+  - Does not determine factual truth.
+  - Does not prove speaker intent.
+references:
+  - title: Informal Logic
+    author: Douglas Walton
+    concept: argument schemes and critical questions

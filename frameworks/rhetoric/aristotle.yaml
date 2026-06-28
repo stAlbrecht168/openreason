@@ -1,0 +1,59 @@
+id: aristotle-rhetoric
+name: Aristotle Rhetoric
+version: 0.1.0
+domain: rhetoric
+purpose: Analyze persuasion through ethos, pathos, logos, audience positioning, and implied premises.
+intents:
+  - rhetoric_analysis
+  - persuasion_analysis
+triggers:
+  - rhetorik
+  - persuasion
+  - überzeugung
+  - emotion
+  - ethos
+  - pathos
+  - logos
+  - sprache
+anti_triggers:
+  - weather
+  - calculation
+evidence_statuses:
+  - R1
+  - L1
+  - O2
+concepts:
+  - ethos
+  - pathos
+  - logos
+  - audience
+  - enthymeme
+workflow:
+  - identify credibility strategy
+  - identify emotional appeal
+  - identify reasoning structure
+  - identify implied premise
+  - assess audience positioning
+decision_rules:
+  - IF speaker claims moderation THEN analyze ethos
+  - IF fear, disgust, pride, or resentment is activated THEN analyze pathos
+  - IF argument relies on an unstated premise THEN identify possible enthymeme
+analysis_questions:
+  - How does the speaker build credibility?
+  - Which emotion is activated?
+  - What reasoning structure is offered?
+  - What does the audience need to assume?
+output_fields:
+  - ethos
+  - pathos
+  - logos
+  - implied_premise
+  - audience_positioning
+limitations:
+  - Describes persuasion, not factual truth.
+  - Does not prove speaker intent.
+references:
+  - title: Rhetoric
+    author: Aristotle
+    concept: ethos, pathos, logos
+    note: Classical framework for analyzing persuasion.

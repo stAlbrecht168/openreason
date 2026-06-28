@@ -1,15 +1,18 @@
 # Changelog
 
-## 0.1.0-draft
+## 0.1.0
 
-### Added
+Initial TypeScript proof of concept.
 
-- Initial repository structure
-- RFC-0001 Evidence Model
-- RFC-0002 Framework Schema
-- RFC-0003 Intent Router
-- RFC-0004 Verification Workflow
-- RFC-0005 Testing Standard
-- Draft framework YAML schema
-- Walton example framework
-- Basic framework validator
+Includes:
+
+- framework YAML schema
+- framework loader
+- intent router
+- framework resolver
+- prompt compiler
+- CLI
+- Claude Code setup
+- GitHub Actions CI
+- example analysis input
+- human-readable documentation

@@ -1,40 +1,40 @@
-# Contributing to OpenReason Spec
+# Contributing to OpenReason
 
-OpenReason aims to define transparent, source-grounded, and testable reasoning frameworks.
+You do not need to be a programmer to contribute.
 
-## Contribution Types
+## Ways to contribute
 
-You can contribute:
+- Review framework files against original sources.
+- Add missing limitations.
+- Create example analyses.
+- Add test cases.
+- Improve documentation.
+- Improve TypeScript code.
 
-- RFC improvements
-- framework schema improvements
-- validation tools
-- example frameworks
-- verification workflows
-- testing standards
+## For theory-oriented contributors
 
-## Principles
+When reviewing a framework, ask:
 
-Contributions should be:
+- Is the author represented fairly?
+- Are concepts oversimplified?
+- Are important limitations missing?
+- Are the decision rules too strong?
+- Are examples accurate?
 
-1. Source-grounded
-2. Testable
-3. Limited in scope
-4. Explicit about limitations
-5. Careful about interpretation and motive attribution
+## For developers
 
-## Framework Contributions
+Before opening a pull request, run:
 
-Frameworks should not be submitted to this repository unless they are examples for the spec.
+```bash
+npm run validate
+npm test
+npm run build
+```
 
-Actual framework packages should later live in `openreason-frameworks`.
+## Style
 
-## Review Checklist
+Prefer careful language.
 
-Before submitting a change, check:
+Do not make claims about hidden motives unless the evidence supports them.
 
-- Does it preserve the evidence-status distinction?
-- Does it separate observation from interpretation?
-- Is every normative or methodological claim documented?
-- Does it avoid unsupported claims about speaker intent or group traits?
-- Are examples clear and reproducible?
+Separate observation from interpretation.

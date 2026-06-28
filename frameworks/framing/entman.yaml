@@ -1,0 +1,56 @@
+id: entman-framing
+name: Robert Entman Framing Analysis
+version: 0.1.0
+domain: framing_analysis
+purpose: Analyze how communication defines problems, assigns causes, makes moral evaluations, and implies solutions.
+intents:
+  - framing_analysis
+  - discourse_analysis
+triggers:
+  - frame
+  - framing
+  - narrativ
+  - problem
+  - ursache
+  - lösung
+  - blame
+anti_triggers:
+  - translation
+evidence_statuses:
+  - O2
+  - F1
+  - H1
+concepts:
+  - problem definition
+  - causal interpretation
+  - moral evaluation
+  - treatment recommendation
+  - salience
+workflow:
+  - Identify what is presented as the problem.
+  - Identify who or what is assigned responsibility.
+  - Identify moral evaluation.
+  - Identify implied or explicit solution.
+  - Identify omissions.
+decision_rules:
+  - IF a group is presented as the problem THEN identify problem frame.
+  - IF exclusion is implied as solution THEN identify treatment recommendation.
+  - IF causes are assigned to culture or nationality THEN flag causal framing.
+analysis_questions:
+  - What is the problem definition?
+  - What cause is implied?
+  - What moral judgment is implied?
+  - What solution becomes thinkable?
+output_fields:
+  - problem_definition
+  - causal_interpretation
+  - moral_evaluation
+  - treatment_recommendation
+  - omissions
+limitations:
+  - Does not determine factual accuracy.
+  - Framing interpretations are context-dependent.
+references:
+  - title: "Framing: Toward Clarification of a Fractured Paradigm"
+    author: Robert Entman
+    concept: four functions of framing

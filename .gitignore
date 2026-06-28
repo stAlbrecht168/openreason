@@ -1,5 +1,4 @@
-__pycache__/
-*.pyc
-.venv/
+node_modules/
+dist/
+compiled_prompt.md
 .env
-.DS_Store
