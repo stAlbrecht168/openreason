@@ -1,0 +1,103 @@
+id: framework.logic.walton
+name: Informal Logic — Walton
+version: 0.1.0-draft
+author: Douglas Walton
+domain: informal_logic
+purpose: Analyze everyday arguments using argument schemes, burden of proof, dialogue context, and critical questions.
+status: draft
+
+intents:
+  - logical_analysis
+  - debate_analysis
+  - fallacy_detection
+
+triggers:
+  - argument
+  - claim
+  - premise
+  - conclusion
+  - fallacy
+  - burden of proof
+  - reasoning
+  - debate
+
+anti_triggers:
+  - translation
+  - arithmetic
+  - weather
+  - image generation
+  - personal advice without argument analysis
+
+core_concepts:
+  - argument schemes
+  - critical questions
+  - defeasible reasoning
+  - burden of proof
+  - relevance
+  - dialogue context
+  - premise
+  - conclusion
+
+analysis_steps:
+  - identify the claim
+  - identify premises
+  - identify conclusion
+  - identify argument scheme if possible
+  - ask critical questions
+  - evaluate whether the conclusion follows
+  - identify missing assumptions
+  - identify burden-of-proof issues
+  - assign evidence status and confidence
+
+decision_rules:
+  - id: walton-non-sequitur-001
+    if: The conclusion does not follow from the stated premises.
+    then: Flag a possible non sequitur and explain the missing inferential link.
+    evidence_status: L1
+  - id: walton-burden-proof-001
+    if: A speaker makes a contested claim but demands the opponent disprove it without supporting evidence.
+    then: Flag a possible burden-of-proof issue.
+    evidence_status: L1
+  - id: walton-analogy-001
+    if: An analogy is used as support for a conclusion.
+    then: Compare relevant similarities and relevant differences before accepting the analogy.
+    evidence_status: L1
+  - id: walton-generalization-001
+    if: A broad group claim is based on limited examples.
+    then: Check whether the sample is representative before accepting the generalization.
+    evidence_status: L1
+
+analysis_questions:
+  - What is the conclusion?
+  - What premises are offered?
+  - What assumptions are unstated?
+  - What evidence supports the premises?
+  - Who carries the burden of proof?
+  - What critical questions remain unanswered?
+  - Does the conclusion follow from the premises?
+
+output_fields:
+  - claim
+  - premises
+  - conclusion
+  - argument_scheme
+  - critical_questions
+  - missing_assumptions
+  - fallacy_candidates
+  - burden_of_proof
+  - evidence_status
+  - confidence
+
+limitations:
+  - Does not determine factual truth by itself.
+  - Requires external evidence for empirical claims.
+  - Does not infer speaker motive.
+  - Does not replace discourse, rhetoric, or framing analysis.
+
+references:
+  - type: book
+    title: Informal Logic
+    author: Douglas Walton
+  - type: book
+    title: Argumentation Schemes
+    author: Douglas Walton

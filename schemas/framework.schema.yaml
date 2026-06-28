@@ -1,0 +1,100 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+title: OpenReason Framework Schema
+type: object
+required:
+  - id
+  - name
+  - version
+  - author
+  - domain
+  - purpose
+  - status
+  - intents
+  - triggers
+  - anti_triggers
+  - core_concepts
+  - analysis_steps
+  - decision_rules
+  - analysis_questions
+  - output_fields
+  - limitations
+  - references
+properties:
+  id:
+    type: string
+  name:
+    type: string
+  version:
+    type: string
+  author:
+    type: string
+  domain:
+    type: string
+  purpose:
+    type: string
+  status:
+    type: string
+    enum: [draft, reviewed, verified, deprecated]
+  intents:
+    type: array
+    items:
+      type: string
+  triggers:
+    type: array
+    items:
+      type: string
+  anti_triggers:
+    type: array
+    items:
+      type: string
+  core_concepts:
+    type: array
+    items:
+      type: string
+  analysis_steps:
+    type: array
+    items:
+      type: string
+  decision_rules:
+    type: array
+    items:
+      type: object
+      required: [id, if, then]
+      properties:
+        id:
+          type: string
+        if:
+          type: string
+        then:
+          type: string
+        evidence_status:
+          type: string
+  analysis_questions:
+    type: array
+    items:
+      type: string
+  output_fields:
+    type: array
+    items:
+      type: string
+  limitations:
+    type: array
+    items:
+      type: string
+  references:
+    type: array
+    items:
+      type: object
+      required: [type, title]
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        author:
+          type: string
+        year:
+          type: [string, integer]
+        section:
+          type: string
+additionalProperties: true
