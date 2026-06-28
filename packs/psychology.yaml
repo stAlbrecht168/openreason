@@ -1,0 +1,31 @@
+id: psychology
+capabilities:
+  - cognitive_effect_analysis
+  - social_effect_analysis
+description: >
+  The psychology pack covers the analysis of possible cognitive and social effects
+  of persuasive communication — how messages may affect how people reason, what
+  they believe, and how they behave toward others. All findings in this pack must
+  be stated at the H1 (hypothesis) or S1/C1 (possible effect) level. This pack does
+  not produce verified causal claims about audience effects; it identifies patterns
+  that the research literature associates with cognitive or social outcomes.
+
+  Important: This pack deals in possibilities and patterns, not proven effects.
+  No analysis using this pack should assert that a specific text caused a specific
+  psychological or social outcome.
+frameworks:
+  - id: psychology-kahneman-tversky
+    maturity: planned
+    note: >
+      Daniel Kahneman and Amos Tversky's dual-process theory (System 1 / System 2)
+      and related cognitive biases (anchoring, availability heuristic, framing
+      effects). Useful for identifying which cognitive shortcuts a text may exploit.
+      Framework YAML not yet written.
+  - id: psychology-haidt
+    maturity: planned
+    note: >
+      Jonathan Haidt's Moral Foundations Theory. Identifies which moral foundations
+      (care, fairness, loyalty, authority, purity) political rhetoric appeals to.
+      Useful for analysing why a message resonates with different audiences.
+      Framework YAML not yet written. Note: Haidt's theory is contested within moral
+      psychology; any framework derived from it must state this limitation explicitly.

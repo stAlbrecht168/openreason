@@ -1,0 +1,31 @@
+id: propaganda
+capabilities:
+  - propaganda_analysis
+  - social_effect_analysis
+description: >
+  The propaganda pack covers the systematic analysis of persuasion techniques used
+  to shape public opinion — including techniques documented by the Institute for
+  Propaganda Analysis and the academic literature on political communication.
+  It is relevant when an analysis involves large-scale, organised, or institutionally
+  coordinated persuasion rather than a single speaker making an argument.
+
+  Important: Applying the label "propaganda" to a text is itself an interpretive act
+  requiring evidence (D1/F1). The pack provides tools for identifying techniques
+  associated with propaganda in the literature; it does not automatically establish
+  that a given text constitutes propaganda.
+frameworks:
+  - id: propaganda-ipa
+    maturity: planned
+    note: >
+      The seven propaganda devices identified by the Institute for Propaganda Analysis
+      (1937): name calling, glittering generalities, transfer, testimonial, plain folks,
+      card stacking, bandwagon. A foundational taxonomy, though dated; must be
+      supplemented with contemporary frameworks. Framework YAML not yet written.
+  - id: propaganda-jowett-odonnell
+    maturity: planned
+    note: >
+      Garth Jowett and Victoria O'Donnell's definition of propaganda and its
+      distinction from persuasion and information. Provides a conceptual framework
+      for classifying communication intent and technique. Their ten-step analysis
+      method is particularly useful for systematic assessment.
+      Framework YAML not yet written.

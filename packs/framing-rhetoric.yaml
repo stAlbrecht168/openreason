@@ -1,0 +1,34 @@
+id: framing-rhetoric
+capabilities:
+  - framing_analysis
+  - rhetoric_analysis
+description: >
+  The framing-rhetoric pack covers how communication defines problems, assigns
+  causes, makes moral evaluations, and implies solutions (framing), as well as how
+  speakers build credibility, activate emotion, and structure reasoning to persuade
+  an audience (rhetoric). These capabilities are often relevant together: a political
+  speech may both frame a problem and use rhetorical means to make the frame feel natural.
+frameworks:
+  - id: framing-entman
+    maturity: draft
+    note: >
+      Robert Entman's four-part framing model: problem definition, causal
+      interpretation, moral evaluation, treatment recommendation. YAML file implemented.
+      Not yet verified against original sources.
+  - id: rhetoric-aristotle
+    maturity: draft
+    note: >
+      Aristotle's Rhetoric: ethos, pathos, logos, enthymeme, and audience positioning.
+      YAML file implemented. Not yet verified against original sources.
+  - id: rhetoric-perelman
+    maturity: planned
+    note: >
+      Chaïm Perelman and Lucie Olbrechts-Tyteca's New Rhetoric. Extends Aristotle
+      with a detailed taxonomy of argumentation schemes and attention to the role of
+      the audience in argument acceptability. Framework YAML not yet written.
+  - id: framing-lakoff
+    maturity: planned
+    note: >
+      George Lakoff's cognitive framing theory. Focuses on how conceptual metaphors
+      and frames shape political understanding — including why rebuttal can reinforce
+      a frame rather than defeating it. Framework YAML not yet written.

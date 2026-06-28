@@ -5,7 +5,6 @@ const intentSignals: Record<string, string[]> = {
   logical_analysis: ['argument', 'logic', 'fallacy', 'premise', 'conclusion', 'reasoning', 'valid', 'proof'],
   framing_analysis: ['frame', 'framing', 'narrative', 'problem', 'blame', 'solution', 'threat'],
   rhetoric_analysis: ['rhetoric', 'persuasive', 'persuasion', 'speech', 'emotion', 'credibility', 'ethos', 'pathos', 'logos'],
-  fact_checking: ['true', 'false', 'verify', 'fact check', 'source', 'evidence'],
 };
 
 export function detectIntent(input: string): IntentResult {

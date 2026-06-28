@@ -3,12 +3,16 @@ import { z } from 'zod';
 export const EvidenceStatusSchema = z.enum(['O1','O2','L1','D1','R1','F1','C1','S1','H1','X1']);
 export type EvidenceStatus = z.infer<typeof EvidenceStatusSchema>;
 
+export const VerificationStatusSchema = z.enum(['draft','reviewed','verified','contested']);
+export type VerificationStatus = z.infer<typeof VerificationStatusSchema>;
+
 export const FrameworkSchema = z.object({
   id: z.string().min(1),
   name: z.string().min(1),
   version: z.string().min(1),
   domain: z.string().min(1),
   purpose: z.string().min(1),
+  verification_status: VerificationStatusSchema.default('draft'),
   intents: z.array(z.string()).min(1),
   triggers: z.array(z.string()).min(1),
   anti_triggers: z.array(z.string()).default([]),
@@ -40,6 +44,24 @@ export type ResolutionResult = {
   skippedFrameworks: { id: string; reason: string }[];
 };
 
+export const MaturityLevelSchema = z.enum(['implemented', 'draft', 'planned', 'reference']);
+export type MaturityLevel = z.infer<typeof MaturityLevelSchema>;
+
+export const PackFrameworkEntrySchema = z.object({
+  id: z.string().min(1),
+  maturity: MaturityLevelSchema,
+  note: z.string().optional(),
+});
+export type PackFrameworkEntry = z.infer<typeof PackFrameworkEntrySchema>;
+
+export const PackSchema = z.object({
+  id: z.string().min(1),
+  capabilities: z.array(z.string()).min(1),
+  description: z.string().min(1),
+  frameworks: z.array(PackFrameworkEntrySchema).min(1),
+});
+export type Pack = z.infer<typeof PackSchema>;
+
 export type AnalysisPacket = {
   inputPath: string;
   input: string;
@@ -48,4 +70,17 @@ export type AnalysisPacket = {
   evidenceModel: EvidenceStatus[];
   reportMarkdown: string;
   compiledInstructions: string;
+};
+
+export type AnalysisPlan = {
+  input: string;
+  intent: IntentResult;
+  frameworks: Framework[];
+  evidenceModel: EvidenceStatus[];
+  instructions: string;
+};
+
+export type AnalysisResult = {
+  plan: AnalysisPlan;
+  reportScaffold: string;
 };

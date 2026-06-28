@@ -1,34 +1,7 @@
 # Using OpenReason with Claude Code
 
-Claude Code is currently the easiest practical interface for OpenReason.
+This page has been superseded.
 
-## Why Claude Code?
+The current Claude Code documentation is in **[docs/CLAUDE_CODE_WORKFLOW.md](CLAUDE_CODE_WORKFLOW.md)**, which covers seven practical user scenarios, the standard report format, slash commands, and what Claude Code will not do.
 
-OpenReason is a repository with code, frameworks, examples, and documentation. Claude Code can read these files, run tests, update files, and produce analyses inside the project.
-
-## Basic use
-
-Open the repo:
-
-```bash
-cd openreason
-claude
-```
-
-Then ask:
-
-```text
-Read CLAUDE.md. Use OpenReason to analyze examples/iran-somalia.md. Do not ask me to run npm manually.
-```
-
-## What Claude Code should do
-
-- Read `CLAUDE.md`.
-- Install dependencies if needed.
-- Run `npm run cc:smoke`.
-- Generate an analysis packet.
-- Produce a final answer with evidence statuses.
-
-## Important rule
-
-The user should interact naturally. Claude Code should handle technical commands whenever possible.
+For the persistent Claude Code instructions that govern how analyses are produced, see **[CLAUDE.md](../CLAUDE.md)** at the repository root.

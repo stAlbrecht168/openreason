@@ -1,0 +1,36 @@
+id: logic
+capabilities:
+  - argument_analysis
+  - fallacy_detection
+description: >
+  The logic pack provides argument analysis and fallacy detection capabilities.
+  It covers the reconstruction of arguments from everyday language — identifying
+  claims, premises, conclusions, and unstated assumptions — and the evaluation of
+  whether conclusions actually follow from their premises. It also covers the
+  detection of common informal fallacies such as hasty generalisation, appeal to
+  false authority, and non sequitur.
+frameworks:
+  - id: logic-walton
+    maturity: draft
+    note: >
+      Douglas Walton's informal logic. Covers argument schemes, critical questions,
+      defeasible reasoning, and burden of proof. YAML file implemented.
+      Not yet verified against original sources.
+  - id: logic-toulmin
+    maturity: planned
+    note: >
+      Stephen Toulmin's argument model (claim, data, warrant, backing, qualifier,
+      rebuttal). Complementary to Walton; stronger on structural diagramming
+      and the role of field-dependent warrants. Framework YAML not yet written.
+  - id: logic-weston
+    maturity: planned
+    note: >
+      Anthony Weston's practical guide to argument construction and evaluation.
+      Useful for introductory-level argument analysis with less technical vocabulary
+      than Walton or Toulmin. Framework YAML not yet written.
+  - id: logic-damer
+    maturity: planned
+    note: >
+      T. Edward Damer's taxonomy of informal fallacies and criteria for good
+      arguments. Adds breadth of fallacy coverage beyond Walton.
+      Framework YAML not yet written.
