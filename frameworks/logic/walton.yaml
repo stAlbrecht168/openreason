@@ -1,60 +1,66 @@
-id: walton-informal-logic
-name: Douglas Walton Informal Logic
+id: logic-walton
+name: Douglas Walton — Informal Logic
 version: 0.1.0
 domain: informal_logic
-purpose: Analyze everyday arguments through premises, conclusions, burden of proof, argument schemes, and critical questions.
+purpose: Analyze everyday arguments by identifying claims, premises, conclusions, burden of proof, and critical questions.
 intents:
   - logical_analysis
   - debate_analysis
+  - fallacy_detection
 triggers:
   - argument
   - logic
   - fallacy
-  - fehlschluss
-  - prämisse
   - premise
   - conclusion
-  - schlussfolgerung
+  - reasoning
+  - proof
 anti_triggers:
   - weather
-  - unit conversion
+  - pure translation
+core_concepts:
+  - argument schemes
+  - critical questions
+  - defeasible reasoning
+  - burden of proof
+  - relevance
 evidence_statuses:
   - O2
   - L1
   - H1
-concepts:
-  - premise
-  - conclusion
-  - burden of proof
-  - argument scheme
-  - critical question
-  - defeasible reasoning
-workflow:
-  - Extract explicit claims.
-  - Reconstruct premises and conclusion.
-  - Identify hidden assumptions.
+analysis_steps:
+  - Identify the explicit claim.
+  - Identify premises and conclusion.
+  - Reconstruct hidden assumptions.
   - Ask critical questions.
-  - Evaluate whether the conclusion follows.
+  - Evaluate whether conclusion follows from premises.
   - Mark uncertainty and missing evidence.
 decision_rules:
-  - IF conclusion does not follow from premises THEN mark possible non sequitur.
-  - IF speaker treats one group as exception without criterion THEN check special pleading.
-  - IF broad group claim lacks representative evidence THEN check hasty generalization.
+  - IF the conclusion does not follow from the premises THEN mark a non sequitur or unsupported inference.
+  - IF an analogy is used THEN compare relevant similarities and differences.
+  - IF a broad group claim is based on limited examples THEN check for hasty generalization.
+  - IF the speaker demands acceptance without evidence THEN flag a burden-of-proof issue.
 analysis_questions:
   - What is the conclusion?
-  - Which premises support it?
-  - What assumption connects premise and conclusion?
+  - What premises support it?
+  - What assumptions are unstated?
   - Who carries the burden of proof?
+  - What critical questions remain unanswered?
 output_fields:
+  - claim
   - premises
   - conclusion
   - hidden_assumptions
-  - possible_fallacies
+  - fallacy_candidates
   - confidence
 limitations:
-  - Does not determine factual truth.
+  - Does not itself verify empirical facts.
   - Does not prove speaker intent.
+  - Needs specific claims or quotes for strong conclusions.
 references:
   - title: Informal Logic
     author: Douglas Walton
-    concept: argument schemes and critical questions
+    note: Used for argument reconstruction and critical questions.
+  - title: Argumentation Schemes
+    author: Douglas Walton, Chris Reed, Fabrizio Macagno
+    note: Used for argument schemes and critical questions.

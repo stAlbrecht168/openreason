@@ -1,18 +1,23 @@
-import { Framework } from "./schema.js";
-import { Intent } from "./router.js";
+import { Framework, IntentResult, ResolutionResult } from './schema.js';
 
-export function resolveFrameworks(frameworks: Framework[], intents: Intent[], input: string): Framework[] {
-  const normalized = input.toLowerCase();
-  const intentNames = new Set(intents.map((i) => i.name));
+export function resolveFrameworks(intent: IntentResult, frameworks: Framework[], input: string): ResolutionResult {
+  const text = input.toLowerCase();
+  const wanted = new Set([intent.primaryIntent, ...intent.secondaryIntents]);
 
-  const scored = frameworks.map((fw) => {
-    let score = 0;
-    for (const intent of fw.intents) if (intentNames.has(intent)) score += 5;
-    for (const trigger of fw.triggers) if (normalized.includes(trigger.toLowerCase())) score += 2;
-    for (const anti of fw.anti_triggers) if (normalized.includes(anti.toLowerCase())) score -= 10;
-    return { fw, score };
-  }).filter((item) => item.score > 0)
-    .sort((a, b) => b.score - a.score);
+  const scored = frameworks.map((framework) => {
+    const intentScore = framework.intents.filter((i) => wanted.has(i)).length * 3;
+    const triggerScore = framework.triggers.filter((t) => text.includes(t.toLowerCase())).length;
+    const antiScore = framework.anti_triggers.filter((t) => text.includes(t.toLowerCase())).length * -5;
+    return { framework, score: intentScore + triggerScore + antiScore };
+  }).sort((a, b) => b.score - a.score);
 
-  return scored.slice(0, 4).map((item) => item.fw);
+  const activated = scored.filter((s) => s.score > 0).map((s) => s.framework);
+  const fallback = frameworks.filter((f) => ['discourse-van-dijk', 'logic-walton', 'framing-entman'].includes(f.id));
+  const final = activated.length ? activated : fallback;
+  const selectedIds = new Set(final.map((f) => f.id));
+
+  return {
+    activatedFrameworks: final,
+    skippedFrameworks: frameworks.filter((f) => !selectedIds.has(f.id)).map((f) => ({ id: f.id, reason: 'Not selected by current intent and trigger signals.' }))
+  };
 }

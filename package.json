@@ -1,19 +1,19 @@
 {
   "name": "openreason",
   "version": "0.1.0",
-  "description": "PoC compiler for transparent reasoning frameworks",
+  "description": "Transparent reasoning framework compiler and Claude Code analysis workspace.",
   "type": "module",
   "bin": {
-    "openreason": "dist/cli.js"
+    "openreason": "./dist/cli.js"
   },
   "scripts": {
     "build": "tsc",
-    "compile:example": "tsx src/cli.ts compile examples/iran-somalia.md --out compiled_prompt.md",
-    "validate": "tsx src/cli.ts validate",
     "test": "vitest run",
-    "cc:smoke": "npm run validate && npm test && npm run build && npm run compile:example",
-    "compile:claude": "npm run compile:example && echo \"Open compiled_prompt.md in Claude Code and ask it to analyze examples/iran-somalia.md\"",
-    "docs": "echo \"Read docs/GETTING_STARTED.md and docs/OPENREASON_BOOK.md\""
+    "validate": "tsx src/cli.ts validate",
+    "compile": "tsx src/cli.ts compile examples/iran-somalia.md --out compiled_prompt.md",
+    "analyze": "tsx src/cli.ts analyze examples/iran-somalia.md --out reports/iran-somalia.report.md",
+    "inspect": "tsx src/cli.ts inspect examples/iran-somalia.md",
+    "cc:smoke": "npm run validate && npm test && npm run build && npm run analyze"
   },
   "dependencies": {
     "commander": "^12.1.0",
@@ -22,9 +22,9 @@
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.9",
-    "@types/node": "^22.5.4",
-    "tsx": "^4.19.1",
-    "typescript": "^5.6.2",
-    "vitest": "^2.1.1"
+    "@types/node": "^20.14.10",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3",
+    "vitest": "^1.6.0"
   }
 }

@@ -1,37 +1,27 @@
 # Using OpenReason with ChatGPT
 
-OpenReason currently produces `compiled_prompt.md`.
+ChatGPT cannot directly run the local TypeScript project unless it is connected to an external tool or you use the API.
 
-## Basic workflow
+## Practical options
 
-1. Run:
+### Option 1: Custom GPT
 
-```bash
-npm run compile:example
-```
+Use the files in `custom-gpt/` to create a Custom GPT. Upload the framework files and documentation as knowledge.
 
-2. Open `compiled_prompt.md`.
-3. Copy its content into ChatGPT.
-4. Add the material you want analyzed.
-5. Ask ChatGPT to follow the OpenReason output format.
+### Option 2: ChatGPT Project
 
-## Suggested message
+Create a project called OpenReason and upload:
 
-```text
-Use the following OpenReason compiled prompt as your instruction. Analyze the material and label every major conclusion with an evidence status.
-```
-
-## Project workflow
-
-For repeated work, create a ChatGPT Project named `OpenReason` and upload:
-
-- `compiled_prompt.md`
+- `README.md`
+- `CLAUDE.md` adapted as project instructions
+- files under `frameworks/`
 - `docs/`
-- `frameworks/`
-- `examples/`
+- example analyses
 
-Then start analyses with:
+### Option 3: API integration later
 
-```text
-Use OpenReason. Analyze this material with evidence statuses and a framework/resource map.
-```
+A future provider package can call the OpenAI API directly.
+
+## Best current workflow
+
+Use Claude Code for repository development and ChatGPT for comparing outputs manually.

@@ -1,41 +1,33 @@
-import fs from "node:fs";
-import path from "node:path";
-import yaml from "js-yaml";
-import { Framework, FrameworkSchema } from "./schema.js";
+import fs from 'node:fs';
+import path from 'node:path';
+import yaml from 'js-yaml';
+import { Framework, FrameworkSchema } from './schema.js';
 
 function walk(dir: string): string[] {
-  if (!fs.existsSync(dir)) return [];
-  return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  return entries.flatMap((entry) => {
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) return walk(full);
-    if (entry.isFile() && (entry.name.endsWith(".yaml") || entry.name.endsWith(".yml"))) return [full];
+    if (entry.isFile() && (entry.name.endsWith('.yaml') || entry.name.endsWith('.yml'))) return [full];
     return [];
   });
 }
 
-export function loadFrameworks(root = "frameworks"): Framework[] {
-  const files = walk(root);
-  return files.map((file) => {
-    const parsed = yaml.load(fs.readFileSync(file, "utf8"));
+export function loadFrameworks(root = 'frameworks'): Framework[] {
+  if (!fs.existsSync(root)) return [];
+  return walk(root).map((file) => {
+    const raw = fs.readFileSync(file, 'utf8');
+    const parsed = yaml.load(raw);
     const result = FrameworkSchema.safeParse(parsed);
     if (!result.success) {
-      throw new Error(`Invalid framework ${file}: ${result.error.message}`);
+      const issues = result.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`).join('\n');
+      throw new Error(`Invalid framework ${file}:\n${issues}`);
     }
     return result.data;
   });
 }
 
-export function validateFrameworks(root = "frameworks"): { ok: boolean; errors: string[] } {
-  const files = walk(root);
-  const errors: string[] = [];
-  for (const file of files) {
-    try {
-      const parsed = yaml.load(fs.readFileSync(file, "utf8"));
-      const result = FrameworkSchema.safeParse(parsed);
-      if (!result.success) errors.push(`${file}: ${result.error.message}`);
-    } catch (err) {
-      errors.push(`${file}: ${(err as Error).message}`);
-    }
-  }
-  return { ok: errors.length === 0, errors };
+export function validateFrameworks(root = 'frameworks'): string[] {
+  const frameworks = loadFrameworks(root);
+  return frameworks.map((f) => f.id);
 }

@@ -1,0 +1,19 @@
+name: Framework proposal
+description: Suggest a new OpenReason framework
+title: "Framework: "
+labels: [framework]
+body:
+  - type: textarea
+    id: purpose
+    attributes:
+      label: Purpose
+      description: What should this framework help analyze?
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources
+      description: Which books, papers, or primary sources support it?
+    validations:
+      required: true

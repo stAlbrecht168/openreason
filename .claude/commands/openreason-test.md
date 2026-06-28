@@ -1,7 +1,4 @@
----
-description: Run OpenReason validation, tests, build, and example compilation
-allowed-tools: Bash, Read, Grep, Glob
----
+# /openreason-test
 
 Run the OpenReason smoke test:
 
@@ -9,10 +6,4 @@ Run the OpenReason smoke test:
 npm run cc:smoke
 ```
 
-Then summarize:
-
-- validation result
-- test result
-- build result
-- whether `compiled_prompt.md` was generated
-- any failures and the smallest likely fix
+Report whether validation, tests, build, and example analysis succeeded.

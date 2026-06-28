@@ -1,46 +1,50 @@
-id: entman-framing
-name: Robert Entman Framing Analysis
+id: framing-entman
+name: Robert Entman — Framing Analysis
 version: 0.1.0
 domain: framing_analysis
-purpose: Analyze how communication defines problems, assigns causes, makes moral evaluations, and implies solutions.
+purpose: Analyze how communication defines problems, assigns causes, makes moral evaluations, and suggests remedies.
 intents:
   - framing_analysis
-  - discourse_analysis
+  - political_message_analysis
+  - media_analysis
 triggers:
   - frame
   - framing
-  - narrativ
+  - narrative
   - problem
-  - ursache
-  - lösung
   - blame
+  - solution
+  - threat
+  - moral
 anti_triggers:
-  - translation
-evidence_statuses:
-  - O2
-  - F1
-  - H1
-concepts:
+  - pure code generation
+core_concepts:
   - problem definition
   - causal interpretation
   - moral evaluation
   - treatment recommendation
   - salience
-workflow:
+evidence_statuses:
+  - O2
+  - F1
+  - S1
+  - H1
+analysis_steps:
   - Identify what is presented as the problem.
-  - Identify who or what is assigned responsibility.
+  - Identify the attributed cause.
   - Identify moral evaluation.
-  - Identify implied or explicit solution.
-  - Identify omissions.
+  - Identify suggested or implied solution.
+  - Identify what is made salient or omitted.
 decision_rules:
-  - IF a group is presented as the problem THEN identify problem frame.
-  - IF exclusion is implied as solution THEN identify treatment recommendation.
-  - IF causes are assigned to culture or nationality THEN flag causal framing.
+  - IF a group is made the central problem THEN identify problem definition.
+  - IF cause is assigned to culture, religion, or nationality THEN flag causal framing.
+  - IF exclusion or restriction is implied as solution THEN identify treatment recommendation.
 analysis_questions:
-  - What is the problem definition?
-  - What cause is implied?
-  - What moral judgment is implied?
+  - What is the problem?
+  - Who or what is blamed?
+  - What moral evaluation is implied?
   - What solution becomes thinkable?
+  - What is omitted?
 output_fields:
   - problem_definition
   - causal_interpretation
@@ -48,9 +52,9 @@ output_fields:
   - treatment_recommendation
   - omissions
 limitations:
-  - Does not determine factual accuracy.
-  - Framing interpretations are context-dependent.
+  - Framing analysis does not determine factual accuracy.
+  - Frame effects are context-dependent.
 references:
   - title: "Framing: Toward Clarification of a Fractured Paradigm"
-    author: Robert Entman
-    concept: four functions of framing
+    author: Robert M. Entman
+    note: Used for the four-part framing model.

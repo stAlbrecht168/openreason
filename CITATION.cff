@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: OpenReason
+message: "If you use OpenReason, please cite the repository."
+type: software
+authors:
+  - family-names: OpenReason contributors
+version: 0.1.0
+license: MIT
+repository-code: "https://github.com/stAlbrecht168/openreason"

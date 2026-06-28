@@ -1,110 +1,36 @@
-# Getting Started with OpenReason
+# Getting Started
 
-This guide is for people who want to try OpenReason without needing deep technical knowledge.
+This guide is for people who want to try OpenReason without becoming TypeScript developers.
 
-## What you will do
+## Recommended path: Claude Code
 
-You will:
+OpenReason is designed so that Claude Code can operate the repository for you.
 
-1. install the project,
-2. run the checks,
-3. generate a compiled prompt,
-4. test that prompt in Claude Code or ChatGPT.
+1. Clone the repository.
+2. Open Claude Code inside it.
+3. Ask Claude Code to read `CLAUDE.md`.
+4. Ask it to analyze an example.
 
-## What OpenReason currently does
-
-OpenReason does not yet contact Claude or ChatGPT automatically.
-
-It creates a file called:
+Example prompt for Claude Code:
 
 ```text
-compiled_prompt.md
+Read CLAUDE.md. Treat OpenReason as the analysis engine. Do not ask me to run npm commands manually. Run the smoke test and analyze examples/iran-somalia.md.
 ```
 
-That file contains the analysis instructions generated from the frameworks in this repository.
+## What happens behind the scenes
 
-You can then paste that file into Claude, ChatGPT, or another LLM.
+Claude Code will run the project checks, select frameworks, generate an analysis packet, and then write a final answer using OpenReason evidence statuses.
 
-## Step 1: Install Node.js
+You do not need to run npm commands manually unless you want to.
 
-Install Node.js LTS from:
-
-https://nodejs.org
-
-Check that it works:
-
-```bash
-node --version
-npm --version
-```
-
-## Step 2: Install dependencies
-
-In the project folder:
+## Manual path for developers
 
 ```bash
 npm install
+npm run validate
+npm test
+npm run build
+npm run analyze
 ```
 
-## Step 3: Run the smoke test
-
-```bash
-npm run cc:smoke
-```
-
-This runs:
-
-- framework validation,
-- automated tests,
-- TypeScript build,
-- example prompt compilation.
-
-## Step 4: Open the compiled prompt
-
-Open:
-
-```text
-compiled_prompt.md
-```
-
-This is the generated OpenReason prompt.
-
-## Step 5: Try it in Claude Code
-
-Start Claude Code in the repository:
-
-```bash
-claude
-```
-
-Then paste:
-
-```text
-Follow CLAUDE.md. Run npm run cc:smoke, read compiled_prompt.md, and analyze examples/iran-somalia.md using OpenReason evidence statuses.
-```
-
-## Step 6: Try it in ChatGPT
-
-Copy the content of `compiled_prompt.md` into ChatGPT.
-
-Then ask:
-
-```text
-Use this OpenReason prompt to analyze the following material. Label every major conclusion with an evidence status.
-```
-
-Add the text you want analyzed.
-
-## What success looks like
-
-A good OpenReason-style answer should include:
-
-- detected intent,
-- selected frameworks,
-- claim map,
-- evidence graph,
-- framework-based analysis,
-- counterinterpretation,
-- confidence report.
-
-It should not jump directly from a quote to a speculative claim.
+The generated report appears under `reports/`.

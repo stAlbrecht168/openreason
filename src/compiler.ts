@@ -1,83 +1,70 @@
-import { Framework } from "./schema.js";
-import { Intent } from "./router.js";
+import { EvidenceStatus, Framework, IntentResult } from './schema.js';
 
-export function compilePrompt(input: string, intents: Intent[], frameworks: Framework[]): string {
-  const evidenceModel = `
-Evidence status model:
-- O1: Direct observation
-- O2: Explicit claim
-- L1: Logical inference
-- D1: Discourse interpretation
-- R1: Rhetorical interpretation
-- F1: Framing interpretation
-- C1: Cognitive effect
-- S1: Social effect
-- H1: Hypothesis
-- X1: Speculation
+export const evidenceModel: EvidenceStatus[] = ['O1','O2','L1','D1','R1','F1','C1','S1','H1','X1'];
 
-Rules:
-- Never jump directly from quote to hypothesis.
-- Separate observation, inference, interpretation, and hypothesis.
-- Do not infer motive as fact.
-- Mark uncertainty explicitly.
-`;
-
-  const frameworkBlocks = frameworks.map((fw) => `
-## Framework: ${fw.name} (${fw.id})
-Domain: ${fw.domain}
-Purpose: ${fw.purpose}
-Allowed evidence statuses: ${fw.evidence_statuses.join(", ")}
-
-Core concepts:
-${fw.concepts.map((c) => `- ${c}`).join("\n")}
-
-Workflow:
-${fw.workflow.map((s, i) => `${i + 1}. ${s}`).join("\n")}
-
+export function compileInstructions(input: string, intent: IntentResult, frameworks: Framework[]): string {
+  const frameworkText = frameworks.map((f) => `
+## ${f.name} (${f.id})
+Domain: ${f.domain}
+Purpose: ${f.purpose}
+Use for intents: ${f.intents.join(', ')}
+Core concepts: ${f.core_concepts.join(', ')}
+Evidence statuses allowed: ${f.evidence_statuses.join(', ')}
+Analysis steps:
+${f.analysis_steps.map((s) => `- ${s}`).join('\n')}
 Decision rules:
-${fw.decision_rules.map((r) => `- ${r}`).join("\n")}
-
-Analysis questions:
-${fw.analysis_questions.map((q) => `- ${q}`).join("\n")}
-
-Output fields:
-${fw.output_fields.map((f) => `- ${f}`).join("\n")}
-
+${f.decision_rules.map((r) => `- ${r}`).join('\n')}
+Questions:
+${f.analysis_questions.map((q) => `- ${q}`).join('\n')}
 Limitations:
-${fw.limitations.map((l) => `- ${l}`).join("\n")}
-`).join("\n");
+${f.limitations.map((l) => `- ${l}`).join('\n')}
+`).join('\n');
 
-  return `# OpenReason Compiled Prompt
+  return `# OpenReason Analysis Instructions
 
-You are using OpenReason, a transparent reasoning framework compiler.
+You are using OpenReason as a transparent analysis engine.
 
-## Detected intents
-${intents.map((i) => `- ${i.name} (score ${i.score}; matched: ${i.matched.join(", ") || "none"})`).join("\n")}
+## Detected intent
+Primary: ${intent.primaryIntent}
+Secondary: ${intent.secondaryIntents.join(', ') || 'none'}
+Confidence: ${intent.confidence}
+Matched signals: ${intent.matchedSignals.join(', ') || 'none'}
 
-## Evidence model
-${evidenceModel}
+## Non-negotiable rules
+- Do not jump from observation directly to motive.
+- Separate observation, logical inference, discourse interpretation, framing, rhetorical interpretation, social effect, and hypothesis.
+- Do not claim to have watched inaccessible video material.
+- Do not infer hidden intent as fact.
+- Every important conclusion must include an evidence status.
+- Prefer cautious language for C1, S1, H1, and X1 claims.
+
+## Evidence statuses
+- O1: Direct observation.
+- O2: Explicit claim made by speaker or material.
+- L1: Logical inference.
+- D1: Discourse interpretation.
+- R1: Rhetorical interpretation.
+- F1: Framing interpretation.
+- C1: Possible cognitive effect.
+- S1: Possible social effect.
+- H1: Hypothesis.
+- X1: Speculation, avoid unless explicitly requested.
 
 ## Activated frameworks
-${frameworkBlocks}
+${frameworkText}
 
-## Required output format
+## Required output
+1. Short summary.
+2. Intent and resource map.
+3. Claim map.
+4. Evidence graph.
+5. Logical analysis.
+6. Discourse/rhetorical/framing analysis as selected by frameworks.
+7. Possible effects.
+8. Strongest counterinterpretation.
+9. Confidence report.
 
-1. Summary
-2. Intent and resource map
-3. Claim map with evidence statuses
-4. Evidence graph
-5. Framework-based analysis
-6. Social or cognitive effects, only when supported
-7. Strongest counterinterpretation
-8. Confidence report
-
-For every major conclusion include:
-- evidence_status
-- framework_used
-- confidence: high | medium | low | unknown
-
-## User material to analyze
-
+## Input to analyze
 ${input}
 `;
 }

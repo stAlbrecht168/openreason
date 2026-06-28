@@ -1,4 +1,6 @@
 node_modules/
 dist/
+reports/
 compiled_prompt.md
+.DS_Store
 .env

@@ -1,58 +1,46 @@
 # OpenReason
 
-> Transparent reasoning for Large Language Models.
+> **Transparent reasoning for AI analysis.**
 
-OpenReason is an experimental open-source project for making AI-assisted argument, rhetoric, discourse, and framing analysis more transparent.
+OpenReason is an open-source project for making AI-assisted analysis more transparent, testable, and grounded in documented analytical frameworks.
 
-It is built for people who want to understand **why** an AI analysis reaches a conclusion — not just read the conclusion itself.
+It is designed for people who want to analyze political videos, interviews, speeches, social-media posts, articles, and arguments using theories from informal logic, rhetoric, discourse analysis, and framing research.
 
-OpenReason does this by turning documented analysis frameworks into a structured prompt that can be used with Claude, ChatGPT, or other language models.
+You do **not** need to be a software expert to understand the project. The technical code is only the reference implementation. The real idea is simpler:
+
+> OpenReason helps an AI show *which method it is using*, *why it selected that method*, and *which parts of its analysis are observations, inferences, interpretations, or hypotheses*.
 
 ---
 
-## In one sentence
+## Why OpenReason exists
 
-OpenReason is a small compiler that turns theory-based analysis frameworks into an LLM-ready prompt.
+Today, many AI analyses look like this:
 
 ```text
-User material
-  ↓
-Intent Router
-  ↓
-Framework Resolver
-  ↓
-Prompt Compiler
-  ↓
-Claude / ChatGPT / other LLM
-  ↓
-Evidence-aware analysis
+Input material → ChatGPT/Claude → Answer
 ```
 
----
+The answer may sound convincing, but it is often unclear:
 
-## Why this exists
+- Which theory did the model use?
+- Which assumptions did it make?
+- Which claims are directly observable?
+- Which claims are interpretations?
+- Which claims are only hypotheses?
+- Could another person reproduce the analysis?
 
-Many people already ask AI systems to analyze speeches, videos, interviews, political debates, or social-media posts.
+OpenReason changes the workflow:
 
-The problem is that the reasoning process is often hidden.
+```text
+Input material
+→ Intent detection
+→ Framework selection
+→ Evidence-status model
+→ Structured analysis
+→ Reviewable report
+```
 
-A model may say:
-
-> “This is a false analogy.”
-
-or:
-
-> “This is othering.”
-
-But the user often cannot tell:
-
-- Which theory was used?
-- Which part was directly observed?
-- Which part was an interpretation?
-- Which conclusion was only a hypothesis?
-- Which framework allowed that conclusion?
-
-OpenReason tries to make those steps explicit.
+The goal is not to make the AI “always right”. The goal is to make the reasoning process visible enough that humans can inspect, challenge, improve, and test it.
 
 ---
 
@@ -60,322 +48,225 @@ OpenReason tries to make those steps explicit.
 
 OpenReason is not a fact-checking organization.
 
-OpenReason does not decide what is politically right or wrong.
+OpenReason does not decide political truth.
 
-OpenReason does not prove what a speaker secretly intended.
+OpenReason does not infer hidden motives as facts.
 
-OpenReason provides a structured way to apply documented analytical frameworks while separating observation, inference, interpretation, and hypothesis.
+OpenReason does not replace experts.
 
----
-
-## Who is this for?
-
-You do not need to be a programmer to understand the idea.
-
-OpenReason may be useful for:
-
-- journalists
-- students
-- teachers
-- researchers
-- political scientists
-- media scholars
-- discourse analysts
-- fact-checkers
-- developers building AI analysis tools
-
-If you understand theories like rhetoric, informal logic, framing, or discourse analysis, you can help improve OpenReason even without writing code.
+OpenReason provides structured analytical methods that humans and AI systems can use more transparently.
 
 ---
 
-## What is inside this proof of concept?
+## The easiest way to use this project: Claude Code
 
-This PoC includes:
+This repository is designed so that **Claude Code can be your interface**.
 
-```text
-src/                         TypeScript compiler code
-frameworks/                  YAML framework definitions
-examples/                    Example input texts
-compiled_prompt.md           Generated prompt example
-CLAUDE.md                    Claude Code project instructions
-.claude/                     Claude Code commands and skill notes
-docs/                        Human-readable documentation
-tests/                       Automated tests
-.github/workflows/ci.yml     GitHub Actions CI
-```
+You do not need to remember npm commands. Claude Code should read `CLAUDE.md`, run checks when needed, inspect the frameworks, and help you analyze or improve the project.
 
-Current frameworks:
-
-- **Douglas Walton** — informal logic and argument analysis
-- **Teun A. van Dijk** — discourse analysis and group representation
-- **Robert Entman** — framing analysis
-- **Aristotle** — rhetoric: ethos, pathos, logos
-
----
-
-## The Evidence Model
-
-OpenReason asks analyses to label conclusions with evidence statuses.
-
-| Status | Meaning |
-|---|---|
-| O1 | Direct observation |
-| O2 | Explicit claim by a speaker |
-| L1 | Logical inference |
-| D1 | Discourse interpretation |
-| R1 | Rhetorical interpretation |
-| F1 | Framing interpretation |
-| C1 | Possible cognitive effect |
-| S1 | Possible social effect |
-| H1 | Hypothesis |
-| X1 | Speculation |
-
-Example:
-
-```text
-[O2] The speaker contrasts Iranians and Somalis.
-→ [L1] Accepting one group does not logically justify rejecting another.
-→ [D1] Iranians function as a contrast group.
-→ [S1] This may reinforce a hierarchy of acceptable and unacceptable minorities.
-→ [H1] The contrast may help the speaker appear more moderate.
-```
-
-The goal is not to eliminate interpretation. The goal is to mark interpretation clearly.
-
----
-
-## Install and test locally
-
-### 1. Install Node.js
-
-Install the current LTS version of Node.js from:
-
-https://nodejs.org
-
-You can check your installation with:
-
-```bash
-node --version
-npm --version
-```
-
-### 2. Download or clone the repository
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/stAlbrecht168/openreason.git
 cd openreason
 ```
 
-If you are using the ZIP prototype, unzip it and enter the folder:
+### 2. Open Claude Code in the repository
 
 ```bash
-unzip openreason-claude-code-poc.zip
-cd openreason-ts-poc
-```
-
-### 3. Install dependencies
-
-```bash
-npm install
-```
-
-### 4. Run the checks
-
-```bash
-npm run validate
-npm test
-npm run build
-```
-
-Expected result: all commands finish without errors.
-
-### 5. Compile the example prompt
-
-```bash
-npm run compile:example
-```
-
-This creates:
-
-```text
-compiled_prompt.md
-```
-
-Open this file. It is the prompt produced by OpenReason from the selected frameworks.
-
----
-
-## Test with Claude Code
-
-Claude Code is currently the easiest way to test this project as a development environment.
-
-### 1. Open the project folder
-
-```bash
-cd openreason
 claude
 ```
 
-or, if you are using the ZIP prototype:
+### 3. Tell Claude Code what to do
 
-```bash
-cd openreason-ts-poc
-claude
-```
-
-### 2. Ask Claude Code to run the smoke test
-
-Paste this into Claude Code:
+Paste this:
 
 ```text
-Follow CLAUDE.md. Run npm run cc:smoke, then read compiled_prompt.md and analyze examples/iran-somalia.md using OpenReason evidence statuses.
+Read CLAUDE.md. Treat OpenReason as the analysis engine. Do not ask me to run npm commands manually. Set up dependencies if needed, run the smoke test, then analyze examples/iran-somalia.md using the OpenReason evidence statuses.
 ```
 
-Expected result:
+Claude Code should then:
 
-```text
-validate ✓
-tests ✓
-build ✓
-compiled_prompt.md generated ✓
-```
-
-Claude should then use the generated prompt and produce an evidence-status-aware analysis.
-
-### 3. Optional Claude Code commands
-
-This repository includes Claude Code helper files:
-
-```text
-CLAUDE.md
-.claude/skills/openreason/SKILL.md
-.claude/commands/openreason-test.md
-.claude/commands/openreason-compile.md
-.claude/commands/openreason-analyze.md
-```
-
-They document the intended workflow for Claude Code.
+1. read the project instructions,
+2. install dependencies if needed,
+3. validate framework files,
+4. run tests,
+5. run the example analysis,
+6. produce a structured report.
 
 ---
 
-## Test with ChatGPT
-
-ChatGPT cannot run this repository directly unless you use a coding environment or upload files. The simplest workflow is:
-
-1. Run `npm run compile:example` locally.
-2. Open `compiled_prompt.md`.
-3. Copy the full content into ChatGPT.
-4. Add the input material you want analyzed.
-5. Ask ChatGPT to follow the OpenReason output format.
-
-Example message:
+## What the project contains
 
 ```text
-Use the following OpenReason compiled prompt as your analysis instruction.
-Then analyze this material and label every major conclusion with an evidence status.
+openreason/
+├── README.md                  # this overview
+├── CLAUDE.md                  # persistent instructions for Claude Code
+├── package.json               # reference implementation setup
+├── src/                       # TypeScript reference implementation
+├── frameworks/                # analytical frameworks in YAML
+├── examples/                  # example inputs for analysis
+├── docs/                      # explanatory documentation and book chapters
+├── tests/                     # automated tests
+├── .claude/                   # Claude Code commands and skill instructions
+├── .github/                   # GitHub Actions and templates
+└── custom-gpt/                # notes for using OpenReason with ChatGPT
 ```
-
-For repeated use, create a ChatGPT Project or Custom GPT and upload:
-
-- `compiled_prompt.md`
-- `docs/`
-- `frameworks/`
-- `examples/`
 
 ---
 
-## How to develop iteratively
+## First example: Iran/Somalia contrast framing
 
-The intended loop is simple:
+Suppose a public figure says something like:
 
-```text
-Change a framework or compiler file
-  ↓
-npm run validate
-  ↓
-npm test
-  ↓
-npm run compile:example
-  ↓
-inspect compiled_prompt.md
-  ↓
-test in Claude Code or ChatGPT
-  ↓
-commit changes
-```
+> “I prefer Iranians to Somalis.”
 
-This makes OpenReason testable and improvable.
+A normal AI might immediately explain why this is problematic.
+
+OpenReason first asks:
+
+1. What is the user asking for?
+2. Which analytical frameworks are relevant?
+3. What is directly observable?
+4. What is a logical inference?
+5. What is a discourse interpretation?
+6. What is a social-effect hypothesis?
+
+For this kind of prompt, OpenReason may activate:
+
+- **Douglas Walton** for argument analysis,
+- **Teun A. van Dijk** for group representation and discourse analysis,
+- **Robert Entman** for framing,
+- **Aristotle** for rhetorical structure.
+
+The resulting report separates observations from interpretations.
 
 ---
 
-## How non-programmers can contribute
+## The evidence-status model
 
-You can help even if you do not write TypeScript.
+OpenReason uses evidence labels so readers can see how strong each analytical step is.
+
+| Status | Meaning |
+|---|---|
+| O1 | Direct observation: visible, audible, or quoted material |
+| O2 | Explicit claim made by the speaker |
+| L1 | Logical inference from the argument structure |
+| D1 | Discourse interpretation |
+| R1 | Rhetorical interpretation |
+| F1 | Framing interpretation |
+| C1 | Possible cognitive effect |
+| S1 | Possible social effect |
+| H1 | Hypothesis, plausible but not proven |
+| X1 | Speculation, weakly supported and usually avoided |
+
+This is one of the core ideas of OpenReason: **observation and interpretation must not be mixed.**
+
+---
+
+## Frameworks included in this proof of concept
+
+### Douglas Walton — Informal Logic
+
+Used for argument structure:
+
+- What is the claim?
+- What are the premises?
+- Does the conclusion follow?
+- Is the burden of proof met?
+
+### Teun A. van Dijk — Critical Discourse Analysis
+
+Used for group representation:
+
+- Who is presented as “us”?
+- Who is presented as “them”?
+- Is one group used as an exception to reject another group?
+- Are disclaimers or group hierarchies present?
+
+### Robert Entman — Framing
+
+Used for identifying how an issue is framed:
+
+- What is defined as the problem?
+- Who or what is blamed?
+- What moral evaluation is implied?
+- What solution becomes thinkable?
+
+### Aristotle — Rhetoric
+
+Used for persuasion analysis:
+
+- Ethos: credibility
+- Pathos: emotion
+- Logos: reasoning
+- Enthymeme: unstated premise
+
+---
+
+## For non-technical contributors
+
+You can contribute without writing code.
 
 Useful contributions include:
 
-- checking whether a framework accurately represents an author
-- adding references and chapter notes
-- writing example analyses
-- creating test cases
-- explaining theories in plain language
-- identifying overclaims or unsupported interpretations
-- improving documentation
+- checking whether framework summaries match the original sources,
+- suggesting better examples,
+- reviewing whether an analysis overclaims,
+- adding test cases,
+- improving documentation,
+- explaining theories in clearer language,
+- translating documentation.
 
-Example: if you know van Dijk, you can review `frameworks/discourse/van_dijk.yaml` and check whether concepts like “positive self-presentation” and “negative other-presentation” are represented accurately.
-
----
-
-## Important limitations
-
-This is a proof of concept.
-
-It does not yet:
-
-- call Claude or ChatGPT through an API
-- verify factual claims automatically
-- prove speaker intent
-- guarantee that every model will follow the prompt perfectly
-- replace expert review
-
-The current goal is smaller and testable:
-
-> Can OpenReason compile documented frameworks into a useful, transparent analysis prompt?
-
----
-
-## Recommended reading inside this repo
-
-Start here:
+Start with:
 
 - `docs/GETTING_STARTED.md`
-- `docs/OPENREASON_BOOK.md`
-- `docs/ARCHITECTURE.md`
-- `docs/CLAUDE_CODE.md`
-- `docs/DEVELOPER_GUIDE.md`
+- `docs/book/00-preface.md`
+- `docs/book/03-evidence-model.md`
+- `frameworks/`
 
 ---
 
-## Project vision
+## For technical contributors
 
-OpenReason should eventually become a reusable, model-independent layer for transparent AI-assisted analysis.
+The reference implementation is written in TypeScript.
 
-The long-term idea:
+Manual setup, if you do want to run it yourself:
 
-```text
-Framework YAML
-  ↓
-OpenReason Compiler
-  ↓
-Provider-specific prompt
-  ↓
-Claude / ChatGPT / Gemini / Ollama
-  ↓
-Evidence-aware report
+```bash
+npm install
+npm run validate
+npm test
+npm run build
+npm run analyze
 ```
 
-The repository should be readable as both software and a learning resource.
+But if you use Claude Code, you can simply ask Claude Code to run the setup and tests for you.
 
-Not hidden prompts.
+---
 
-Transparent methods.
+## Using OpenReason with ChatGPT
+
+ChatGPT cannot run the local TypeScript reference implementation by itself. There are two practical options:
+
+1. Use OpenReason as a **Custom GPT knowledge base**.
+2. Use OpenReason locally or in Claude Code to prepare analysis instructions, then paste the input into ChatGPT.
+
+See `custom-gpt/README.md` for details.
+
+---
+
+## Project philosophy
+
+OpenReason is not a prompt collection.
+
+OpenReason is a step toward **reviewable reasoning**:
+
+- methods should be explicit,
+- frameworks should be documented,
+- claims should carry evidence status,
+- interpretations should be distinguishable from observations,
+- and analytical rules should be open to review.
+
+See `docs/MANIFESTO.md` for the project manifesto.
+

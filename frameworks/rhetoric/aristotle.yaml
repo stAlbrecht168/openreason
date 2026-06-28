@@ -1,59 +1,60 @@
-id: aristotle-rhetoric
-name: Aristotle Rhetoric
+id: rhetoric-aristotle
+name: Aristotle — Rhetoric
 version: 0.1.0
 domain: rhetoric
-purpose: Analyze persuasion through ethos, pathos, logos, audience positioning, and implied premises.
+purpose: Analyze persuasion through ethos, pathos, logos, audience, and implied premises.
 intents:
   - rhetoric_analysis
   - persuasion_analysis
+  - debate_analysis
 triggers:
-  - rhetorik
+  - rhetoric
+  - persuasive
   - persuasion
-  - überzeugung
+  - speech
   - emotion
+  - credibility
   - ethos
   - pathos
   - logos
-  - sprache
 anti_triggers:
-  - weather
-  - calculation
-evidence_statuses:
-  - R1
-  - L1
-  - O2
-concepts:
+  - pure fact lookup
+core_concepts:
   - ethos
   - pathos
   - logos
   - audience
   - enthymeme
-workflow:
-  - identify credibility strategy
-  - identify emotional appeal
-  - identify reasoning structure
-  - identify implied premise
-  - assess audience positioning
+evidence_statuses:
+  - O2
+  - R1
+  - L1
+  - H1
+analysis_steps:
+  - Identify credibility strategy.
+  - Identify emotional appeals.
+  - Identify reasoning structure.
+  - Identify unstated premises.
+  - Explain audience positioning cautiously.
 decision_rules:
-  - IF speaker claims moderation THEN analyze ethos
-  - IF fear, disgust, pride, or resentment is activated THEN analyze pathos
-  - IF argument relies on an unstated premise THEN identify possible enthymeme
+  - IF the speaker claims moderation THEN analyze ethos.
+  - IF fear, disgust, pride, anger, or resentment is activated THEN analyze pathos.
+  - IF reasoning relies on an unstated premise THEN identify the enthymeme.
 analysis_questions:
   - How does the speaker build credibility?
-  - Which emotion is activated?
-  - What reasoning structure is offered?
-  - What does the audience need to assume?
+  - What emotion is activated?
+  - What reasoning is offered?
+  - What must the audience assume?
 output_fields:
   - ethos
   - pathos
   - logos
-  - implied_premise
+  - enthymeme
   - audience_positioning
 limitations:
   - Describes persuasion, not factual truth.
-  - Does not prove speaker intent.
+  - Does not prove intent.
 references:
   - title: Rhetoric
     author: Aristotle
-    concept: ethos, pathos, logos
-    note: Classical framework for analyzing persuasion.
+    note: Used for ethos, pathos, logos, and enthymeme.

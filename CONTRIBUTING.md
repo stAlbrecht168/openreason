@@ -1,40 +1,29 @@
 # Contributing to OpenReason
 
-You do not need to be a programmer to contribute.
+OpenReason welcomes both technical and non-technical contributors.
 
-## Ways to contribute
+You can help by:
 
-- Review framework files against original sources.
-- Add missing limitations.
-- Create example analyses.
-- Add test cases.
-- Improve documentation.
-- Improve TypeScript code.
+- improving documentation,
+- reviewing framework summaries against original sources,
+- adding examples,
+- writing test cases,
+- improving the TypeScript reference implementation,
+- translating documentation,
+- proposing new frameworks.
 
-## For theory-oriented contributors
+## Contribution principles
 
-When reviewing a framework, ask:
+1. Do not add unsupported theory claims.
+2. Separate observation, inference, interpretation, and hypothesis.
+3. Document limitations.
+4. Add tests for new framework behavior where possible.
+5. Prefer careful wording over dramatic conclusions.
 
-- Is the author represented fairly?
-- Are concepts oversimplified?
-- Are important limitations missing?
-- Are the decision rules too strong?
-- Are examples accurate?
+## Before adding a framework
 
-## For developers
+Read:
 
-Before opening a pull request, run:
-
-```bash
-npm run validate
-npm test
-npm run build
-```
-
-## Style
-
-Prefer careful language.
-
-Do not make claims about hidden motives unless the evidence supports them.
-
-Separate observation from interpretation.
+- `docs/FRAMEWORK_AUTHORING.md`
+- `docs/VERIFICATION.md`
+- `schemas/framework.schema.json`

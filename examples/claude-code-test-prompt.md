@@ -1,7 +1,1 @@
-Use the OpenReason workflow in CLAUDE.md.
-
-1. Run `npm run cc:smoke`.
-2. Read `compiled_prompt.md`.
-3. Analyze `examples/iran-somalia.md` using the compiled prompt.
-4. Explain whether the selected frameworks are appropriate.
-5. If anything fails, propose and apply the smallest fix, then rerun the tests.
+Read CLAUDE.md. Treat OpenReason as the analysis engine. Do not ask me to run npm commands manually. Set up dependencies if needed, run the smoke test, then analyze examples/iran-somalia.md using the OpenReason evidence statuses.

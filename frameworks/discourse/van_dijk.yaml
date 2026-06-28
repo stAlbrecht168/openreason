@@ -1,64 +1,75 @@
-id: van-dijk-discourse
-name: Teun A. van Dijk Critical Discourse Analysis
+id: discourse-van-dijk
+name: Teun A. van Dijk — Critical Discourse Analysis
 version: 0.1.0
 domain: critical_discourse_analysis
-purpose: Analyze how discourse constructs in-groups, out-groups, ideology, racism, and group hierarchies.
+purpose: Analyze how discourse constructs in-groups, out-groups, power relations, prejudice, disclaimers, and ideological polarization.
 intents:
   - discourse_analysis
   - minority_effects
+  - group_comparison
+  - political_language_analysis
 triggers:
-  - gruppe
-  - minderheit
-  - iraner
-  - somalier
-  - migranten
-  - muslime
-  - rassismus
+  - group
+  - minority
+  - immigrant
+  - migrant
+  - muslim
+  - ethnicity
+  - race
+  - nationality
+  - iran
+  - somali
+  - contrast
   - othering
-  - kontrast
+  - hierarchy
 anti_triggers:
-  - unit conversion
+  - pure math
+core_concepts:
+  - positive self-presentation
+  - negative other-presentation
+  - ideological square
+  - polarization
+  - disclaimers
+  - denial of racism
+  - group hierarchy
 evidence_statuses:
-  - O1
   - O2
   - D1
   - S1
   - H1
-concepts:
-  - positive self-presentation
-  - negative other-presentation
-  - ideological square
-  - othering
-  - polarization
-  - denial or disclaimer pattern
-  - strategic exception
-workflow:
-  - Identify groups named or implied.
-  - Identify who is normalized, praised, problematized, or excluded.
-  - Detect contrastive group usage.
-  - Separate explicit claims from discourse interpretation.
-  - Assess possible social effects cautiously.
+analysis_steps:
+  - Identify the represented groups.
+  - Identify who is normalized, accepted, rejected, or problematized.
+  - Detect positive self-presentation and negative other-presentation.
+  - Check whether one group is used as an exception to reject another.
+  - Separate discourse interpretation from motive attribution.
 decision_rules:
-  - IF one minority is praised while another is rejected THEN check contrastive othering.
-  - IF speaker says not against X but rejects Y THEN check disclaimer pattern.
-  - IF group traits are generalized THEN check negative other-presentation.
+  - IF one minority is praised while another is rejected THEN check strategic exception and contrastive othering.
+  - IF a speaker says they are not against a broad group but rejects a narrower group THEN check disclaimer structure.
+  - IF group traits are generalized THEN check deindividualization and negative other-presentation.
+  - IF a group is accepted only conditionally THEN check respectability hierarchy.
 analysis_questions:
-  - Who is the in-group?
-  - Who is the out-group?
-  - Which group is used as an acceptable exception?
-  - What hierarchy is constructed?
-  - What remains implicit?
+  - Who is presented as us?
+  - Who is presented as them?
+  - Which group is treated as acceptable?
+  - Which group is treated as problematic?
+  - What is emphasized or omitted?
+  - Does the comparison divide minority groups?
 output_fields:
   - in_group
   - out_group
   - accepted_group
   - rejected_group
   - discourse_strategy
-  - possible_social_effect
+  - social_effect
 limitations:
-  - Does not prove intention.
-  - Requires textual or observable evidence.
+  - Does not prove speaker intent.
+  - Requires careful textual evidence.
+  - Should not replace fact-checking.
 references:
   - title: Discourse and Power
     author: Teun A. van Dijk
-    concept: positive self-presentation and negative other-presentation
+    note: Used for discourse, power, and ideological polarization.
+  - title: Racism and Discourse in Spain and Latin America
+    author: Teun A. van Dijk
+    note: Used for discourse patterns around racism and group representation.

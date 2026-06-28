@@ -2,13 +2,9 @@
 
 Large Language Models are increasingly used to explain, critique, summarize, and evaluate human reasoning.
 
-Yet many analyses remain opaque.
+Yet most analyses remain opaque.
 
-The frameworks are hidden inside prompts.
-
-Sources are often invisible.
-
-Interpretations are not clearly separated from observations.
+The reasoning process is hidden inside prompts. Frameworks are undocumented. Sources are often invisible. Interpretations are not clearly separated from observations.
 
 OpenReason exists to change this.
 
@@ -16,34 +12,38 @@ OpenReason exists to change this.
 
 ### Transparency
 
-Every analytical step should be visible.
+Every analytical step should be visible enough to inspect.
 
 ### Traceability
 
-Every analytical rule should be connected to a documented framework.
+Every framework should document the theory or literature it is derived from.
 
-### Separation
+### Separation of observation and interpretation
 
-Observation, inference, interpretation, hypothesis, and speculation must remain distinguishable.
+Observations are not interpretations. Interpretations are not hypotheses. Hypotheses are not facts.
 
 ### Evidence first
 
-Every major conclusion should expose its evidence status.
+Every important conclusion should expose its evidence status.
 
-### Humility
+### Scientific humility
 
-Frameworks have limits. Those limits should be documented.
+No framework is perfect. Every framework has limitations. Those limitations should be visible.
 
 ### Testability
 
-Frameworks should be validated, tested, reviewed, and versioned.
+Frameworks are not just ideas. In OpenReason, frameworks are structured artifacts that can be validated and tested.
+
+### Openness
+
+OpenReason should be readable by researchers, journalists, students, and developers.
 
 ## What OpenReason is not
 
-OpenReason is not a political ideology.
+OpenReason does not determine truth.
 
-OpenReason is not a truth machine.
+OpenReason does not infer intentions.
 
-OpenReason is not a replacement for experts.
+OpenReason does not replace experts.
 
-OpenReason is an attempt to make AI-assisted reasoning more inspectable.
+OpenReason is an attempt to make analytical reasoning inspectable.

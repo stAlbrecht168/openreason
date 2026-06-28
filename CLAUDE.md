@@ -1,94 +1,106 @@
-# CLAUDE.md — OpenReason Claude Code Instructions
+# Claude Code Instructions for OpenReason
 
-This repository is a TypeScript proof of concept for **OpenReason**, a framework compiler for transparent reasoning analysis.
+You are working inside the OpenReason repository.
 
-## Project Goal
+OpenReason is a Claude-Code-first project. The human user should not need to remember npm commands. When the user asks to test, analyze, or improve OpenReason, you should operate the repository yourself.
 
-OpenReason does not directly “decide” an analysis. It compiles structured reasoning frameworks into a model-readable prompt that can be tested across Claude, ChatGPT, and other LLMs.
+## Your role
 
-Pipeline:
+Act as a careful maintainer and analysis assistant.
 
-```text
-User input
-→ Intent detection
-→ Framework resolution
-→ Prompt compilation
-→ LLM analysis
-→ Evidence-status review
-```
+You should:
 
-## Evidence Status Model
+- read relevant framework files before analysis,
+- run setup and tests when needed,
+- avoid asking the user to run commands manually unless absolutely necessary,
+- produce structured reports with OpenReason evidence statuses,
+- distinguish observation, inference, interpretation, and hypothesis,
+- never infer hidden motive as fact.
 
-Use these statuses consistently:
+## First action in a fresh checkout
 
-- `O1` Direct observation
-- `O2` Explicit claim
-- `L1` Logical inference
-- `D1` Discourse interpretation
-- `R1` Rhetorical interpretation
-- `F1` Framing interpretation
-- `C1` Cognitive effect
-- `S1` Social effect
-- `H1` Hypothesis
-- `X1` Speculation
-
-Never jump directly from quote/observation to motive. Keep observation, inference, interpretation, effect, and hypothesis separate.
-
-## Important Commands
-
-Run these after changing code or frameworks:
+If dependencies are missing, run:
 
 ```bash
-npm run validate
-npm test
-npm run build
-npm run compile:example
+npm install
 ```
 
-For a full local smoke test:
+Then run:
 
 ```bash
 npm run cc:smoke
 ```
 
-## Development Rules
+This validates framework YAML files, runs tests, builds the project, and creates an example report.
 
-1. Framework YAML files live in `frameworks/**`.
-2. Framework files must validate against the Zod schema in `src/schema.ts`.
-3. Router behavior is tested in `tests/router.test.ts`.
-4. Compiler behavior is tested in `tests/compiler.test.ts`.
-5. Do not hard-code one analysis into the compiler. The compiler must remain framework-driven.
-6. If adding a framework, add or update tests.
-7. Keep generated outputs such as `compiled_prompt.md` out of commits unless intentionally documenting an example.
+## Default user workflow
 
-## Claude Code Workflow
+When the user asks:
 
-When asked to test OpenReason:
+> Analyze this with OpenReason
 
-1. Inspect `package.json`.
-2. Run `npm install` if dependencies are missing.
-3. Run `npm run cc:smoke`.
-4. Open `compiled_prompt.md`.
-5. Use the compiled prompt to analyze `examples/iran-somalia.md`.
-6. Report whether the selected frameworks match the expected intent.
+Do this:
 
-Expected for `examples/iran-somalia.md`:
-
-- Primary intent: `discourse_analysis`
-- Secondary: `logical_analysis`, `framing_analysis` may appear depending on keyword matching
-- Expected frameworks include:
-  - `van-dijk-discourse-analysis`
-  - `walton-informal-logic`
-  - `entman-framing`
-
-## What “Done” Means
-
-A change is done only when:
+1. Identify or create an input file in `examples/` or `reports/working-input.md`.
+2. Run the OpenReason analysis packet generator if useful:
 
 ```bash
-npm run validate
-npm test
-npm run build
+npx tsx src/cli.ts analyze examples/iran-somalia.md --out reports/analysis.md
 ```
 
-all pass.
+3. Read the generated report packet.
+4. Produce the final human-readable analysis in the chat using the OpenReason evidence statuses.
+
+## Do not expose implementation details unnecessarily
+
+The user should not have to care about prompt compilation. Internally, OpenReason may compile instructions, but the public interaction should be:
+
+> User asks for analysis → Claude Code applies OpenReason → report.
+
+## Evidence status rules
+
+Use these labels:
+
+- O1: direct observation
+- O2: explicit claim
+- L1: logical inference
+- D1: discourse interpretation
+- R1: rhetorical interpretation
+- F1: framing interpretation
+- C1: possible cognitive effect
+- S1: possible social effect
+- H1: hypothesis
+- X1: speculation
+
+Never jump from O1/O2 directly to motive. Use H1 for motive-like explanations and mark them as unproven.
+
+## Framework selection
+
+Use:
+
+- Walton for argument structure and fallacies.
+- van Dijk for group representation, othering, disclaimers, and positive/negative group presentation.
+- Entman for problem/cause/moral/solution framing.
+- Aristotle for ethos/pathos/logos and rhetorical persuasion.
+
+## Maintainer behavior
+
+If changing code:
+
+1. Keep changes small and testable.
+2. Update docs when behavior changes.
+3. Run tests before reporting completion.
+4. Summarize what changed and what remains uncertain.
+
+## Example command for a full check
+
+```bash
+npm run cc:smoke
+```
+
+Expected result:
+
+- framework validation passes,
+- tests pass,
+- build passes,
+- report is generated in `reports/`.

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OpenReason Framework",
+  "type": "object",
+  "required": ["id", "name", "version", "domain", "purpose", "intents", "triggers", "core_concepts", "evidence_statuses", "analysis_steps", "decision_rules", "analysis_questions", "output_fields", "limitations", "references"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "version": { "type": "string" },
+    "domain": { "type": "string" },
+    "purpose": { "type": "string" },
+    "intents": { "type": "array", "items": { "type": "string" } },
+    "triggers": { "type": "array", "items": { "type": "string" } },
+    "anti_triggers": { "type": "array", "items": { "type": "string" } },
+    "core_concepts": { "type": "array", "items": { "type": "string" } },
+    "evidence_statuses": { "type": "array", "items": { "enum": ["O1", "O2", "L1", "D1", "R1", "F1", "C1", "S1", "H1", "X1"] } },
+    "analysis_steps": { "type": "array", "items": { "type": "string" } },
+    "decision_rules": { "type": "array", "items": { "type": "string" } },
+    "analysis_questions": { "type": "array", "items": { "type": "string" } },
+    "output_fields": { "type": "array", "items": { "type": "string" } },
+    "limitations": { "type": "array", "items": { "type": "string" } },
+    "references": { "type": "array", "items": { "type": "object" } }
+  }
+}

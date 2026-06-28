@@ -1,28 +1,25 @@
-export type Intent = {
-  name: string;
-  score: number;
-  matched: string[];
+import { IntentResult } from './schema.js';
+
+const intentSignals: Record<string, string[]> = {
+  discourse_analysis: ['group', 'minority', 'migrant', 'immigrant', 'race', 'ethnic', 'religion', 'muslim', 'iran', 'somali', 'othering', 'contrast', 'hierarchy'],
+  logical_analysis: ['argument', 'logic', 'fallacy', 'premise', 'conclusion', 'reasoning', 'valid', 'proof'],
+  framing_analysis: ['frame', 'framing', 'narrative', 'problem', 'blame', 'solution', 'threat'],
+  rhetoric_analysis: ['rhetoric', 'persuasive', 'persuasion', 'speech', 'emotion', 'credibility', 'ethos', 'pathos', 'logos'],
+  fact_checking: ['true', 'false', 'verify', 'fact check', 'source', 'evidence'],
 };
 
-const INTENT_KEYWORDS: Record<string, string[]> = {
-  discourse_analysis: ["gruppe", "gruppen", "minderheit", "iraner", "somalier", "migranten", "muslime", "rassismus", "kontrast", "othering", "diskurs"],
-  logical_analysis: ["logik", "argument", "fehlschluss", "fallacy", "schlussfolgerung", "prämisse", "begründung", "rationalwiki"],
-  framing_analysis: ["frame", "framing", "narrativ", "problem", "ursache", "lösung", "deutung"],
-  rhetoric_analysis: ["rhetorik", "überzeugt", "persuasiv", "strategie", "sprache"],
-  cognitive_analysis: ["bias", "heuristik", "psychologisch", "intuition", "gefühl"],
-  fact_checking: ["wahr", "falsch", "prüfe", "quelle", "beleg", "fact check"]
-};
+export function detectIntent(input: string): IntentResult {
+  const text = input.toLowerCase();
+  const scores = Object.entries(intentSignals).map(([intent, signals]) => {
+    const matched = signals.filter((s) => text.includes(s));
+    return { intent, score: matched.length, matched };
+  }).sort((a, b) => b.score - a.score);
 
-export function detectIntents(input: string): Intent[] {
-  const normalized = input.toLowerCase();
-  const intents = Object.entries(INTENT_KEYWORDS).map(([name, keywords]) => {
-    const matched = keywords.filter((kw) => normalized.includes(kw));
-    return { name, score: matched.length, matched };
-  }).filter((intent) => intent.score > 0)
-    .sort((a, b) => b.score - a.score);
+  const top = scores[0];
+  const secondary = scores.slice(1).filter((s) => s.score > 0).map((s) => s.intent);
+  const confidence = top.score >= 3 ? 'high' : top.score >= 1 ? 'medium' : 'low';
+  const primaryIntent = top.score > 0 ? top.intent : 'general_analysis';
+  const matchedSignals = scores.flatMap((s) => s.matched);
 
-  if (intents.length === 0) {
-    return [{ name: "general_analysis", score: 1, matched: [] }];
-  }
-  return intents;
+  return { primaryIntent, secondaryIntents: secondary, matchedSignals, confidence };
 }
