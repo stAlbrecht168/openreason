@@ -3,34 +3,44 @@ capabilities:
   - argument_analysis
   - fallacy_detection
 description: >
-  The logic pack provides argument analysis and fallacy detection capabilities.
-  It covers the reconstruction of arguments from everyday language — identifying
-  claims, premises, conclusions, and unstated assumptions — and the evaluation of
-  whether conclusions actually follow from their premises. It also covers the
-  detection of common informal fallacies such as hasty generalisation, appeal to
-  false authority, and non sequitur.
+  The Logic Pack provides argument analysis and fallacy detection capabilities
+  across four complementary frameworks. Each framework approaches argument
+  evaluation from a different angle: Walton through argument schemes and
+  critical questions, Toulmin through explicit warrant mapping, Weston through
+  a practical quality checklist, and Damer through a systematic fallacy taxonomy
+  and four-criteria evaluation. They are designed to be used individually or in
+  combination depending on the depth and type of analysis needed.
 frameworks:
   - id: logic-walton
     maturity: draft
     note: >
       Douglas Walton's informal logic. Covers argument schemes, critical questions,
-      defeasible reasoning, and burden of proof. YAML file implemented.
+      defeasible reasoning, and burden of proof. The primary framework for deep
+      argument structure analysis. YAML and companion .md implemented.
       Not yet verified against original sources.
+
   - id: logic-toulmin
-    maturity: planned
+    maturity: draft
     note: >
-      Stephen Toulmin's argument model (claim, data, warrant, backing, qualifier,
-      rebuttal). Complementary to Walton; stronger on structural diagramming
-      and the role of field-dependent warrants. Framework YAML not yet written.
+      Stephen Toulmin's argument model. Explicitly maps claim, data, warrant,
+      backing, qualifier, and rebuttal. Strongest for making the inferential
+      warrant explicit as a testable proposition. Particularly useful for
+      policy and scientific arguments where the warrant is field-dependent.
+      YAML and companion .md implemented. Not yet verified against original sources.
+
   - id: logic-weston
-    maturity: planned
+    maturity: draft
     note: >
-      Anthony Weston's practical guide to argument construction and evaluation.
-      Useful for introductory-level argument analysis with less technical vocabulary
-      than Walton or Toulmin. Framework YAML not yet written.
+      Anthony Weston's practical argument evaluation criteria. Checks premises
+      for acceptability, consistency, and relevance. The most accessible of the
+      four frameworks; appropriate for short, everyday arguments. YAML and
+      companion .md implemented. Not yet verified against original sources.
+
   - id: logic-damer
-    maturity: planned
+    maturity: draft
     note: >
-      T. Edward Damer's taxonomy of informal fallacies and criteria for good
-      arguments. Adds breadth of fallacy coverage beyond Walton.
-      Framework YAML not yet written.
+      T. Edward Damer's fallacy taxonomy and four-criteria model (acceptability,
+      relevance, sufficiency, counterargument). The primary framework for
+      systematic fallacy identification. Use when naming a specific fallacy type
+      is analytically useful. YAML and companion .md implemented.
+      Not yet verified against original sources.

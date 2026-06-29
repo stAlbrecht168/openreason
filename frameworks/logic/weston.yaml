@@ -1,0 +1,86 @@
+id: logic-weston
+name: Anthony Weston — A Rulebook for Arguments
+version: 0.1.0
+domain: informal_logic
+purpose: >
+  Evaluate the quality of everyday arguments using Weston's practical criteria:
+  are the premises well-supported, consistent, and relevant? Is the conclusion
+  stated clearly? Are the argument forms (inductive, analogical, causal,
+  deductive) used correctly?
+scope: >
+  Appropriate for: short, everyday arguments where a practical and accessible
+  checklist is more useful than a complex theoretical apparatus; introductory
+  analysis of argument quality in journalism, student writing, public discourse.
+  Not appropriate for: complex philosophical arguments requiring the full power
+  of Walton or Toulmin; situations where warrant identification or fallacy
+  taxonomy depth is needed. This framework is intentionally simpler than other
+  logic frameworks in this pack — its value is accessibility, not theoretical depth.
+verification_status: draft
+capabilities:
+  - argument_analysis
+  - fallacy_detection
+intents:
+  - logical_analysis
+triggers:
+  - argument
+  - premise
+  - conclusion
+  - evidence
+  - reasoning
+  - support
+anti_triggers:
+  - weather
+  - pure translation
+core_concepts:
+  - premise support
+  - premise consistency
+  - relevance
+  - argument forms
+  - short arguments
+evidence_statuses:
+  - O1
+  - O2
+  - L1
+  - H1
+analysis_steps:
+  - Identify the conclusion — the point the argument is trying to establish.
+  - List the premises — the reasons offered.
+  - Check whether each premise is well-supported (not mere assertion).
+  - Check whether premises are consistent with each other.
+  - Check whether the premises are relevant to the conclusion.
+  - Identify the argument form in use (inductive, analogical, causal, or deductive).
+  - Evaluate whether the conclusion follows given the argument form.
+decision_rules:
+  - IF a premise is asserted without support THEN flag as unsupported assertion [L1].
+  - IF premises contradict each other THEN flag inconsistency [L1].
+  - IF a premise does not bear on the conclusion THEN flag as irrelevant [L1].
+  - IF an analogy is used THEN check whether the compared cases are relevantly similar [L1].
+  - IF a causal claim is made THEN ask whether correlation has been confused with causation [L1].
+analysis_questions:
+  - What is the argument trying to establish?
+  - What reasons are offered?
+  - Are the reasons well-supported, or mere assertion?
+  - Are the reasons consistent with one another?
+  - Are the reasons relevant to the conclusion?
+  - What argument form is being used, and is it applied correctly?
+output_fields:
+  - conclusion
+  - premises
+  - unsupported_premises
+  - inconsistencies
+  - relevance_gaps
+  - argument_form
+limitations:
+  - Intentionally simplified; lacks the theoretical depth of Walton or Toulmin for complex arguments.
+  - Does not include a systematic fallacy taxonomy — use logic-damer for that.
+  - Premise support assessment is partly subjective; what counts as "well-supported" varies by context.
+  - Does not verify empirical truth.
+  - Does not address speaker intent.
+references:
+  - title: A Rulebook for Arguments
+    author: Anthony Weston
+    year: 1987
+    note: >
+      Primary source. A short, accessible textbook laying out practical criteria
+      for evaluating everyday arguments. Fifth edition available (2017).
+      This framework operationalises the core criteria from chapters 1–4.

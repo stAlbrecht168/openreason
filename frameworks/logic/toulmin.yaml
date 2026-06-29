@@ -1,0 +1,100 @@
+id: logic-toulmin
+name: Stephen Toulmin — Argument Model
+version: 0.1.0
+domain: informal_logic
+purpose: >
+  Analyse argument structure by mapping a claim to its data, the warrant that
+  licenses the inference, backing for the warrant, qualifiers on the claim,
+  and potential rebuttals. Makes the logical licence for an inference explicit
+  and testable as a named field.
+scope: >
+  Appropriate for: arguments where the inferential link between evidence and
+  conclusion needs to be made explicit; contexts where the same evidence might
+  support different claims depending on which warrant is accepted; policy,
+  scientific, and legal arguments where warrants are field-dependent.
+  Not appropriate for: short everyday arguments where warrant identification
+  adds no analytical gain; discourse or framing analysis (use van-dijk or entman);
+  contexts where the argument contains no inferential step.
+  Note: Toulmin's model was developed as a philosophy of argument, not primarily
+  as a practical analysis method. Its application as a diagramming tool for
+  everyday arguments follows from later interpreters. This framework operationalises
+  that practical use, not Toulmin's philosophical project.
+verification_status: draft
+capabilities:
+  - argument_analysis
+  - fallacy_detection
+intents:
+  - logical_analysis
+  - debate_analysis
+triggers:
+  - warrant
+  - data
+  - backing
+  - claim
+  - qualifier
+  - rebuttal
+  - evidence
+  - grounds
+anti_triggers:
+  - weather
+  - pure translation
+core_concepts:
+  - claim
+  - data
+  - warrant
+  - backing
+  - qualifier
+  - rebuttal
+evidence_statuses:
+  - O1
+  - O2
+  - L1
+  - H1
+analysis_steps:
+  - Identify the claim — the conclusion the argument is advancing.
+  - Identify the data (grounds) — the evidence or facts offered in support.
+  - Identify the warrant — the general principle that licenses the move from data to claim.
+  - Identify the backing — the support offered for the warrant itself, if any.
+  - Identify any qualifier — the degree of certainty expressed (necessarily, probably, presumably).
+  - Identify any rebuttal conditions — the circumstances under which the claim would not hold.
+decision_rules:
+  - IF the inference from data to claim is not self-evident THEN identify the warrant explicitly [L1].
+  - IF no backing is offered for the warrant THEN flag the warrant as ungrounded [L1].
+  - IF the claim is stated without qualification THEN note whether a qualifier would be appropriate [L1].
+  - IF potential exceptions exist and no rebuttal is acknowledged THEN flag incomplete rebuttal [L1].
+analysis_questions:
+  - What is the claim being made?
+  - What data or grounds support it?
+  - What warrant (general principle) licenses the move from data to claim?
+  - Is any backing offered for the warrant?
+  - Is the claim appropriately qualified?
+  - What would defeat the argument (rebuttal conditions)?
+output_fields:
+  - claim
+  - data
+  - warrant
+  - backing
+  - qualifier
+  - rebuttal
+  - warrant_assessment
+limitations:
+  - Warrant identification is interpretive. Two analysts may identify different warrants for the same argument without either being wrong.
+  - Does not verify the empirical truth of data or backing.
+  - The model was originally developed for formal argumentation contexts; its fit to brief, informal communication varies.
+  - Backing for warrants is often absent in everyday arguments; absence of backing does not automatically invalidate the argument.
+  - Does not prove speaker intent.
+references:
+  - title: The Uses of Argument
+    author: Stephen Toulmin
+    year: 1958
+    note: >
+      Primary source for the six-component model (claim, data, warrant, backing,
+      qualifier, rebuttal). Note: this book is a work of argument philosophy, not
+      a practical analysis manual. The diagrammatic application used here draws
+      on later interpreters including Toulmin, Rieke, and Janik (1984).
+  - title: An Introduction to Reasoning
+    author: Stephen Toulmin, Richard Rieke, Allan Janik
+    year: 1984
+    note: >
+      More accessible secondary source that develops the Toulmin model as a
+      practical analytical tool. Closer to the way this framework applies the concepts.

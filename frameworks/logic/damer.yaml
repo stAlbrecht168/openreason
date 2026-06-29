@@ -1,0 +1,94 @@
+id: logic-damer
+name: T. Edward Damer — Attacking Faulty Reasoning
+version: 0.1.0
+domain: informal_logic
+purpose: >
+  Identify informal fallacies in everyday arguments using Damer's taxonomy
+  and evaluate arguments against his four criteria for a good argument:
+  the premises must be acceptable, relevant, sufficient, and address the
+  strongest counterargument.
+scope: >
+  Appropriate for: systematic fallacy identification across an argument or
+  a set of arguments; evaluation of whether an argument meets basic quality
+  standards; contexts where naming a specific fallacy type is analytically
+  useful.
+  Not appropriate for: argument construction; discourse or framing analysis;
+  situations requiring deep argument structure mapping (use logic-walton
+  or logic-toulmin). This framework is focused on fallacy detection and
+  argument evaluation, not on reconstructing argument structure from first
+  principles.
+verification_status: draft
+capabilities:
+  - fallacy_detection
+  - argument_analysis
+intents:
+  - logical_analysis
+  - fallacy_detection
+triggers:
+  - fallacy
+  - fallacious
+  - misleading
+  - invalid
+  - inconsistent
+  - irrelevant
+  - ad hominem
+  - straw man
+  - false dichotomy
+anti_triggers:
+  - weather
+  - pure translation
+core_concepts:
+  - acceptability
+  - relevance
+  - sufficiency
+  - counterargument condition
+  - informal fallacies
+evidence_statuses:
+  - O1
+  - O2
+  - L1
+  - H1
+analysis_steps:
+  - Identify the argument's conclusion and premises.
+  - Evaluate acceptability — would a reasonable person accept each premise without further argument?
+  - Evaluate relevance — do the premises bear on the conclusion?
+  - Evaluate sufficiency — do the premises provide enough support, taken together?
+  - Check whether the strongest counterargument has been addressed.
+  - Identify any named fallacies present using the fallacy taxonomy.
+decision_rules:
+  - IF a premise attacks a person rather than their argument THEN identify as ad hominem fallacy [L1].
+  - IF the argument misrepresents the opposing position THEN identify as straw man fallacy [L1].
+  - IF only two options are presented when more exist THEN identify as false dichotomy [L1].
+  - IF the conclusion is assumed in the premises THEN identify as begging the question [L1].
+  - IF the conclusion does not follow from acceptable premises THEN flag non sequitur [L1].
+  - IF premises are not widely accepted as true without argument THEN flag acceptability problem [L1].
+  - IF the strongest objection to the argument is not acknowledged THEN flag missing counterargument [L1].
+analysis_questions:
+  - Are the premises acceptable to a reasonable person?
+  - Are the premises relevant to the conclusion?
+  - Are the premises, taken together, sufficient to support the conclusion?
+  - Does the argument address the strongest available counterargument?
+  - Can any of the recognised fallacy types be identified?
+output_fields:
+  - acceptability_assessment
+  - relevance_assessment
+  - sufficiency_assessment
+  - counterargument_coverage
+  - fallacies_identified
+  - overall_argument_quality
+limitations:
+  - Fallacy identification is taxonomic, not exhaustive. An argument can fail without fitting a named fallacy type.
+  - Acceptability judgements are audience-relative. What is acceptable to one audience may not be to another.
+  - The four criteria (acceptability, relevance, sufficiency, counterargument) provide a checklist, not a theory of argument validity.
+  - Does not reconstruct argument structure in the depth that Walton or Toulmin do.
+  - Does not verify empirical truth.
+  - Does not prove speaker intent.
+references:
+  - title: Attacking Faulty Reasoning
+    author: T. Edward Damer
+    year: 1980
+    note: >
+      Primary source. A college-level logic textbook providing a practical
+      fallacy taxonomy and four criteria for a good argument. Seventh edition
+      available (2012). This framework draws primarily on the fallacy classifications
+      and the four-criteria model from chapters 2–3.

@@ -37,9 +37,9 @@ Each cell shows the framework's status for that capability, or is blank if not a
 | Framework | `argument_analysis` | `fallacy_detection` | `discourse_analysis` | `group_representation_analysis` | `framing_analysis` | `rhetoric_analysis` | `propaganda_analysis` | `cognitive_effect_analysis` | `social_effect_analysis` |
 |---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | **logic-walton** | **●** | **●** | | | | | | | |
-| **logic-toulmin** | ○ | ○ | | | | | | | |
-| **logic-weston** | ○ | ○ | | | | | | | |
-| **logic-damer** | | ○ | | | | | | | |
+| **logic-toulmin** | **●** | **●** | | | | | | | |
+| **logic-weston** | **●** | **●** | | | | | | | |
+| **logic-damer** | **●** | **●** | | | | | | | |
 | **discourse-van-dijk** | | | **●** | **●** | | | | | **●** |
 | **discourse-fairclough** | | | ○ | ○ | | | | | ○ |
 | **discourse-wodak** | | | ○ | ○ | | | | | ○ |
@@ -58,8 +58,8 @@ Each cell shows the framework's status for that capability, or is blank if not a
 
 | Capability | Draft frameworks | Planned frameworks | Total coverage |
 |---|---|---|---|
-| `argument_analysis` | 1 (walton) | 2 (toulmin, weston) | 3 |
-| `fallacy_detection` | 1 (walton) | 3 (toulmin, weston, damer) | 4 |
+| `argument_analysis` | 4 (walton, toulmin, weston, damer) | 0 | 4 |
+| `fallacy_detection` | 4 (walton, toulmin, weston, damer) | 0 | 4 |
 | `discourse_analysis` | 1 (van-dijk) | 2 (fairclough, wodak) | 3 |
 | `group_representation_analysis` | 1 (van-dijk) | 2 (fairclough, wodak) | 3 |
 | `framing_analysis` | 1 (entman) | 2 (lakoff, perelman¹) | 3 |
@@ -71,6 +71,7 @@ Each cell shows the framework's status for that capability, or is blank if not a
 ¹ Perelman contributes to both `rhetoric_analysis` and `framing_analysis` (pack: `framing-rhetoric`).
 
 **Uncovered today (no draft framework):** `propaganda_analysis`, `cognitive_effect_analysis`.
+**Logic Pack fully implemented:** all four logic frameworks are now draft.
 
 ---
 
@@ -84,14 +85,14 @@ Each cell shows the framework's status for that capability, or is blank if not a
 | `discourse-van-dijk` | Teun A. van Dijk — Critical Discourse Analysis | `discourse` | draft |
 | `framing-entman` | Robert Entman — Framing Analysis | `framing-rhetoric` | draft |
 | `rhetoric-aristotle` | Aristotle — Rhetoric | `framing-rhetoric` | draft |
+| `logic-toulmin` | Stephen Toulmin — Argument Model | `logic` | draft |
+| `logic-weston` | Anthony Weston — Practical Argument | `logic` | draft |
+| `logic-damer` | T. Edward Damer — Fallacy Taxonomy | `logic` | draft |
 
 ### Planned (documented in packs, no YAML file)
 
 | ID | Name | Pack | Primary source |
 |---|---|---|---|
-| `logic-toulmin` | Stephen Toulmin — Argument Model | `logic` | *The Uses of Argument* (1958) |
-| `logic-weston` | Anthony Weston — Practical Argument | `logic` | *A Rulebook for Arguments* (1987) |
-| `logic-damer` | T. Edward Damer — Fallacy Taxonomy | `logic` | *Attacking Faulty Reasoning* (1980) |
 | `discourse-fairclough` | Norman Fairclough — Three-Dimensional CDA | `discourse` | *Discourse and Social Change* (1992) |
 | `discourse-wodak` | Ruth Wodak — Discourse-Historical Approach | `discourse` | Various |
 | `framing-lakoff` | George Lakoff — Cognitive Framing | `framing-rhetoric` | *Don't Think of an Elephant!* (2004) |
