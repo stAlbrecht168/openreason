@@ -15,76 +15,68 @@ All evidence rules, framework logic, and report format are defined there.
 
 ## Step 2 — Obtain the material
 
-**If $ARGUMENTS contains text or a quote:**
-Create a temporary file at `examples/working-input.md` with the content.
+**If $ARGUMENTS is a file path (e.g., `examples/technology-regulation.md`):**
+Note the path — you will pass it directly to the engine.
 
-**If $ARGUMENTS is a file path:**
-Read that file directly.
+**If $ARGUMENTS contains text or a quote:**
+Write it to `examples/working-input.md`.
 
 **If $ARGUMENTS is empty:**
 Ask the user:
-> Please paste the text, quote, transcript, or summary you'd like me to analyse.
-Then create `examples/working-input.md` with their response.
+> Please paste the text, quote, transcript, or file path you'd like me to analyse.
 
 ---
 
-## Step 3 — Run the packet generator (if the CLI is available)
+## Step 3 — Run ReasoningEngine
 
 If `node_modules/.bin/tsx` exists, run:
 ```bash
-npx tsx src/cli.ts analyze examples/working-input.md --out reports/working-analysis.md
+npx tsx src/cli.ts run <input-file>
 ```
-Then read `reports/working-analysis.md`.
 
-This produces a deterministic scaffold — use it as a reference, not as the final analysis.
-If the CLI is unavailable, skip this step and proceed directly to Step 4.
+This writes two files to `reports/<input-name>/`:
+- `scaffold.md` — structured report with evidence reference, framework questions, and `[FILL: ...]` sections
+- `plan.json` — detected intent, activated frameworks, evidence model
 
----
+Read both files. `scaffold.md` is the document you will complete.
+`plan.json` tells you which frameworks are active and what evidence statuses they support.
 
-## Step 4 — Detect intent
-
-Read the material and determine which kind of analysis is most useful:
-
-- Does it contain an argument, fallacy, or burden-of-proof question? → `logical_analysis`
-- Does it compare groups, other minorities, or use disclaimers? → `discourse_analysis`
-- Does it define a problem, assign blame, or imply a solution? → `framing_analysis`
-- Does it make emotional or credibility appeals? → `rhetoric_analysis`
-- Multiple signals? → activate multiple frameworks.
+If the CLI is unavailable, proceed to Step 4 using the framework YAML files directly.
 
 ---
 
-## Step 5 — Select frameworks and read their YAML files
+## Step 4 — Read the activated framework YAML files
 
-For each framework you plan to apply, read its YAML file:
+For each framework listed in `plan.json`, read its YAML file:
 - `frameworks/logic/walton.yaml`
 - `frameworks/discourse/van_dijk.yaml`
 - `frameworks/framing/entman.yaml`
 - `frameworks/rhetoric/aristotle.yaml`
 
-Confirm the framework's triggers and anti-triggers before applying it.
+Apply the framework's `decision_rules` and `analysis_questions` when completing the scaffold.
 
 ---
 
-## Step 6 — Produce the analysis
+## Step 5 — Complete the scaffold and write the final analysis
 
-Write the analysis directly in your response using the standard report format
-from the skill:
+Replace every `[FILL: ...]` section in the scaffold with actual analytical content.
+Write the completed analysis in your response.
 
-1. Summary
-2. Intent and frameworks activated
-3. Claim map (O1/O2 only)
-4. Evidence graph (chain upward from O1/O2 through L1/D1/R1/F1 to S1/C1/H1)
-5. Framework findings (one subsection per active framework)
-6. Strongest counterinterpretation
-7. Confidence and limitations
+Required structure:
+1. **Summary** — one paragraph, key finding stated
+2. **Intent and frameworks** — what was detected and why each framework applies
+3. **Claim map** — O1/O2 only, what is directly stated
+4. **Evidence graph** — chain: O1/O2 → L1 → D1/R1/F1 → C1/S1 → H1
+5. **Framework findings** — apply each framework's questions and decision rules
+6. **Strongest counterinterpretation** — required, no exceptions
+7. **Confidence and limitations** — what the analysis cannot determine
 
 Every claim must carry its evidence label.
-No motive assertions without [H1].
-No skipping the counterinterpretation.
+No motive assertions without `[H1]`.
 
 ---
 
-## Step 7 — Offer follow-up
+## Step 6 — Offer follow-up
 
 After the analysis, offer:
 > If you'd like me to focus more deeply on one framework, apply an additional framework, or explore the counterinterpretation further, just say so.

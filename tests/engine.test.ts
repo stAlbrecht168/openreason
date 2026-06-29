@@ -32,11 +32,11 @@ describe('ReasoningEngine.analyze', () => {
 
   it('reportScaffold contains the standard section headings', () => {
     const result = engine.analyze('Analyse the rhetoric in this speech.');
-    expect(result.reportScaffold).toContain('### Summary');
-    expect(result.reportScaffold).toContain('### Claim map');
-    expect(result.reportScaffold).toContain('### Evidence graph');
-    expect(result.reportScaffold).toContain('### Strongest counterinterpretation');
-    expect(result.reportScaffold).toContain('### Confidence and limitations');
+    expect(result.reportScaffold).toContain('## Summary');
+    expect(result.reportScaffold).toContain('## Claim map');
+    expect(result.reportScaffold).toContain('## Evidence graph');
+    expect(result.reportScaffold).toContain('## Strongest counterinterpretation');
+    expect(result.reportScaffold).toContain('## Confidence and limitations');
   });
 
   it('reportScaffold includes detected intent', () => {

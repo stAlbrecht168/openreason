@@ -30,6 +30,7 @@ npm run cc:health
 
 | File | What it tests |
 |---|---|
+| `integration.test.ts` | End-to-end: `ReasoningEngine.analyzeFile('examples/technology-regulation.md')` — scaffold structure, framework activation, plan serialisability |
 | `evidence.test.ts` | The `EVIDENCE_MODEL` structure, `isValidEvidenceStatus`, `getEvidenceEntry` |
 | `maturity.test.ts` | `VerificationStatusSchema`, framework `verification_status` defaults |
 | `packs.test.ts` | Pack loading, structure, `MaturityLevelSchema`, capability coverage |

@@ -86,22 +86,27 @@ When the user asks you to analyse something — a statement, a speech, an articl
    - Persuasion, emotion, credibility → Aristotle
    - Multiple dimensions → activate more than one framework
 
-3. **Run the packet generator if useful** (it provides a structured scaffold):
+3. **Run the ReasoningEngine** to get the analysis scaffold and plan:
    ```bash
-   npx tsx src/cli.ts analyze <input-file> --out reports/<name>.md
+   npx tsx src/cli.ts run <input-file>
    ```
-   Then read the generated packet.
+   This writes two files to `reports/<input-name>/`:
+   - `scaffold.md` — the structured report template with evidence reference and framework questions
+   - `plan.json` — the detected intent, activated frameworks, and evidence model
 
-4. **Produce the final analysis in your response.**
-   Structure it as:
-   - Short summary
-   - Intent and frameworks activated
-   - Claim map (what is said explicitly)
-   - Evidence graph (O1/O2 first, then L1, then D1/R1/F1, then S1/C1, then H1)
-   - Strongest counterinterpretation
+   Read both files. Use `scaffold.md` as the document you will complete.
+   Use `plan.json` to confirm which frameworks are active and what evidence statuses they support.
+
+4. **Complete the scaffold** by replacing every `[FILL: ...]` section with actual analytical content.
+   Follow the structure:
+   - Summary (one paragraph)
+   - Claim map (O1/O2 only — what is directly stated)
+   - Evidence graph (chain upward: O1/O2 → L1 → D1/R1/F1 → C1/S1 → H1)
+   - Framework findings (apply each activated framework's questions and decision rules)
+   - Strongest counterinterpretation (required — do not skip)
    - Confidence and limitations
 
-5. **Never present your analysis as the final truth.** Always note limitations.
+5. **Write the completed analysis in your response.** Every claim must carry its evidence label. No motive assertions without `[H1]`. Never present your analysis as the final truth.
 
 ---
 
@@ -191,7 +196,7 @@ src/                       ← TypeScript reference implementation
   router.ts                ← intent detection
   resolver.ts              ← framework selection
   compiler.ts              ← instruction compilation
-  engine.ts                ← analysis packet generation
+  engine.ts                ← legacy analysis packet generator (CLI `analyze` command)
   schema.ts                ← types and Zod schemas
   openreason/              ← ReasoningEngine public API layer
     index.ts               ← ReasoningEngine class

@@ -8,6 +8,28 @@ All notable changes to OpenReason are documented here.
 
 ---
 
+## 0.3.0 — 2026-06-29 — End-to-end analysis milestone
+
+This release implements the complete end-to-end analysis workflow:
+`Analyze examples/technology-regulation.md using OpenReason.`
+
+### Added
+
+- `ReasoningEngine.analyzeFile(path)` — reads a file and runs `analyze()`; the primary entry point for file-based analysis
+- `openreason run <file>` CLI command — calls `ReasoningEngine.analyzeFile()`, writes `reports/<name>/scaffold.md` and `reports/<name>/plan.json`; exits with intent/framework summary printed to stdout
+- `cc:run` npm script — `tsx src/cli.ts run examples/technology-regulation.md`; used in `cc:smoke`
+- `tests/integration.test.ts` — 14 tests covering the full end-to-end path on `examples/technology-regulation.md`: file existence, analyzeFile output, scaffold structure, plan serialisability, no internal concept leakage
+
+### Changed
+
+- `ReasoningEngine.analyze()` — improved `reportScaffold`: replaced `<!-- HTML comment -->` placeholders with `[FILL: ...]` markers Claude Code can locate and complete; added evidence reference table (all 10 labels with names and confidence levels); framework sections now include decision rules and limitations alongside analysis questions; framework entries include `verification_status`
+- `src/cli.ts` — added `run` command; `ReasoningEngine` imported from `./openreason/index.js`
+- `package.json` — added `cc:run` script; updated `cc:smoke` to use `cc:run` instead of `analyze`
+- `CLAUDE.md` — updated analysis workflow to use `openreason run` as the engine entry point; two-step process made explicit (run → complete scaffold)
+- `.claude/commands/openreason-analyze.md` — updated Step 3 to use `run` command; added Step 4 reading framework YAML files; simplified step structure
+- `tests/engine.test.ts` — updated section heading assertions from `### heading` to `## heading` (scaffold now uses h2)
+- `tests/README.md` — added `integration.test.ts` to the test file table
+
 ## 0.2.0 — 2026-06-28
 
 This release establishes the full Claude-Code-first architecture and prepares the repository for public contribution.

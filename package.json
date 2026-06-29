@@ -14,9 +14,10 @@
     "analyze": "tsx src/cli.ts analyze examples/iran-somalia.md --out reports/iran-somalia.report.md",
     "inspect": "tsx src/cli.ts inspect examples/iran-somalia.md",
     "health": "tsx validators/health.ts",
+    "cc:run": "tsx src/cli.ts run examples/technology-regulation.md",
     "cc:check": "npm run validate && npm test",
     "cc:health": "npm run validate && npm run health",
-    "cc:smoke": "npm run validate && npm test && npm run build && npm run analyze"
+    "cc:smoke": "npm run validate && npm test && npm run build && npm run cc:run"
   },
   "dependencies": {
     "commander": "^12.1.0",

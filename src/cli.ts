@@ -7,6 +7,7 @@ import { detectIntent } from './router.js';
 import { resolveFrameworks } from './resolver.js';
 import { compileInstructions } from './compiler.js';
 import { createAnalysisPacket, writeAnalysisPacket } from './engine.js';
+import { ReasoningEngine } from './openreason/index.js';
 
 const program = new Command();
 program.name('openreason').description('Transparent reasoning framework reference implementation').version('0.1.0');
@@ -15,6 +16,40 @@ program.command('validate').description('Validate all framework YAML files').act
   const ids = validateFrameworks();
   console.log(`Validated ${ids.length} framework(s): ${ids.join(', ')}`);
 });
+
+program.command('run')
+  .argument('<input>', 'input markdown/text file')
+  .option('--out <dir>', 'output directory', 'reports')
+  .description('Run OpenReason analysis on an input file using ReasoningEngine')
+  .action((inputPath, options) => {
+    const engine = new ReasoningEngine();
+    const result = engine.analyzeFile(inputPath);
+    const basename = path.basename(inputPath, path.extname(inputPath));
+    const outDir = path.join(options.out, basename);
+    fs.mkdirSync(outDir, { recursive: true });
+
+    const scaffoldPath = path.join(outDir, 'scaffold.md');
+    const planPath = path.join(outDir, 'plan.json');
+
+    fs.writeFileSync(scaffoldPath, result.reportScaffold, 'utf8');
+    fs.writeFileSync(planPath, JSON.stringify({
+      intent: result.plan.intent,
+      frameworks: result.plan.frameworks.map(f => ({
+        id: f.id,
+        name: f.name,
+        verification_status: f.verification_status,
+        evidence_statuses: f.evidence_statuses,
+      })),
+      evidenceModel: result.plan.evidenceModel,
+    }, null, 2), 'utf8');
+
+    console.log(`\nOpenReason analysis ready:`);
+    console.log(`  scaffold : ${scaffoldPath}`);
+    console.log(`  plan     : ${planPath}`);
+    console.log(`\nIntent    : ${result.plan.intent.primaryIntent} (${result.plan.intent.confidence} confidence)`);
+    console.log(`Frameworks: ${result.plan.frameworks.map(f => f.id).join(', ')}`);
+    console.log(`\nNext step : Read ${scaffoldPath} and complete the [FILL: ...] sections.`);
+  });
 
 program.command('inspect').argument('<input>', 'input markdown/text file').description('Detect intent and selected frameworks').action((inputPath) => {
   const input = fs.readFileSync(inputPath, 'utf8');
