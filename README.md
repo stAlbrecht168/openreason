@@ -169,6 +169,24 @@ This matters because the same piece of text can be analyzed at many levels. An o
 
 ---
 
+## Learn more — The OpenReason Book
+
+**[docs/book/README.md](docs/book/README.md)**
+
+The book explains every concept in this README in depth — written for researchers, journalists, students, and analysts who want to understand *why* the system works the way it does, not just how to run it.
+
+| Chapter | What it covers |
+|---|---|
+| [1. Why OpenReason](docs/book/01-why-openreason.md) | The problem with opaque AI analysis and what transparency means |
+| [2. The Evidence Model](docs/book/02-evidence-model.md) | How to separate observation, inference, interpretation, and hypothesis |
+| [3. Framework Packs](docs/book/03-framework-packs.md) | What frameworks and packs are, and how they work together |
+| [4. Writing Frameworks](docs/book/04-writing-frameworks.md) | How to document an analytical method so it can be used and checked |
+| [5. Using Claude Code](docs/book/05-using-claude-code.md) | How Claude Code acts as the front-end for OpenReason |
+| [6. Verification](docs/book/06-verification.md) | Why frameworks need to be checked and how to check them |
+| [7. Examples](docs/book/07-examples.md) | A full worked analysis showing every concept in practice |
+
+---
+
 ## Packs, capabilities, and frameworks
 
 OpenReason organises its analytical methods in three layers:
