@@ -49,8 +49,8 @@ Each cell shows the framework's status for that capability, or is blank if not a
 | **rhetoric-perelman** | | | | | **●** | **●** | | | |
 | **propaganda-ipa** | | | | | | | ○ | | ○ |
 | **propaganda-jowett-odonnell** | | | | | | | ○ | | ○ |
-| **psychology-kahneman-tversky** | | | | | | | | ○ | ○ |
-| **psychology-haidt** | | | | | | | | ○ | ○ |
+| **psychology-kahneman-tversky** | | | | | | | | **●** | |
+| **psychology-haidt** | | | | | | | | **●** | **●** |
 
 ---
 
@@ -65,15 +65,17 @@ Each cell shows the framework's status for that capability, or is blank if not a
 | `framing_analysis` | 3 (entman, lakoff, perelman²) | 0 | 3 |
 | `rhetoric_analysis` | 2 (aristotle, perelman²) | 0 | 2 |
 | `propaganda_analysis` | 0 | 2 (ipa, jowett-odonnell) | 2 |
-| `cognitive_effect_analysis` | 0 | 2 (kahneman-tversky, haidt) | 2 |
+| `cognitive_effect_analysis` | 2 (kahneman-tversky, haidt) | 0 | 2 |
 | `social_effect_analysis` | 5 (van-dijk, entman, fairclough, wodak, …) | 3 | 8 |
 
 ² Perelman contributes to both `rhetoric_analysis` and `framing_analysis` (pack: `framing-rhetoric`).
+³ Haidt's Moral Foundations Theory is contested within moral psychology. The framework must not be presented as established science; all findings must be C1 or H1.
 
-**Uncovered today (no draft framework):** `propaganda_analysis`, `cognitive_effect_analysis`.
+**Uncovered today (no draft framework):** `propaganda_analysis`.
 **Logic Pack fully implemented:** all four logic frameworks are now draft.
 **Discourse Pack fully implemented:** all three discourse frameworks are now draft.
 **Framing-Rhetoric Pack fully implemented:** all four framing/rhetoric frameworks are now draft.
+**Psychology Pack fully implemented:** both psychology frameworks are now draft.
 
 ---
 
@@ -94,6 +96,8 @@ Each cell shows the framework's status for that capability, or is blank if not a
 | `logic-damer` | T. Edward Damer — Fallacy Taxonomy | `logic` | draft |
 | `discourse-fairclough` | Norman Fairclough — Critical Discourse Analysis | `discourse` | draft |
 | `discourse-wodak` | Ruth Wodak — Discourse-Historical Approach | `discourse` | draft |
+| `psychology-kahneman-tversky` | Kahneman & Tversky — Dual-Process Theory | `psychology` | draft |
+| `psychology-haidt` | Jonathan Haidt — Moral Foundations Theory ³ | `psychology` | draft |
 
 ### Planned (documented in packs, no YAML file)
 
@@ -101,10 +105,6 @@ Each cell shows the framework's status for that capability, or is blank if not a
 |---|---|---|---|
 | `propaganda-ipa` | Institute for Propaganda Analysis — Seven Devices | `propaganda` | *The Fine Art of Propaganda* (1939) |
 | `propaganda-jowett-odonnell` | Jowett & O'Donnell — Propaganda Analysis | `propaganda` | *Propaganda and Persuasion* (various) |
-| `psychology-kahneman-tversky` | Kahneman & Tversky — Dual-Process Theory | `psychology` | *Thinking, Fast and Slow* (2011) |
-| `psychology-haidt` | Jonathan Haidt — Moral Foundations Theory | `psychology` | MFT (2004–present) ² |
-
-² Haidt's Moral Foundations Theory is contested within moral psychology. Any framework derived from it must state this limitation explicitly and must not present it as settled science.
 
 ### Deprecated
 
@@ -123,7 +123,7 @@ None currently.
 | `framing_analysis` | Problem definition, causal interpretation, moral evaluation, treatment recommendation, omissions | entman, lakoff, perelman |
 | `rhetoric_analysis` | Ethos, pathos, logos, enthymeme, audience positioning, argumentation schemes, dissociation | aristotle, perelman |
 | `propaganda_analysis` | Systematic persuasion technique identification | (ipa, jowett-odonnell) — planned only |
-| `cognitive_effect_analysis` | Patterns associated with cognitive shortcuts — stated cautiously at C1/H1 | (kahneman-tversky) — planned only |
+| `cognitive_effect_analysis` | Patterns associated with cognitive shortcuts — stated cautiously at C1/H1 | kahneman-tversky, haidt |
 | `social_effect_analysis` | Possible social effects — stated cautiously at S1/H1 | van-dijk, entman, (others) |
 
 ---

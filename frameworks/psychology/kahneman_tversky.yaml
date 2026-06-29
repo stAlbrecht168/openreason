@@ -1,0 +1,100 @@
+id: psychology-kahneman-tversky
+name: Daniel Kahneman and Amos Tversky — Dual-Process Theory and Cognitive Biases
+version: 0.1.0
+domain: cognitive_bias
+purpose: >
+  Identify patterns in communication that research associates with System 1
+  cognitive processing — fast, automatic, associative reasoning — and with
+  specific cognitive biases (anchoring, availability heuristic, framing effects,
+  loss aversion). These patterns may make certain messages easier to accept
+  without deliberate evaluation. All findings are possible effects, not observed
+  audience responses.
+scope: >
+  Appropriate for: communication designed to circumvent deliberate evaluation;
+  texts using numerical anchors, vivid examples, or loss-framed alternatives;
+  analysis of why certain messages feel compelling even when their explicit
+  argument is weak.
+  Not appropriate for: establishing that a specific audience was cognitively
+  affected by a specific text; replacing argument analysis (use logic-walton);
+  proving intent; texts where cognitive shortcuts are not analytically relevant.
+  Critical scope note: this framework identifies patterns associated with
+  cognitive biases in the experimental literature. It does not observe
+  cognitive processes in any real audience. Every finding must be stated
+  as a possible effect (C1) or hypothesis (H1), never as an established outcome.
+verification_status: draft
+capabilities:
+  - cognitive_effect_analysis
+intents:
+  - framing_analysis
+triggers:
+  - bias
+  - heuristic
+  - system 1
+  - system 2
+  - anchoring
+  - availability
+  - loss aversion
+  - cognitive
+anti_triggers:
+  - pure math
+  - pure logic
+core_concepts:
+  - dual-process theory
+  - System 1 processing
+  - System 2 processing
+  - anchoring
+  - availability heuristic
+  - framing effect
+  - loss aversion
+evidence_statuses:
+  - O1
+  - O2
+  - C1
+  - H1
+analysis_steps:
+  - Identify numerical anchors — numbers presented early that may influence subsequent judgements.
+  - Identify vivid or emotionally salient examples that may activate availability-based reasoning.
+  - Identify loss-framed alternatives — "losing X" rather than "failing to gain X."
+  - Identify whether the text encourages fast, associative (System 1) processing or slow, deliberate (System 2) processing.
+  - Note which patterns research associates with reduced critical evaluation.
+decision_rules:
+  - IF a specific number is presented early and prominently THEN note possible anchoring effect — subsequent estimates may be influenced by this anchor [C1].
+  - IF a vivid, emotionally engaging example is used where statistical base rates are more informative THEN note possible availability bias — the example may feel more representative than it is [C1].
+  - IF outcomes are framed in terms of losses rather than equivalent gains THEN note possible loss aversion activation — loss-framed options are typically evaluated more negatively [C1].
+  - IF the text is constructed to produce an immediate emotional response before presenting the argument THEN note possible System 1 activation — evaluation may occur before deliberate reasoning [C1].
+analysis_questions:
+  - Are there numerical anchors that may influence subsequent judgements?
+  - Are vivid examples used where statistical evidence would be more informative?
+  - Is the outcome framed in terms of losses rather than gains?
+  - Is the text structured to produce emotional response before argument?
+  - What patterns in this text research associates with reduced deliberate evaluation?
+output_fields:
+  - anchoring_patterns
+  - availability_patterns
+  - loss_framing
+  - system1_activation_patterns
+  - cognitive_effect_assessment
+limitations:
+  - All findings are possible patterns, not established cognitive effects on any specific audience.
+  - Identifying a pattern associated with a cognitive bias does not mean the bias occurred.
+  - Dual-process theory is a well-supported framework but is itself a simplification; the System 1/System 2 dichotomy is contested in cognitive science.
+  - Does not prove intent. A communicator may use vivid examples because they are rhetorically effective, not because they are deliberately exploiting cognitive shortcuts.
+  - Individual differences in susceptibility to cognitive biases are substantial; what affects one audience may not affect another.
+  - The experimental literature on cognitive biases was largely developed in lab settings with Western, educated, industrialised, rich, democratic (WEIRD) populations; cross-cultural applicability varies.
+references:
+  - title: Thinking, Fast and Slow
+    author: Daniel Kahneman
+    year: 2011
+    note: >
+      Accessible primary source synthesising decades of research on dual-process
+      theory and cognitive biases. Covers System 1/System 2, anchoring, availability,
+      loss aversion, and framing effects in a single volume. Used for the
+      framework's conceptual structure and analytical vocabulary.
+  - title: "Judgment Under Uncertainty: Heuristics and Biases"
+    author: Daniel Kahneman, Paul Slovic, Amos Tversky (eds.)
+    year: 1982
+    note: >
+      The foundational research collection on cognitive heuristics and biases.
+      More technically rigorous than the 2011 book. The original experimental
+      studies establishing anchoring, availability, and representativeness
+      heuristics. Recommended for verification against primary sources.

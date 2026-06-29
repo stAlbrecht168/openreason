@@ -3,29 +3,36 @@ capabilities:
   - cognitive_effect_analysis
   - social_effect_analysis
 description: >
-  The psychology pack covers the analysis of possible cognitive and social effects
-  of persuasive communication — how messages may affect how people reason, what
-  they believe, and how they behave toward others. All findings in this pack must
-  be stated at the H1 (hypothesis) or S1/C1 (possible effect) level. This pack does
-  not produce verified causal claims about audience effects; it identifies patterns
-  that the research literature associates with cognitive or social outcomes.
+  The Psychology Pack provides tools for identifying possible cognitive and social
+  effects of communication. All findings in this pack are possible patterns (C1),
+  possible social effects (S1), or hypotheses (H1). This pack does not establish
+  that specific texts caused specific psychological outcomes in any real audience.
 
-  Important: This pack deals in possibilities and patterns, not proven effects.
-  No analysis using this pack should assert that a specific text caused a specific
-  psychological or social outcome.
+  Kahneman and Tversky's dual-process framework identifies structural patterns
+  associated with cognitive shortcuts (anchoring, availability, loss aversion,
+  System 1 activation). Haidt's Moral Foundations Theory identifies which moral
+  vocabulary a text deploys and which foundations it plausibly appeals to.
+
+  Important: Both frameworks are applied to text structure, not to audience
+  cognition. Haidt's MFT is contested within moral psychology and must not
+  be presented as established psychological science. All findings require
+  cautious language.
 frameworks:
   - id: psychology-kahneman-tversky
-    maturity: planned
+    maturity: draft
     note: >
-      Daniel Kahneman and Amos Tversky's dual-process theory (System 1 / System 2)
-      and related cognitive biases (anchoring, availability heuristic, framing
-      effects). Useful for identifying which cognitive shortcuts a text may exploit.
-      Framework YAML not yet written.
+      Kahneman and Tversky's dual-process theory and cognitive biases. Identifies
+      anchoring patterns, availability-activating examples, loss framing, and
+      System 1 activation patterns. All findings are C1 (possible cognitive effect).
+      Primary source: Kahneman (2011) and Kahneman, Slovic & Tversky (1982).
+      YAML and companion .md implemented. Not yet verified against original sources.
+
   - id: psychology-haidt
-    maturity: planned
+    maturity: draft
     note: >
-      Jonathan Haidt's Moral Foundations Theory. Identifies which moral foundations
-      (care, fairness, loyalty, authority, purity) political rhetoric appeals to.
-      Useful for analysing why a message resonates with different audiences.
-      Framework YAML not yet written. Note: Haidt's theory is contested within moral
-      psychology; any framework derived from it must state this limitation explicitly.
+      Haidt's Moral Foundations Theory. Identifies moral vocabulary and the
+      foundations it plausibly activates (care, fairness, loyalty, authority,
+      sanctity, liberty). Contested within moral psychology — must not be
+      presented as established science. All findings are C1 or H1.
+      Primary source: Haidt & Graham (2007); accessible source: Haidt (2012).
+      YAML and companion .md implemented. Not yet verified against original sources.

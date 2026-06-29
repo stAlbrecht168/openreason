@@ -1,0 +1,109 @@
+id: psychology-haidt
+name: Jonathan Haidt — Moral Foundations Theory
+version: 0.1.0
+domain: moral_psychology
+purpose: >
+  Identify which moral foundations — care/harm, fairness/cheating,
+  loyalty/betrayal, authority/subversion, sanctity/degradation, and
+  liberty/oppression — a text appeals to. Use this to analyse why a
+  communication resonates with some audiences and not others.
+  All findings are possible patterns (C1) or hypotheses (H1).
+scope: >
+  Appropriate for: political communication and moral rhetoric where
+  understanding which moral vocabulary is being activated may explain
+  audience resonance; texts that explicitly appeal to loyalty, purity,
+  authority, care, or fairness.
+  Not appropriate for: establishing that any specific audience holds
+  specific moral foundations; making claims about individual moral
+  psychology; cross-cultural analysis without substantial caution.
+  Critical scope note: Moral Foundations Theory is contested within moral
+  psychology. Critics argue the foundations are not empirically separable,
+  that the research has significant methodological limitations, and that
+  the theory rests on culturally specific (primarily US) samples. This
+  framework identifies moral vocabulary and appeals in a text; it does
+  not make claims about the validity of the underlying psychological theory.
+  All findings must be stated as possible patterns (C1) or hypotheses (H1).
+  Never present MFT as established psychological science.
+verification_status: draft
+capabilities:
+  - cognitive_effect_analysis
+  - social_effect_analysis
+intents:
+  - framing_analysis
+  - discourse_analysis
+triggers:
+  - loyalty
+  - purity
+  - authority
+  - sanctity
+  - fairness
+  - harm
+  - betrayal
+  - subversion
+  - moral
+  - values
+anti_triggers:
+  - pure math
+  - pure logic
+core_concepts:
+  - moral foundations
+  - care and harm
+  - fairness and cheating
+  - loyalty and betrayal
+  - authority and subversion
+  - sanctity and degradation
+  - liberty and oppression
+evidence_statuses:
+  - O1
+  - O2
+  - C1
+  - S1
+  - H1
+analysis_steps:
+  - Identify explicit moral vocabulary in the text (loyalty, purity, fairness, care, authority, liberty).
+  - Map the vocabulary to the moral foundation it most plausibly activates.
+  - Note which foundations are present and which are absent.
+  - Assess whether the combination of foundations matches patterns associated with particular political or cultural audiences.
+  - State all findings as possible effects on audiences who hold these foundations prominently, not as established facts.
+decision_rules:
+  - IF the text emphasises protection of the vulnerable or condemnation of harm THEN note possible activation of care/harm foundation [C1].
+  - IF the text emphasises equal treatment, cheating, or injustice THEN note possible activation of fairness/cheating foundation [C1].
+  - IF the text emphasises group solidarity, in-group loyalty, or betrayal THEN note possible activation of loyalty/betrayal foundation [C1].
+  - IF the text emphasises deference to tradition, institutions, or hierarchical authority THEN note possible activation of authority/subversion foundation [C1].
+  - IF the text uses language of purity, contamination, sanctity, or degradation THEN note possible activation of sanctity/degradation foundation [C1].
+  - IF the text emphasises individual freedom against external constraint THEN note possible activation of liberty/oppression foundation [C1].
+analysis_questions:
+  - Which moral vocabulary is explicitly present in the text?
+  - Which moral foundations does this vocabulary plausibly activate?
+  - Which moral foundations are absent — and what does this absence suggest about the intended audience?
+  - Does the combination of foundations match patterns associated with particular political orientations?
+  - What are the alternative readings of the moral vocabulary used?
+output_fields:
+  - moral_vocabulary_present
+  - foundations_activated
+  - foundations_absent
+  - audience_resonance_hypothesis
+  - contested_interpretations
+limitations:
+  - Moral Foundations Theory is contested within moral psychology. The six foundations are not empirically established as separable, universal, or exhaustive. Use with significant caution.
+  - The theory was developed primarily from US samples and has not replicated consistently across cultures. Cross-cultural application is not supported without substantial qualification.
+  - Identifying moral vocabulary in a text does not establish that the corresponding foundation is activated in any real audience.
+  - The theory's ideological mapping (progressive vs. conservative moral profiles) is politically sensitive and contested; applying it may introduce the analyst's own perspective.
+  - Does not prove speaker intent.
+  - All social effect claims must be stated at S1 level: possible patterns, not established outcomes.
+references:
+  - title: "Moral Foundations Theory: The Pragmatic Validity of Moral Pluralism"
+    author: Jonathan Haidt, Jesse Graham
+    year: 2007
+    note: >
+      The foundational academic paper for Moral Foundations Theory. Published in
+      Advances in Experimental Social Psychology, vol. 55. More rigorous than
+      The Righteous Mind and the appropriate starting point for verification.
+  - title: The Righteous Mind — Why Good People Are Divided by Politics and Religion
+    author: Jonathan Haidt
+    year: 2012
+    note: >
+      Accessible book-length treatment of MFT and its political applications.
+      Useful as an entry point but less precise than the journal papers. Note:
+      this book is written for a general audience and includes normative
+      recommendations that go beyond the empirical research.
