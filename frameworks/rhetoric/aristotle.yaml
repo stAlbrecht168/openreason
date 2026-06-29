@@ -1,8 +1,23 @@
 id: rhetoric-aristotle
 name: Aristotle — Rhetoric
-version: 0.1.0
+version: 0.2.0
 domain: rhetoric
-purpose: Analyze persuasion through ethos, pathos, logos, audience, and implied premises.
+purpose: >
+  Analyse persuasion through the three modes of appeal: ethos (credibility),
+  pathos (emotion), and logos (reasoning). Identify unstated premises (enthymemes)
+  that the audience must supply for the argument to work.
+scope: >
+  Appropriate for: speeches, appeals, persuasive articles, political addresses,
+  calls to action, and any text primarily designed to move an audience — whether
+  to a belief, an emotion, or an action.
+  Not appropriate for: purely logical arguments where persuasive intent is absent
+  (use logic-walton); texts primarily about group representation (use discourse-van-dijk);
+  texts primarily about issue framing rather than audience persuasion (use framing-entman).
+  Note: ethos, pathos, and logos often co-occur; activate this framework alongside
+  others when a text combines argument structure with persuasive strategy.
+verification_status: draft
+capabilities:
+  - rhetoric_analysis
 intents:
   - rhetoric_analysis
   - persuasion_analysis
@@ -26,25 +41,29 @@ core_concepts:
   - audience
   - enthymeme
 evidence_statuses:
+  - O1
   - O2
   - R1
   - L1
   - H1
 analysis_steps:
-  - Identify credibility strategy.
-  - Identify emotional appeals.
-  - Identify reasoning structure.
-  - Identify unstated premises.
-  - Explain audience positioning cautiously.
+  - Identify how the speaker constructs credibility (ethos).
+  - Identify what emotional register the text operates in (pathos).
+  - Identify the reasoning structure offered (logos).
+  - Identify unstated premises — what the audience must assume for the argument to work (enthymeme).
+  - Identify how the text positions the audience and what response it invites.
 decision_rules:
-  - IF the speaker claims moderation THEN analyze ethos.
-  - IF fear, disgust, pride, anger, or resentment is activated THEN analyze pathos.
-  - IF reasoning relies on an unstated premise THEN identify the enthymeme.
+  - IF the speaker appeals to their own character, expertise, or trustworthiness THEN analyse ethos [R1].
+  - IF fear, disgust, pride, anger, resentment, or hope is activated THEN analyse pathos and identify the emotional register [R1].
+  - IF reasoning is offered but relies on an unstated premise THEN identify the enthymeme and state the missing premise explicitly [L1].
+  - IF the speaker claims moderation or balance THEN analyse ethos — how is this claim constructed? [R1].
+  - IF the text invites the audience to identify with the speaker THEN note the solidarity appeal [R1].
 analysis_questions:
-  - How does the speaker build credibility?
-  - What emotion is activated?
-  - What reasoning is offered?
-  - What must the audience assume?
+  - How does the speaker establish credibility or authority?
+  - What emotional register does the text operate in?
+  - What reasoning is offered, and is it explicit or implied?
+  - What must the audience already believe for this argument to land?
+  - Who is the implied audience, and how is the text calibrated for them?
 output_fields:
   - ethos
   - pathos
@@ -52,9 +71,14 @@ output_fields:
   - enthymeme
   - audience_positioning
 limitations:
-  - Describes persuasion, not factual truth.
-  - Does not prove intent.
+  - Describes the structure of persuasion, not whether it is honest or effective.
+  - Does not determine factual truth. A highly persuasive text may be factually accurate; a poorly constructed appeal may be correct.
+  - Does not prove intent. Finding a pathos appeal does not mean the speaker deliberately manipulated; emotion may be genuine.
+  - Audience effects depend on actual audiences, which this framework cannot access from the text alone.
 references:
   - title: Rhetoric
     author: Aristotle
-    note: Used for ethos, pathos, logos, and enthymeme.
+    note: >
+      Primary source for ethos, pathos, logos, and enthymeme.
+      Translated editions vary; any standard scholarly translation is acceptable.
+      The core framework is presented in Books I and II.

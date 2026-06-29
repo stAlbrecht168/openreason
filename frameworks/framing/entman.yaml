@@ -1,8 +1,23 @@
 id: framing-entman
 name: Robert Entman — Framing Analysis
-version: 0.1.0
+version: 0.2.0
 domain: framing_analysis
-purpose: Analyze how communication defines problems, assigns causes, makes moral evaluations, and suggests remedies.
+purpose: >
+  Analyse how communication defines problems, assigns causes, makes moral evaluations,
+  and suggests remedies. Identify what a text makes salient and what it omits, revealing
+  the implicit frame through which an issue is presented.
+scope: >
+  Appropriate for: news articles, political speeches, op-eds, policy documents, and
+  any text that presents an issue, event, or problem in a particular way — defining
+  what it is, why it happened, whether it is good or bad, and what should be done.
+  Not appropriate for: purely descriptive texts with no evaluative or prescriptive
+  dimension; abstract logical arguments without a problem/solution structure
+  (use logic-walton); texts primarily about group identity rather than issue framing
+  (use discourse-van-dijk).
+verification_status: draft
+capabilities:
+  - framing_analysis
+  - social_effect_analysis
 intents:
   - framing_analysis
   - political_message_analysis
@@ -25,36 +40,48 @@ core_concepts:
   - treatment recommendation
   - salience
 evidence_statuses:
+  - O1
   - O2
   - F1
   - S1
   - H1
 analysis_steps:
-  - Identify what is presented as the problem.
-  - Identify the attributed cause.
-  - Identify moral evaluation.
-  - Identify suggested or implied solution.
-  - Identify what is made salient or omitted.
+  - Identify what the text presents as the problem or issue.
+  - Identify the attributed cause or responsible agent.
+  - Identify the moral evaluation — what implicit judgement is made about the situation or actors.
+  - Identify the suggested or implied solution or response.
+  - Identify what is made salient and what is omitted from the frame.
+  - Note what alternative framings of the same issue would look like.
 decision_rules:
-  - IF a group is made the central problem THEN identify problem definition.
-  - IF cause is assigned to culture, religion, or nationality THEN flag causal framing.
-  - IF exclusion or restriction is implied as solution THEN identify treatment recommendation.
+  - IF a group or entity is made the central cause of the problem THEN identify the causal framing and note its implications [F1].
+  - IF cause is assigned to culture, religion, or nationality rather than to systemic factors THEN flag the causal attribution as a framing choice [F1].
+  - IF exclusion, restriction, or punitive response is implied as the natural solution THEN identify the treatment recommendation frame [F1].
+  - IF significant relevant information is absent from the presentation THEN note what is omitted and what the omission implies [F1].
+  - IF a moral evaluation is implicit (not stated) THEN identify it as an implicit judgement [F1].
 analysis_questions:
-  - What is the problem?
-  - Who or what is blamed?
+  - What is defined as the problem?
+  - Who or what is identified as the cause?
   - What moral evaluation is implied?
-  - What solution becomes thinkable?
-  - What is omitted?
+  - What solution becomes natural or thinkable within this frame?
+  - What is omitted from this frame?
+  - What alternative framings of the same issue exist?
 output_fields:
   - problem_definition
   - causal_interpretation
   - moral_evaluation
   - treatment_recommendation
   - omissions
+  - alternative_framings
 limitations:
-  - Framing analysis does not determine factual accuracy.
-  - Frame effects are context-dependent.
+  - Framing analysis does not determine factual accuracy. A frame can be analytically identifiable and also descriptively correct.
+  - Frame effects on audiences are context-dependent and cannot be assumed from the text alone. S1 claims require caution.
+  - Identifying a frame does not establish the framer's intent. A frame may be the result of convention, genre, or shared assumption rather than strategic choice.
+  - Omissions are harder to verify than inclusions; the analysis depends on the analyst's knowledge of what could have been included.
 references:
   - title: "Framing: Toward Clarification of a Fractured Paradigm"
     author: Robert M. Entman
-    note: Used for the four-part framing model.
+    year: 1993
+    note: >
+      Primary source. The foundational paper defining the four framing functions:
+      problem definition, causal interpretation, moral evaluation, and treatment
+      recommendation. Journal of Communication, 43(4), 51–58.

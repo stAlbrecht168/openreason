@@ -61,11 +61,20 @@ function checkFrameworks(): CheckResult[] {
   }
 
   for (const f of frameworks) {
+    if (!f.scope || f.scope.trim().length === 0) {
+      results.push(fail(`framework "${f.id}": scope`, 'scope field is missing or empty'));
+    }
+    if (!f.capabilities || f.capabilities.length === 0) {
+      results.push(fail(`framework "${f.id}": capabilities`, 'capabilities field is missing or empty'));
+    }
     if (f.limitations.length === 0) {
       results.push(fail(`framework "${f.id}": limitations`, 'No limitations listed'));
     }
     if (f.references.length === 0 || f.references.some(r => !r.title)) {
       results.push(fail(`framework "${f.id}": references`, 'Missing or empty reference title'));
+    }
+    if (!f.evidence_statuses.includes('O1')) {
+      results.push(fail(`framework "${f.id}": evidence_statuses`, 'O1 is missing from evidence_statuses'));
     }
     if (!f.evidence_statuses.includes('H1')) {
       results.push(fail(`framework "${f.id}": evidence_statuses`, 'H1 is missing from evidence_statuses'));

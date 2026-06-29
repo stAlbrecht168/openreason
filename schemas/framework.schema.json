@@ -2,18 +2,34 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "OpenReason Framework",
   "type": "object",
-  "required": ["id", "name", "version", "domain", "purpose", "intents", "triggers", "core_concepts", "evidence_statuses", "analysis_steps", "decision_rules", "analysis_questions", "output_fields", "limitations", "references"],
+  "required": [
+    "id", "name", "version", "domain", "purpose", "scope",
+    "capabilities", "intents", "triggers", "core_concepts",
+    "evidence_statuses", "analysis_steps", "decision_rules",
+    "analysis_questions", "output_fields", "limitations", "references"
+  ],
   "properties": {
     "id": { "type": "string", "minLength": 1 },
     "name": { "type": "string", "minLength": 1 },
     "version": { "type": "string", "minLength": 1 },
     "domain": { "type": "string", "minLength": 1 },
     "purpose": { "type": "string", "minLength": 1 },
+    "scope": {
+      "type": "string",
+      "minLength": 1,
+      "description": "What inputs this framework is appropriate for, and explicitly what it is NOT for."
+    },
     "verification_status": {
       "type": "string",
       "enum": ["draft", "reviewed", "verified", "contested"],
       "default": "draft",
       "description": "How carefully the framework content has been checked against its cited sources."
+    },
+    "capabilities": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1,
+      "description": "Capability names from the pack registry that this framework contributes to."
     },
     "intents": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
     "triggers": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
@@ -37,6 +53,7 @@
         "properties": {
           "title": { "type": "string", "minLength": 1 },
           "author": { "type": "string" },
+          "year": { "type": "integer" },
           "note": { "type": "string" }
         }
       },

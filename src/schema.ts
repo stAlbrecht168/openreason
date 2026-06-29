@@ -12,7 +12,9 @@ export const FrameworkSchema = z.object({
   version: z.string().min(1),
   domain: z.string().min(1),
   purpose: z.string().min(1),
+  scope: z.string().min(1),
   verification_status: VerificationStatusSchema.default('draft'),
+  capabilities: z.array(z.string()).min(1),
   intents: z.array(z.string()).min(1),
   triggers: z.array(z.string()).min(1),
   anti_triggers: z.array(z.string()).default([]),
@@ -26,6 +28,7 @@ export const FrameworkSchema = z.object({
   references: z.array(z.object({
     title: z.string(),
     author: z.string().optional(),
+    year: z.number().optional(),
     note: z.string().optional()
   })).min(1)
 });

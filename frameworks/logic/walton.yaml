@@ -1,8 +1,22 @@
 id: logic-walton
 name: Douglas Walton — Informal Logic
-version: 0.1.0
+version: 0.2.0
 domain: informal_logic
-purpose: Analyze everyday arguments by identifying claims, premises, conclusions, burden of proof, and critical questions.
+purpose: >
+  Analyse everyday arguments by identifying claims, premises, conclusions,
+  burden of proof, and critical questions. Evaluate whether conclusions
+  follow from their premises and detect informal fallacies.
+scope: >
+  Appropriate for: any input that contains an explicit or implicit argument —
+  a claim supported by reasons, a conclusion drawn from evidence, a fallacy
+  allegation, or a burden-of-proof dispute.
+  Not appropriate for: descriptive texts with no argumentative structure,
+  purely emotional appeals with no reasoning component (use rhetoric-aristotle),
+  or factual lookups.
+verification_status: draft
+capabilities:
+  - argument_analysis
+  - fallacy_detection
 intents:
   - logical_analysis
   - debate_analysis
@@ -25,42 +39,54 @@ core_concepts:
   - burden of proof
   - relevance
 evidence_statuses:
+  - O1
   - O2
   - L1
   - H1
 analysis_steps:
-  - Identify the explicit claim.
-  - Identify premises and conclusion.
-  - Reconstruct hidden assumptions.
-  - Ask critical questions.
-  - Evaluate whether conclusion follows from premises.
-  - Mark uncertainty and missing evidence.
+  - Identify the explicit claim or conclusion being advanced.
+  - Identify the stated premises offered in support.
+  - Reconstruct unstated (implicit) assumptions required for the argument to work.
+  - Apply critical questions appropriate to the argument scheme in use.
+  - Evaluate whether the conclusion follows from the premises.
+  - Identify any burden-of-proof issues.
+  - Mark remaining uncertainty and missing evidence.
 decision_rules:
-  - IF the conclusion does not follow from the premises THEN mark a non sequitur or unsupported inference.
-  - IF an analogy is used THEN compare relevant similarities and differences.
-  - IF a broad group claim is based on limited examples THEN check for hasty generalization.
-  - IF the speaker demands acceptance without evidence THEN flag a burden-of-proof issue.
+  - IF the conclusion does not follow from the premises THEN mark a non sequitur or unsupported inference [L1].
+  - IF an analogy is used THEN compare relevant similarities and differences before accepting the inference [L1].
+  - IF a broad group claim is based on limited examples THEN check for hasty generalisation [L1].
+  - IF the speaker demands acceptance without providing evidence THEN flag a burden-of-proof issue [L1].
+  - IF a premise is implicit and necessary for the argument THEN reconstruct and state it explicitly [L1].
 analysis_questions:
-  - What is the conclusion?
-  - What premises support it?
-  - What assumptions are unstated?
-  - Who carries the burden of proof?
+  - What is the conclusion the speaker is advancing?
+  - What premises are explicitly offered in support?
+  - What assumptions are unstated but necessary for the argument to hold?
+  - Who carries the burden of proof, and is it met?
   - What critical questions remain unanswered?
+  - Does the argument scheme used (analogy, authority, generalisation) hold under scrutiny?
 output_fields:
   - claim
   - premises
   - conclusion
   - hidden_assumptions
   - fallacy_candidates
+  - burden_of_proof_assessment
   - confidence
 limitations:
-  - Does not itself verify empirical facts.
-  - Does not prove speaker intent.
-  - Needs specific claims or quotes for strong conclusions.
+  - Does not verify the empirical truth of premises.
+  - Does not prove speaker intent — motive claims require H1 labelling.
+  - Requires specific claims or quotes; weak on vague or indirect language.
+  - Defeasible reasoning means conclusions may be revised if new premises emerge; this is normal, not a flaw.
 references:
   - title: Informal Logic
     author: Douglas Walton
-    note: Used for argument reconstruction and critical questions.
+    year: 1989
+    note: >
+      Primary source. Used for the foundational concepts of argument reconstruction,
+      critical questions, defeasible reasoning, and burden of proof.
   - title: Argumentation Schemes
     author: Douglas Walton, Chris Reed, Fabrizio Macagno
-    note: Used for argument schemes and critical questions.
+    year: 2008
+    note: >
+      Used for the taxonomy of argument schemes and their associated critical questions.
+      Extends the 1989 work with a more comprehensive classification system.

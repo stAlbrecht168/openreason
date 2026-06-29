@@ -1,8 +1,27 @@
 id: discourse-van-dijk
 name: Teun A. van Dijk — Critical Discourse Analysis
-version: 0.1.0
+version: 0.2.0
 domain: critical_discourse_analysis
-purpose: Analyze how discourse constructs in-groups, out-groups, power relations, prejudice, disclaimers, and ideological polarization.
+purpose: >
+  Analyse how discourse constructs in-groups and out-groups, represents social groups,
+  reproduces power relations, and produces ideological polarisation. Identify discourse
+  strategies such as positive self-presentation, negative other-presentation, disclaimers,
+  and group hierarchies.
+scope: >
+  Appropriate for: texts involving social groups — who is included, excluded, normalised,
+  or problematised; texts with explicit or implicit group comparisons; political language
+  about migration, ethnicity, nationality, or religion; texts using "we/they" structures,
+  disclaimers, or conditional acceptance of groups.
+  Not appropriate for: texts with no group representation dimension; purely logical
+  arguments with no social or identity content (use logic-walton); media framing
+  where group representation is absent (use framing-entman).
+  Activation note: this framework is most powerful on texts with explicit group othering.
+  On texts where group construction is mild or implicit, findings should be cautiously stated.
+verification_status: draft
+capabilities:
+  - discourse_analysis
+  - group_representation_analysis
+  - social_effect_analysis
 intents:
   - discourse_analysis
   - minority_effects
@@ -30,46 +49,63 @@ core_concepts:
   - ideological square
   - polarization
   - disclaimers
-  - denial of racism
+  - denial of prejudice
   - group hierarchy
 evidence_statuses:
+  - O1
   - O2
   - D1
   - S1
   - H1
 analysis_steps:
-  - Identify the represented groups.
-  - Identify who is normalized, accepted, rejected, or problematized.
-  - Detect positive self-presentation and negative other-presentation.
-  - Check whether one group is used as an exception to reject another.
+  - Identify all social groups represented in the text.
+  - Determine which groups are presented as normalised, accepted, rejected, or problematised.
+  - Detect positive self-presentation strategies (emphasising in-group virtues).
+  - Detect negative other-presentation strategies (emphasising out-group problems or threats).
+  - Identify disclaimer structures ("I am not against X, but...").
+  - Check whether one group is used as a strategic exception to reject another.
+  - Identify what is emphasised and what is omitted.
   - Separate discourse interpretation from motive attribution.
 decision_rules:
-  - IF one minority is praised while another is rejected THEN check strategic exception and contrastive othering.
-  - IF a speaker says they are not against a broad group but rejects a narrower group THEN check disclaimer structure.
-  - IF group traits are generalized THEN check deindividualization and negative other-presentation.
-  - IF a group is accepted only conditionally THEN check respectability hierarchy.
+  - IF one minority is praised while another is rejected THEN check for strategic exception and contrastive othering [D1].
+  - IF a speaker asserts they are not against a broad group but rejects a specific subgroup THEN analyse disclaimer structure [D1].
+  - IF traits are attributed to a group as a whole rather than to individuals THEN check for deindividualisation and negative other-presentation [D1].
+  - IF a group is accepted only under conditions (e.g. cultural conformity) THEN check for respectability hierarchy [D1].
+  - IF the text emphasises certain group characteristics while omitting others THEN note the selective salience [D1].
 analysis_questions:
-  - Who is presented as us?
-  - Who is presented as them?
-  - Which group is treated as acceptable?
-  - Which group is treated as problematic?
-  - What is emphasized or omitted?
-  - Does the comparison divide minority groups?
+  - Who is constructed as "us" and who as "them"?
+  - Which group is presented as acceptable or normal?
+  - Which group is presented as problematic or threatening?
+  - Are disclaimers present, and what rhetorical function do they serve?
+  - Is one minority used as a contrast to problematise another?
+  - What is emphasised about each group, and what is omitted?
+  - Does the comparison divide or rank minority groups?
 output_fields:
   - in_group
   - out_group
   - accepted_group
   - rejected_group
   - discourse_strategy
+  - disclaimer_structure
   - social_effect
 limitations:
-  - Does not prove speaker intent.
-  - Requires careful textual evidence.
-  - Should not replace fact-checking.
+  - Does not prove speaker intent. Discourse analysis describes linguistic structure, not motive.
+  - Requires careful textual evidence. Strong D1 findings need explicit textual support.
+  - Most powerful on texts with explicit group othering; weaker on implicit or mild group construction.
+  - Should not replace empirical fact-checking about the groups described.
+  - Social effect claims (S1) are patterns identified in the literature, not proven causal effects of this specific text.
 references:
   - title: Discourse and Power
     author: Teun A. van Dijk
-    note: Used for discourse, power, and ideological polarization.
+    year: 2008
+    note: >
+      Primary source for discourse, power, and ideological polarisation.
+      The ideological square and positive/negative group presentation are
+      developed here.
   - title: Racism and Discourse in Spain and Latin America
     author: Teun A. van Dijk
-    note: Used for discourse patterns around racism and group representation.
+    year: 2005
+    note: >
+      Used for discourse patterns around racism, group representation, and
+      disclaimer structures. Provides the most detailed treatment of strategic
+      exception and contrastive othering.
