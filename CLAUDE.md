@@ -59,17 +59,17 @@ Every analytical claim must carry one of these labels:
 
 ## Available analytical frameworks
 
-These live in `frameworks/` as YAML files. Each one defines when it is appropriate,
-what questions it asks, and what evidence statuses it uses.
+These live in `frameworks/` as YAML files organised by domain. Each file defines when the framework is appropriate, what questions it asks, and what evidence statuses it produces. There are currently **15 draft frameworks** across 5 packs.
 
-| ID | Framework | Use when |
+| Pack | Domain | Frameworks |
 |---|---|---|
-| `logic-walton` | Douglas Walton — Informal Logic | arguments, fallacies, premises and conclusions, burden of proof |
-| `discourse-van-dijk` | Teun A. van Dijk — Critical Discourse Analysis | group representation, in-group/out-group, othering, disclaimers |
-| `framing-entman` | Robert Entman — Framing Analysis | political framing, problem definition, blame assignment, implied solution |
-| `rhetoric-aristotle` | Aristotle — Rhetoric | persuasion, ethos/pathos/logos, unstated premises, audience positioning |
+| `logic` | informal_logic | walton, toulmin, weston, damer |
+| `discourse` | critical_discourse_analysis | van_dijk, fairclough, wodak |
+| `framing-rhetoric` | framing_analysis / rhetoric | entman, aristotle, lakoff, perelman |
+| `psychology` | cognitive_bias / moral_psychology | kahneman_tversky, haidt |
+| `propaganda` | propaganda_analysis | ipa, jowett_odonnell |
 
-Before applying a framework, read its YAML file to understand its current scope and limitations.
+Before applying a framework, read its YAML file and companion `.md` to understand its scope, limitations, and verification status. All fifteen frameworks are **draft** — their concepts have not been verified against original cited sources.
 
 ---
 
@@ -148,9 +148,60 @@ This runs: validate → test → build → example analysis.
 
 If anything fails, diagnose and fix it — do not ask the user to do it manually unless the environment genuinely prevents you from running commands.
 
----
+## How to act as a maintainer
 
-## Framework status vocabulary
+When the user asks you to change, fix, or improve the repository itself — not to analyse a text, but to work on the codebase, frameworks, or documentation — apply these rules.
+
+### Before changing anything
+
+1. **Read what already exists.** Before editing a file, read it. Before adding a framework, read the most similar existing one. Before fixing a test, read the test and the code it tests.
+2. **Understand the constraint.** Most breakages happen when someone changes one part without realising another part depends on it. Check: does this change affect the schema? The pack registry? The consistency tests? The health checker?
+3. **Run the health check first.** Establish the baseline:
+   ```bash
+   npm run cc:health
+   ```
+   If checks are already failing before your change, note which ones and why.
+
+### Rules for changing TypeScript source
+
+- Keep changes to the smallest scope that fixes the problem.
+- If you add a field to `src/schema.ts` (Zod), also add it to `schemas/framework.schema.json` — they must stay in sync.
+- If you add a field to the schema, also add it to all existing framework YAML files and their companion `.md` files.
+- After any source change, run `npm run cc:check` (validate + test). Do not report the work done until it passes.
+- Do not use `as any` to suppress TypeScript errors. Fix the type.
+
+### Rules for changing framework YAML files
+
+- Never change `verification_status` from `draft` to `reviewed` or `verified` without actually doing the verification work described in `docs/VERIFICATION.md`.
+- When adding a new field required by the schema, add it to all four existing frameworks in the same commit.
+- When adding a new framework, also add it to the relevant pack file in `packs/` with `maturity: draft`.
+- After any YAML change, run `npm run validate`.
+
+### Rules for changing pack files
+
+- When a framework is implemented (YAML file exists), its pack entry must use `maturity: draft`, not `maturity: planned`.
+- When removing a framework, remove it from the pack too — or update it to `maturity: planned` if the YAML is removed.
+- After any pack change, run `npm run cc:health` — it checks pack/framework consistency.
+
+### Rules for changing tests
+
+- Do not delete a failing test to make the suite pass. Fix the underlying issue.
+- When adding a framework, add tests for it in the relevant pack test file.
+- When the test failure message is unclear, improve it — describe *what* failed and *what should have been true*.
+
+### Rules for changing documentation
+
+- When you change behaviour, update the docs that describe it — `CLAUDE.md`, `docs/ARCHITECTURE.md`, and the relevant book chapter.
+- Never describe a framework as verified in documentation if its YAML `verification_status` is `draft`.
+- Keep `docs/CAPABILITY_MATRIX.md` in sync with pack contents — when a framework moves from `planned` to `draft`, update the matrix.
+
+### After making a change
+
+1. Run `npm run cc:health` and confirm it passes.
+2. If tests were added or changed, confirm they pass with `npm test`.
+3. Tell the user: what changed, what was tested, and what is not yet addressed.
+
+---
 
 Use these terms when describing frameworks:
 
@@ -161,7 +212,7 @@ Use these terms when describing frameworks:
 | **verified** | Concepts have been checked against the cited original sources |
 | **planned** | Described in documentation but no YAML file yet exists |
 
-All four current frameworks (`walton`, `van-dijk`, `entman`, `aristotle`) are **implemented, draft**.
+All 15 current frameworks are **draft** — YAML files exist and validate, but concepts have not been checked against cited sources.
 
 ---
 
