@@ -109,16 +109,15 @@ The Discourse Pack asks how the statement constructs shared understanding throug
 
 ### Psychology Pack — cognitive effects
 
-*Frameworks in this pack: planned, not yet implemented.*
+*Frameworks: Kahneman & Tversky — Dual-Process Theory; Haidt — Moral Foundations Theory. Both: draft.*
 
-The Psychology Pack would eventually examine patterns associated with cognitive and social effects in the persuasion literature. Because the frameworks in this pack are not yet implemented, the following is a description of what the pack would contribute — not an active analysis.
+The Psychology Pack identifies structural patterns in communication that research associates with cognitive shortcuts and moral-foundation appeals. All findings are possible effects (`C1`) or hypotheses (`H1`) — the pack does not establish that any specific audience was cognitively affected.
 
-When implemented, the Psychology Pack would examine whether this statement activates patterns associated with:
+> [C1] The statement's confident declarative framing ("will solve," "do not need") may reduce the likelihood of deliberate evaluation by presenting contested predictions as settled facts — a pattern research associates with System 1 (fast, automatic) processing.
 
-- **Optimism bias** in predictions about future technology (Kahneman/Tversky, *planned*)
-- **Single-action bias** — the tendency to feel that one action reduces the need for others — which in framing research has been associated with statements that present one solution as sufficient (Kahneman/Tversky, *planned*)
+> [C1] "Technology will solve" invokes optimism about future technological capability. Research associates this pattern with reduced urgency about alternative interventions.
 
-*These observations are described at the [H1] level and would require verification against the cited frameworks before inclusion in a formal analysis.*
+*Note: The Psychology Pack frameworks are draft — their concepts have not been verified against the original cited sources. All findings are stated at C1/H1 and are possibilities, not established outcomes.*
 
 ---
 
@@ -189,15 +188,15 @@ A pack is a bundle of capabilities and the frameworks that provide them. Each fr
 
 Current packs:
 
-| Pack | Capabilities | Available now (draft) | Coming (planned) |
+| Pack | Capabilities | Draft frameworks | Notes |
 |---|---|---|---|
-| `logic` | argument_analysis, fallacy_detection | Walton | Toulmin, Weston, Damer |
-| `discourse` | discourse_analysis, group_representation_analysis | van Dijk | Fairclough, Wodak |
-| `framing-rhetoric` | framing_analysis, rhetoric_analysis | Entman, Aristotle | Perelman, Lakoff |
-| `psychology` | cognitive_effect_analysis, social_effect_analysis | — | Kahneman/Tversky, Haidt |
-| `propaganda` | propaganda_analysis, social_effect_analysis | — | IPA, Jowett/O'Donnell |
+| `logic` | argument_analysis, fallacy_detection | Walton, Toulmin, Weston, Damer | 4 draft |
+| `discourse` | discourse_analysis, group_representation_analysis, social_effect_analysis | van Dijk, Fairclough, Wodak | 3 draft |
+| `framing-rhetoric` | framing_analysis, rhetoric_analysis | Entman, Aristotle, Lakoff, Perelman | 4 draft |
+| `psychology` | cognitive_effect_analysis, social_effect_analysis | Kahneman/Tversky, Haidt | 2 draft — all findings C1/H1 |
+| `propaganda` | propaganda_analysis, social_effect_analysis | IPA, Jowett/O'Donnell | 2 draft — classification always H1 |
 
-Planned frameworks are listed so contributors know what is next — not to imply they are usable today. All four draft frameworks are draft, meaning their content has not been formally verified against the original cited sources.
+All 15 frameworks are draft — their content has not been formally verified against the original cited sources.
 
 ### Frameworks
 
@@ -262,27 +261,25 @@ Once inside the repository, these commands are available:
 
 ## What is implemented and what is planned
 
-OpenReason v0.1.0 is a working proof of concept. Here is an honest account of what exists:
+OpenReason v0.2.0 is a working proof of concept with 15 draft frameworks across 5 packs. Here is an honest account of what exists:
 
 | Component | Status |
 |---|---|
 | Evidence-status model (O1–X1) | Implemented |
 | Framework schema and validation | Implemented |
-| Four framework YAML files | Implemented, all draft |
+| 15 framework YAML files across 5 packs | Implemented, all draft |
 | Capability pack YAML files | Implemented |
 | Intent router | Implemented — keyword-matching heuristic, known limitations |
 | Framework resolver | Implemented — scoring logic with hardcoded fallback |
 | Analysis packet generator | Implemented — general scaffold; one worked example hardcoded |
 | ReasoningEngine API (`engine.analyze(input)`) | Implemented |
 | Claude Code interface (CLAUDE.md, slash commands) | Implemented |
-| Test suite (10 test files including consistency and label checks) | Implemented |
+| Test suite (pack-level and cross-framework tests) | Implemented |
 | Health check validator (`npm run cc:health`) | Implemented |
 | Framework verification against original sources | Not yet done for any framework |
-| Psychology pack frameworks | Planned only |
-| Propaganda pack frameworks | Planned only |
 | MCP server | Planned only |
 
-**Known limitations:** The intent router counts keywords. The resolver has a hardcoded fallback. All four frameworks are draft-status and have not been verified against their cited sources. See [docs/PROJECT_CHARTER.md](docs/PROJECT_CHARTER.md) for the full account.
+**Known limitations:** The intent router counts keywords. The resolver has a hardcoded fallback. All 15 frameworks are draft-status and have not been verified against their cited sources. See [docs/PROJECT_CHARTER.md](docs/PROJECT_CHARTER.md) for the full account.
 
 ---
 
@@ -300,7 +297,7 @@ OpenReason is designed so that useful contributions do not require writing code.
 
 ### Writing code or YAML
 
-- **Add a planned framework** — Pick one from the planned list, write the YAML, verify it against sources, add tests. See [docs/FRAMEWORK_AUTHORING.md](docs/FRAMEWORK_AUTHORING.md).
+- **Verify a framework** — Pick any of the 15 draft frameworks, read the cited sources, and confirm the concepts match. This is now the most valuable contribution. See [docs/frameworks/MATURITY_LEVELS.md](docs/frameworks/MATURITY_LEVELS.md).
 - **Improve the intent router** — The current keyword-matching approach is brittle. A better routing heuristic would improve pack selection across diverse inputs.
 - **Add example inputs** — Inputs that exercise the logic, rhetoric, or discourse packs in ways the current example does not.
 - **Fix schema inconsistencies** — See [docs/REPOSITORY_REVIEW.md](docs/REPOSITORY_REVIEW.md) for the current list.
@@ -339,4 +336,4 @@ See [docs/MANIFESTO.md](docs/MANIFESTO.md) for the full statement of principles.
 
 ---
 
-*OpenReason v0.1.0 — [Project Charter](docs/PROJECT_CHARTER.md) · [Architecture](docs/ARCHITECTURE.md) · [Claude Code Workflow](docs/CLAUDE_CODE_WORKFLOW.md) · [Framework Packs](docs/frameworks/PACKS.md)*
+*OpenReason v0.2.0 — [Project Charter](docs/PROJECT_CHARTER.md) · [Architecture](docs/ARCHITECTURE.md) · [Claude Code Workflow](docs/CLAUDE_CODE_WORKFLOW.md) · [Framework Packs](docs/frameworks/PACKS.md) · [Capability Matrix](docs/CAPABILITY_MATRIX.md)*
