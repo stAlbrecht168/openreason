@@ -336,4 +336,4 @@ See [docs/MANIFESTO.md](docs/MANIFESTO.md) for the full statement of principles.
 
 ---
 
-*OpenReason v0.2.0 — [Project Charter](docs/PROJECT_CHARTER.md) · [Architecture](docs/ARCHITECTURE.md) · [Claude Code Workflow](docs/CLAUDE_CODE_WORKFLOW.md) · [Framework Packs](docs/frameworks/PACKS.md) · [Capability Matrix](docs/CAPABILITY_MATRIX.md)*
+*OpenReason v0.2.0 — [Project Charter](docs/PROJECT_CHARTER.md) · [Architecture](docs/ARCHITECTURE.md) · [Claude Code Workflow](docs/CLAUDE_CODE_WORKFLOW.md) · [Framework Packs](docs/frameworks/PACKS.md) · [Capability Matrix](docs/CAPABILITY_MATRIX.md) · [The Book](docs/book/README.md)*
