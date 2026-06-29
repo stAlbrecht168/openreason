@@ -34,9 +34,11 @@ Every framework lists references: the books, papers, or primary sources it is de
 
 ---
 
-## The four frameworks currently available
+## The fifteen frameworks currently available
 
-OpenReason v0.1.0 includes four frameworks. All four are **draft** status — their files exist and validate, but their concepts have not yet been formally verified against the original cited sources.
+OpenReason v0.2.0 includes fifteen frameworks across five packs. All fifteen are **draft** status — their files exist and validate, but their concepts have not yet been formally verified against the original cited sources.
+
+The four foundational frameworks (Walton, van Dijk, Entman, Aristotle) are described in detail below. The eleven additional frameworks follow the same structure; their companion `.md` files contain the full documentation.
 
 ### Douglas Walton — Informal Logic
 
@@ -120,7 +122,7 @@ The pack is the capability layer. The framework is the method layer. Keeping the
 
 **Capabilities:** `argument_analysis`, `fallacy_detection`
 
-Covers the structure of arguments: whether conclusions follow from premises, whether assumptions are stated, whether the burden of proof is addressed. Currently available through Walton (draft). Planned additions: Toulmin, Weston, Damer.
+Covers the structure of arguments: whether conclusions follow from premises, whether assumptions are stated, whether the burden of proof is addressed. Available draft frameworks: Walton, Toulmin, Weston, Damer.
 
 ---
 
@@ -128,7 +130,7 @@ Covers the structure of arguments: whether conclusions follow from premises, whe
 
 **Capabilities:** `discourse_analysis`, `group_representation_analysis`, `social_effect_analysis`
 
-Covers how language constructs social reality, group representation, and ideological positions. Currently available through van Dijk (draft). Planned additions: Fairclough, Wodak.
+Covers how language constructs social reality, group representation, and ideological positions. Available draft frameworks: van Dijk, Fairclough, Wodak.
 
 ---
 
@@ -136,7 +138,7 @@ Covers how language constructs social reality, group representation, and ideolog
 
 **Capabilities:** `framing_analysis`, `rhetoric_analysis`
 
-Covers problem framing, causal attribution, moral evaluation, and persuasion structure. Currently available through Entman and Aristotle (both draft). Planned additions: Perelman, Lakoff.
+Covers problem framing, causal attribution, moral evaluation, and persuasion structure. Available draft frameworks: Entman, Aristotle, Lakoff, Perelman.
 
 ---
 
@@ -144,9 +146,9 @@ Covers problem framing, causal attribution, moral evaluation, and persuasion str
 
 **Capabilities:** `cognitive_effect_analysis`, `social_effect_analysis`
 
-Covers patterns associated with cognitive and social effects of communication — how texts may activate cognitive shortcuts or influence group attitudes. **No frameworks currently implemented.** Planned: Kahneman/Tversky, Haidt.
+Covers patterns associated with cognitive and social effects of communication. Available draft frameworks: Kahneman/Tversky (dual-process theory, cognitive biases) and Haidt (Moral Foundations Theory).
 
-When the Psychology Pack is activated in an analysis, all observations must be at the C1 (possible cognitive effect) or H1 (hypothesis) level and explicitly marked as provisional.
+When the Psychology Pack is activated, all observations must be at the C1 (possible cognitive effect) or H1 (hypothesis) level. Haidt's Moral Foundations Theory is additionally contested within moral psychology and must not be presented as established science.
 
 ---
 
@@ -154,9 +156,9 @@ When the Psychology Pack is activated in an analysis, all observations must be a
 
 **Capabilities:** `propaganda_analysis`, `social_effect_analysis`
 
-Covers systematic persuasion techniques associated with propaganda in the research literature. **No frameworks currently implemented.** Planned: Institute for Propaganda Analysis (1937), Jowett and O'Donnell.
+Covers systematic persuasion techniques associated with propaganda. Available draft frameworks: Institute for Propaganda Analysis (seven devices) and Jowett & O'Donnell (definition and ten-step analysis method).
 
-A note on this pack: identifying propaganda techniques in a text is itself an interpretive act. The pack provides tools for recognising patterns documented in the literature; it does not automatically establish that a text constitutes propaganda.
+A note on this pack: identifying propaganda techniques in a text is itself an interpretive act. The pack provides tools for recognising patterns documented in the literature; classifying a communication as propaganda is always an H1 finding — propaganda is defined by communicator intent, which cannot be directly observed from a text.
 
 ---
 

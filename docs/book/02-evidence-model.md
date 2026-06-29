@@ -140,7 +140,7 @@ C1 records patterns in the text that the research literature associates with cog
 
 > [C1] The pattern of asserting a single sufficient solution may be associated with reduced urgency about other interventions. This is based on general persuasion research; it is not a proven effect of this specific statement.
 
-C1 operates at the level of possibility, not certainty. The Psychology Pack frameworks — which will eventually formalise this type of analysis — are planned but not yet implemented. In the current version of OpenReason, C1 observations should be treated as provisional.
+C1 operates at the level of possibility, not certainty. The Psychology Pack frameworks — Kahneman/Tversky (dual-process theory and cognitive biases) and Haidt (Moral Foundations Theory) — are implemented as draft files. In the current version of OpenReason, C1 observations must be stated with cautious language ("may," "research associates with") and must not be presented as established causal claims. Haidt's theory is additionally contested within moral psychology; any C1 findings using that framework carry extra epistemic weight.
 
 **The discipline of C1:** never present a cognitive effect as established. Always include a statement of what is and is not known. Use "may," "could," "the literature associates."
 

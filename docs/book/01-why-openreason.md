@@ -110,7 +110,7 @@ You do not need to be a software developer to use OpenReason in its primary mode
 
 ## A note on the current state of the project
 
-OpenReason v0.1.0 is a proof of concept. The four frameworks currently available — Walton, van Dijk, Entman, Aristotle — are implemented as draft files. They have not been formally verified against their original sources. The intent detection is a heuristic. Several planned frameworks do not yet exist.
+OpenReason v0.2.0 is a proof of concept with 15 draft frameworks across five packs. The four foundational frameworks — Walton, van Dijk, Entman, Aristotle — are implemented as draft files, as are eleven additional frameworks covering logic, discourse, framing, rhetoric, psychology, and propaganda. None have been formally verified against their original sources. The intent detection is a heuristic.
 
 This matters, and the project does not hide it. One of OpenReason's core principles is honesty about status: a framework's maturity level is always visible, and the limitations of any analysis are part of the analysis.
 

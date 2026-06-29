@@ -35,7 +35,7 @@ Given this input, which packs are relevant?
 
 The statement contains an argument (two claims in a support relationship), so the **Logic Pack** is relevant. It also frames a problem and implies a solution, so the **Framing/Rhetoric Pack** is relevant. It constructs actor roles through its use of "we" and through its positioning of regulatory approaches, so the **Discourse Pack** has something to say, though with less intensity than for a text that explicitly compares or others groups.
 
-The **Psychology Pack** is noted as relevant but all its frameworks are `planned` — not yet implemented. Observations from that domain are included as provisional C1/H1 items, explicitly marked.
+The **Psychology Pack** is noted as relevant. Its frameworks (Kahneman/Tversky and Haidt) are draft. All observations from this pack are C1/H1 — possible patterns, not established effects — and this discipline is explicit in the analysis.
 
 The analysis declares these choices and explains each one. This is not optional — hiding framework selection is one of the things OpenReason is specifically designed to prevent.
 
@@ -170,7 +170,7 @@ The analysis does not just apply frameworks; it explains why each one was activa
 
 ### Maturity status is declared
 
-Every framework is labelled `[draft]`. The Psychology Pack is labelled as not implemented. These labels are not disclaimers appended at the end — they are part of the analysis from the start.
+Every framework is labelled `[draft]`. The Psychology Pack is labelled as draft with explicit C1/H1 discipline. These labels are not disclaimers appended at the end — they are part of the analysis from the start.
 
 ### Motive is kept at H1
 
