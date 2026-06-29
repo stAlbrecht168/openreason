@@ -1,0 +1,107 @@
+id: propaganda-jowett-odonnell
+name: Garth Jowett and Victoria O'Donnell — Propaganda and Persuasion
+version: 0.1.0
+domain: propaganda_analysis
+purpose: >
+  Apply Jowett and O'Donnell's definition of propaganda and their ten-step
+  analysis method to assess whether a communication qualifies as propaganda,
+  how it operates institutionally, and what techniques it employs. The defining
+  contribution is a precise, working definition that distinguishes propaganda
+  from persuasion and information, grounded in communicator intent and
+  institutional context.
+scope: >
+  Appropriate for: systematic analysis of suspected propaganda campaigns;
+  institutional communication where the relationship between communicator
+  intent and audience interests matters; contexts where a rigorous definitional
+  assessment of whether something constitutes propaganda is needed.
+  Not appropriate for: quick device identification (use propaganda-ipa for that);
+  texts with no discernible institutional or organisational context; analysis
+  where the propaganda label is not directly at issue.
+  Note on intent: Jowett and O'Donnell define propaganda by communicator intent
+  (serving the communicator's interests, often at the expense of the audience).
+  Intent cannot be directly observed from a text. All intent-related findings
+  must be H1.
+verification_status: draft
+capabilities:
+  - propaganda_analysis
+  - social_effect_analysis
+intents:
+  - framing_analysis
+  - discourse_analysis
+triggers:
+  - propaganda
+  - campaign
+  - institutional
+  - disinformation
+  - influence
+  - coordinated
+  - manipulation
+  - ideology
+anti_triggers:
+  - pure math
+  - pure logic
+core_concepts:
+  - definition of propaganda
+  - distinction from persuasion
+  - distinction from information
+  - ideology
+  - institutional context
+  - ten-step analysis
+evidence_statuses:
+  - O1
+  - O2
+  - D1
+  - F1
+  - S1
+  - H1
+analysis_steps:
+  - Identify the ideology or belief system underlying the communication.
+  - Identify the context — historical, political, and social setting.
+  - Identify the propagandist — who is the communicator and what is their institutional position?
+  - Identify the structure of the propaganda organisation, if any.
+  - Identify the target audience — who is being addressed and what are their characteristics?
+  - Identify media and techniques used — how is the communication delivered and by what means?
+  - Identify the special techniques used to structure the message.
+  - Assess the reaction of the target audience, if evidence is available.
+  - Assess counter-propaganda, if any, and its effectiveness.
+  - Identify the effects and evaluation — what outcomes can be observed or inferred?
+decision_rules:
+  - IF the communication serves the communicator's interests in ways that may not serve the audience's interests THEN flag as possible propaganda by Jowett and O'Donnell's definition [H1].
+  - IF the communication is coordinated by an identifiable organisation or institution THEN identify the institutional context [D1].
+  - IF the communication presents one ideological position as natural, universal, or obvious THEN identify the ideological function [F1].
+  - IF the communication targets a specific audience segment with tailored messages THEN identify the target audience and tailoring strategy [D1].
+  - IF the communication uses techniques to prevent critical evaluation (emotional saturation, repetition, elimination of alternatives) THEN identify those techniques [R1 via ipa] or [D1].
+  - IF evidence of audience response or behavioural change exists THEN include it, clearly separated from the text analysis [S1].
+analysis_questions:
+  - What ideology or belief system underlies this communication?
+  - Who is the communicator and what is their institutional position?
+  - Is there an identifiable propaganda organisation or coordinated structure behind this communication?
+  - Who is the target audience and what are their characteristics?
+  - What techniques are used to shape the message?
+  - Does the communication serve the communicator's interests in ways that may conflict with the audience's interests?
+  - What effects — observable or inferable — does the communication aim to produce?
+output_fields:
+  - ideology_assessment
+  - propagandist_identification
+  - organisational_structure
+  - target_audience
+  - techniques_used
+  - communicator_vs_audience_interests
+  - propaganda_classification
+  - effects_assessment
+limitations:
+  - The definition of propaganda by communicator intent means that identifying propaganda requires knowing the communicator's intent, which cannot be directly observed from a text. All propaganda classification findings are H1.
+  - The ten-step method is comprehensive but requires extensive contextual research beyond the text itself — historical background, institutional context, and audience characteristics.
+  - The distinction between propaganda and persuasion is contested in communication studies; some scholars argue it cannot be reliably operationalised.
+  - Applying the propaganda label to a communication is a significant interpretive act with potential political implications. The label should only be applied with careful grounding in the ten-step analysis.
+  - Does not itself identify specific propaganda techniques — use propaganda-ipa for device-level analysis.
+references:
+  - title: Propaganda and Persuasion
+    author: Garth S. Jowett, Victoria O'Donnell
+    year: 1986
+    note: >
+      Primary source. First edition 1986; sixth edition 2015 (SAGE). The
+      definitive academic treatment of propaganda analysis, including the
+      working definition distinguishing propaganda from persuasion and
+      information, and the ten-step analysis method. Use the most recent
+      edition for verification.

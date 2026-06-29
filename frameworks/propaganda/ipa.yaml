@@ -1,0 +1,115 @@
+id: propaganda-ipa
+name: Institute for Propaganda Analysis — Seven Propaganda Devices
+version: 0.1.0
+domain: propaganda_analysis
+purpose: >
+  Identify the seven propaganda devices described by the Institute for Propaganda
+  Analysis (1937): name calling, glittering generalities, transfer, testimonial,
+  plain folks, card stacking, and bandwagon. Each device is a recognisable
+  persuasion technique documented in the historical literature on propaganda.
+  Findings identify which devices are present in a text; they do not establish
+  that the text constitutes propaganda.
+scope: >
+  Appropriate for: texts that may deploy one or more of the seven recognised
+  devices; initial screening of political, commercial, or wartime communication
+  for recognisable persuasion patterns; educational and media literacy contexts.
+  Not appropriate for: establishing that a text is propaganda — that requires
+  intent assessment, which belongs at H1; texts where rhetorical analysis
+  (use rhetoric-aristotle or rhetoric-perelman) or framing analysis
+  (use framing-entman) is the primary need; systematic propaganda analysis
+  covering institutional context and intent (use propaganda-jowett-odonnell).
+  Historical note: the IPA taxonomy was developed in 1937 by a civic
+  organisation, not by academic researchers. It was designed for citizen
+  education and inoculation, not scholarly analysis. The devices are
+  descriptively useful but the taxonomy predates modern communication research
+  and lacks theoretical rigour. Use alongside Jowett & O'Donnell for a more
+  grounded analysis.
+verification_status: draft
+capabilities:
+  - propaganda_analysis
+  - rhetoric_analysis
+intents:
+  - rhetoric_analysis
+  - framing_analysis
+triggers:
+  - propaganda
+  - name calling
+  - bandwagon
+  - testimonial
+  - card stacking
+  - plain folks
+  - transfer
+  - glittering
+anti_triggers:
+  - pure math
+  - pure logic
+core_concepts:
+  - name calling
+  - glittering generalities
+  - transfer
+  - testimonial
+  - plain folks
+  - card stacking
+  - bandwagon
+evidence_statuses:
+  - O1
+  - O2
+  - R1
+  - D1
+  - S1
+  - H1
+analysis_steps:
+  - Read the text and identify any use of emotionally charged labels directed at a person or group (name calling).
+  - Identify vague, emotionally positive abstractions used without specific content (glittering generalities).
+  - Identify attempts to associate a person, product, or idea with a respected symbol or authority (transfer).
+  - Identify appeals to authority figures or celebrities to endorse a position (testimonial).
+  - Identify attempts to present the speaker as an ordinary person sharing the audience's values (plain folks).
+  - Identify selective presentation of evidence that favours one side while suppressing contrary evidence (card stacking).
+  - Identify appeals to the perception that "everyone" holds a position or is doing something (bandwagon).
+  - Note which devices are present, absent, and which require further evidence before being named.
+decision_rules:
+  - IF a person or group is labelled with emotionally charged negative terms without substantive argument THEN identify as possible name calling device [R1].
+  - IF vague positive abstractions (freedom, justice, democracy, family values) are used without specific referents THEN identify as possible glittering generalities [R1].
+  - IF a symbol, flag, religion, or respected institution is invoked to lend credibility to an unrelated claim THEN identify as possible transfer [R1].
+  - IF a celebrity, expert, or authority figure endorses a position THEN identify as possible testimonial and assess whether the authority is relevant [R1].
+  - IF the speaker presents themselves as ordinary, humble, or of the same background as the audience THEN identify as possible plain folks appeal [R1].
+  - IF only evidence supporting one position is presented while contrary evidence is ignored THEN identify as possible card stacking [R1].
+  - IF the argument appeals to popularity or the claim that "everyone" agrees THEN identify as possible bandwagon [R1].
+analysis_questions:
+  - Which of the seven devices are present in this text?
+  - Is the negative labelling (name calling) substantiated by argument, or is it purely emotive?
+  - What specific content underlies the abstract positive terms used (glittering generalities)?
+  - Is the transferred authority relevant to the claim being made (testimonial, transfer)?
+  - Is the evidence selection balanced, or is contrary evidence being suppressed (card stacking)?
+  - Is the "everyone" claim accurate, or is it an appeal to a manufactured consensus (bandwagon)?
+output_fields:
+  - name_calling
+  - glittering_generalities
+  - transfer
+  - testimonial
+  - plain_folks
+  - card_stacking
+  - bandwagon
+  - device_summary
+limitations:
+  - Identifying a device does not establish that the text is propaganda. Propaganda is defined by intent; intent cannot be read from a text alone. Labelling a text as propaganda requires H1.
+  - The seven devices overlap with standard rhetorical techniques (ethos, pathos, argument from authority). The IPA taxonomy does not systematically distinguish propaganda techniques from normal persuasion.
+  - The taxonomy was designed for political education in 1937 and does not reflect subsequent research on persuasion, communication, or ideology. It is historically useful but theoretically limited.
+  - Card stacking (selective evidence) is present in most persuasive communication and is not by itself a marker of propaganda.
+  - Does not provide a definition of propaganda or a method for determining whether a communication qualifies as propaganda. Use propaganda-jowett-odonnell for that.
+references:
+  - title: The Fine Art of Propaganda
+    author: Alfred McClung Lee, Elizabeth Briant Lee (eds.)
+    year: 1939
+    note: >
+      Primary source documenting the seven propaganda devices developed by the
+      Institute for Propaganda Analysis. Published by Harcourt, Brace. The IPA
+      was active 1937–1942; this volume is the principal published record of
+      their analytical framework.
+  - title: How to Detect Propaganda
+    author: Institute for Propaganda Analysis
+    year: 1937
+    note: >
+      Original pamphlet introducing the seven devices. Published in Propaganda
+      Analysis, 1(1), November 1937. The founding document of the IPA taxonomy.
+      Reproduced in various collections; the original is in the public domain.

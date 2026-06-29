@@ -3,29 +3,47 @@ capabilities:
   - propaganda_analysis
   - social_effect_analysis
 description: >
-  The propaganda pack covers the systematic analysis of persuasion techniques used
-  to shape public opinion — including techniques documented by the Institute for
-  Propaganda Analysis and the academic literature on political communication.
-  It is relevant when an analysis involves large-scale, organised, or institutionally
-  coordinated persuasion rather than a single speaker making an argument.
+  The Propaganda Pack provides tools for identifying propaganda techniques and
+  systematically assessing whether a communication qualifies as propaganda.
 
-  Important: Applying the label "propaganda" to a text is itself an interpretive act
-  requiring evidence (D1/F1). The pack provides tools for identifying techniques
-  associated with propaganda in the literature; it does not automatically establish
-  that a given text constitutes propaganda.
+  Two frameworks serve different purposes and should be used together:
+
+  The Institute for Propaganda Analysis (IPA) framework identifies the seven
+  propaganda devices described in 1937: name calling, glittering generalities,
+  transfer, testimonial, plain folks, card stacking, and bandwagon. It is
+  device-level and bottom-up — useful for identifying specific techniques in
+  specific sentences.
+
+  Jowett and O'Donnell's framework provides a working definition of propaganda
+  (distinguishing it from persuasion and information) and a ten-step analytical
+  method for systematic institutional analysis. It is definitional and top-down
+  — use it when assessing whether a communication as a whole qualifies as
+  propaganda.
+
+  Critical constraint: Applying the label "propaganda" to a text is itself an
+  interpretive act requiring evidence. Propaganda is defined by communicator
+  intent, which cannot be directly observed. All propaganda classification
+  findings must be stated as H1 (hypothesis), grounded in evidence from the
+  ten-step analysis. Device identification (IPA) is R1 or D1; propaganda
+  classification (Jowett & O'Donnell) is always H1.
 frameworks:
   - id: propaganda-ipa
-    maturity: planned
+    maturity: draft
     note: >
-      The seven propaganda devices identified by the Institute for Propaganda Analysis
-      (1937): name calling, glittering generalities, transfer, testimonial, plain folks,
-      card stacking, bandwagon. A foundational taxonomy, though dated; must be
-      supplemented with contemporary frameworks. Framework YAML not yet written.
+      Institute for Propaganda Analysis seven devices: name calling, glittering
+      generalities, transfer, testimonial, plain folks, card stacking, bandwagon.
+      Device-level, bottom-up technique identification. Historical taxonomy (1937);
+      use alongside Jowett & O'Donnell for a complete analysis. Device findings
+      are R1. Propaganda classification is H1.
+      YAML and companion .md implemented. Not yet verified against original sources.
+
   - id: propaganda-jowett-odonnell
-    maturity: planned
+    maturity: draft
     note: >
-      Garth Jowett and Victoria O'Donnell's definition of propaganda and its
-      distinction from persuasion and information. Provides a conceptual framework
-      for classifying communication intent and technique. Their ten-step analysis
-      method is particularly useful for systematic assessment.
-      Framework YAML not yet written.
+      Jowett and O'Donnell's Propaganda and Persuasion. Working definition
+      distinguishing propaganda from persuasion and information; ten-step analysis
+      method covering ideology, context, propagandist, organisation, audience,
+      media, techniques, audience reaction, counter-propaganda, and effects.
+      Definitional and institutional — use when assessing whether a communication
+      as a whole qualifies as propaganda. All propaganda classification is H1.
+      YAML and companion .md implemented. Not yet verified against original sources.
