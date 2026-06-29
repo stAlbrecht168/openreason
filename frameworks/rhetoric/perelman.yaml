@@ -1,0 +1,112 @@
+id: rhetoric-perelman
+name: Chaïm Perelman and Lucie Olbrechts-Tyteca — The New Rhetoric
+version: 0.1.0
+domain: rhetoric
+purpose: >
+  Analyse argumentation from the perspective of audience acceptance: what makes
+  an argument persuasive to a particular audience, or to an idealised universal
+  audience? Identify argumentation schemes from Perelman's taxonomy — including
+  quasi-logical arguments, arguments based on reality, and dissociation — and
+  assess how presence and ordering affect the force of claims.
+scope: >
+  Appropriate for: complex argumentation about values and policy; philosophical
+  and ethical reasoning; texts where the analyst needs to identify specific
+  argumentation schemes beyond ethos/pathos/logos; arguments directed at
+  establishing value hierarchies or making contested value claims seem reasonable.
+  Not appropriate for: short emotional appeals (use rhetoric-aristotle);
+  texts where the structural four-part frame is the primary concern (use framing-entman);
+  purely logical validity assessment (use logic-walton).
+  Distinction from Aristotle: Aristotle classifies appeals (ethos/pathos/logos)
+  and the enthymeme. Perelman provides a more systematic taxonomy of argumentation
+  schemes — especially quasi-logical arguments and value-based arguments —
+  and is distinctive for the concept of the universal audience and the technique
+  of dissociation. Use Perelman when the specific type of argument scheme matters
+  or when value-based reasoning is central.
+verification_status: draft
+capabilities:
+  - rhetoric_analysis
+  - framing_analysis
+intents:
+  - rhetoric_analysis
+  - persuasion_analysis
+  - framing_analysis
+triggers:
+  - audience
+  - value
+  - argumentation
+  - legitimacy
+  - authority
+  - universal
+  - justice
+  - analogy
+  - hierarchy
+  - dissociation
+anti_triggers:
+  - pure math
+  - pure code
+core_concepts:
+  - universal audience
+  - presence
+  - dissociation
+  - quasi-logical arguments
+  - argument from analogy
+  - argument from authority
+  - value hierarchies
+evidence_statuses:
+  - O1
+  - O2
+  - R1
+  - F1
+  - L1
+  - H1
+analysis_steps:
+  - Identify the intended audience — is the argument directed at a specific group or an implied universal audience?
+  - Identify what is made present — what the argument brings to the foreground of attention.
+  - Identify the argumentation scheme or schemes in use.
+  - For quasi-logical arguments, identify which logical structure is being invoked analogically.
+  - For arguments based on reality, identify whether it relies on example, analogy, or authority.
+  - For dissociation, identify which concept is being split and how the valued and devalued halves are distinguished.
+  - Identify any value hierarchies the argument establishes or assumes.
+decision_rules:
+  - IF an argument is structured to appear logically necessary without being formally valid THEN identify it as a quasi-logical argument [R1].
+  - IF the argument relies on a single example treated as representative of a pattern THEN identify it as argument by example and assess whether the example is representative [R1].
+  - IF the argument draws an analogy between two cases THEN identify the analogy and evaluate the relevance of the similarity [R1].
+  - IF the argument appeals to a source of authority to establish a value claim THEN identify the authority and assess whether it is legitimately applicable [R1].
+  - IF a single concept is divided into a valued version and a devalued version THEN identify the dissociation and what work it performs [R1].
+  - IF certain considerations are placed first or emphasised over others THEN identify the use of presence and its argumentative function [R1].
+analysis_questions:
+  - Who is the intended audience, and what does this audience already accept?
+  - What is made present — foregrounded — and what is left in the background?
+  - Which argumentation scheme is being used?
+  - Is a quasi-logical structure being employed to make a value claim appear logically necessary?
+  - Is a dissociation used to protect one concept by splitting it from a devalued version?
+  - What value hierarchies does the argument assume or establish?
+output_fields:
+  - audience_analysis
+  - presence_analysis
+  - argumentation_scheme
+  - quasi_logical_structure
+  - dissociation_analysis
+  - value_hierarchy
+limitations:
+  - Perelman's taxonomy of argumentation schemes is extensive (over 70 types); this framework covers the most common. Full application requires familiarity with the source taxonomy.
+  - The universal audience is a theoretical ideal, not a real audience. Claiming an argument appeals to a universal audience is an interpretive judgement, not an observation.
+  - Argumentation scheme identification requires interpretive skill; the same argument may be classified under more than one scheme.
+  - Does not determine factual accuracy. An effective argument by analogy may rest on a false or misleading comparison.
+  - Does not prove speaker intent.
+references:
+  - title: The New Rhetoric — A Treatise on Argumentation
+    author: Chaïm Perelman, Lucie Olbrechts-Tyteca
+    year: 1969
+    note: >
+      Primary source. Originally published in French as La Nouvelle Rhétorique
+      (1958); English translation by John Wilkinson and Purcell Weaver (Notre Dame,
+      1969). The foundational text for the universal audience concept, presence,
+      dissociation, and the full taxonomy of argumentation schemes.
+  - title: The Realm of Rhetoric
+    author: Chaïm Perelman
+    year: 1982
+    note: >
+      Shorter and more accessible treatment of the main concepts from The New
+      Rhetoric. Useful as an entry point before the larger work. Originally
+      published as L'Empire Rhétorique (1977).

@@ -1,0 +1,102 @@
+id: framing-lakoff
+name: George Lakoff — Cognitive Framing
+version: 0.1.0
+domain: framing_analysis
+purpose: >
+  Analyse how conceptual metaphors and cognitive frames — mental structures activated
+  by language — shape understanding of political and social issues. Identify which
+  cognitive frames a text activates, and explain why rebuttal that uses a frame's
+  vocabulary tends to reinforce rather than defeat the frame.
+scope: >
+  Appropriate for: political communication where understanding the cognitive effect
+  of language matters; situations where the analyst wants to explain why a particular
+  framing is persuasive; contexts where reframing strategy is relevant; texts that
+  use systematic metaphorical language about social or political issues.
+  Not appropriate for: texts where the structural four-part frame (Entman) is the
+  primary need; purely logical arguments; texts where the analyst wants to describe
+  what a frame is rather than why it works cognitively.
+  Distinction from Entman: Entman describes the structure of a frame (problem,
+  cause, moral evaluation, solution). Lakoff explains the cognitive mechanism by
+  which frames operate and why they are difficult to dislodge. Use Lakoff when
+  the cognitive dimension is analytically important.
+verification_status: draft
+capabilities:
+  - framing_analysis
+intents:
+  - framing_analysis
+  - political_message_analysis
+triggers:
+  - metaphor
+  - cognitive
+  - reframe
+  - tax relief
+  - family values
+  - welfare
+  - war on
+  - strict
+  - nurture
+anti_triggers:
+  - pure math
+  - pure code
+core_concepts:
+  - conceptual metaphor
+  - frame activation
+  - the strict father model
+  - the nurturant parent model
+  - reframing
+  - moral frames
+evidence_statuses:
+  - O1
+  - O2
+  - F1
+  - C1
+  - H1
+analysis_steps:
+  - Identify the conceptual metaphors in use (e.g., "war on drugs," "tax relief").
+  - Identify the cognitive frame these metaphors activate.
+  - Determine which moral frame (if any) structures the overall communication.
+  - Identify what concepts are foregrounded and what is hidden within the activated frame.
+  - Assess whether counterarguments are expressed in the frame's own vocabulary (which would reinforce it).
+  - Note what reframing strategies would shift the cognitive structure.
+decision_rules:
+  - IF a noun or verb activates a vivid scenario or role structure THEN identify the conceptual frame being invoked [F1].
+  - IF a word choice carries an implicit positive or negative valuation THEN identify the framing effect [F1].
+  - IF a counterargument uses the same vocabulary as the target frame THEN note that this risks reinforcing rather than defeating the frame [F1].
+  - IF the text appeals to family or parenting metaphors in a political context THEN identify which moral model is being invoked [F1].
+  - IF a compound like "tax relief" or "welfare dependency" is used THEN identify the frame activated by each component [F1].
+analysis_questions:
+  - What conceptual metaphors structure this communication?
+  - Which cognitive frames does the language activate?
+  - What does the activated frame foreground, and what does it hide?
+  - Is any counterargument expressed in the frame's vocabulary in ways that reinforce it?
+  - What alternative frames exist for the same issue, and what would they foreground?
+output_fields:
+  - conceptual_metaphors
+  - activated_frames
+  - moral_model
+  - foregrounded_concepts
+  - hidden_concepts
+  - reframing_risks
+limitations:
+  - Cognitive frame effects are claimed from general research on language and cognition, not from observation of specific audiences. All cognitive claims must be C1 (possible effect), not established fact.
+  - The strict father and nurturant parent moral models are Lakoff's interpretive framework for US political discourse; their applicability to other cultural contexts must be assessed carefully.
+  - Identifying a conceptual metaphor does not establish that it influences any specific individual's thinking.
+  - The reframing problem (that refutation reinforces frames) is a hypothesis from cognitive linguistics; not all communications behave this way.
+  - Does not prove intent. A speaker may use frame-activating language without strategic awareness.
+references:
+  - title: "Don't Think of an Elephant! Know Your Values and Frame the Debate"
+    author: George Lakoff
+    year: 2004
+    note: >
+      Primary accessible source. Introduces the political application of cognitive
+      framing theory, the strict father and nurturant parent moral models, and
+      the reframing problem. Most directly applicable to this framework's
+      analytical procedures.
+  - title: Metaphors We Live By
+    author: George Lakoff, Mark Johnson
+    year: 1980
+    note: >
+      Foundational theoretical source for conceptual metaphor theory. Establishes
+      that metaphors are not merely rhetorical but structure how we understand
+      abstract concepts. Essential background for understanding why frame
+      activation works as Lakoff claims.

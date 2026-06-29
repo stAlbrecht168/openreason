@@ -3,32 +3,48 @@ capabilities:
   - framing_analysis
   - rhetoric_analysis
 description: >
-  The framing-rhetoric pack covers how communication defines problems, assigns
-  causes, makes moral evaluations, and implies solutions (framing), as well as how
-  speakers build credibility, activate emotion, and structure reasoning to persuade
-  an audience (rhetoric). These capabilities are often relevant together: a political
-  speech may both frame a problem and use rhetorical means to make the frame feel natural.
+  The Framing and Rhetoric Pack covers how communication defines problems, assigns
+  causes, makes moral evaluations, and implies solutions (framing), and how speakers
+  build credibility, activate emotion, structure reasoning, and make value claims
+  seem reasonable (rhetoric). The four frameworks are complementary: Entman maps
+  the structural four-part frame; Lakoff explains the cognitive mechanism by which
+  frames work and why rebuttal can backfire; Aristotle identifies the three modes
+  of appeal and the enthymeme; Perelman provides a systematic taxonomy of
+  argumentation schemes — especially quasi-logical arguments and dissociation —
+  and the universal audience concept. Together they provide a complete analytical
+  toolkit for political and persuasive communication.
 frameworks:
   - id: framing-entman
     maturity: draft
     note: >
       Robert Entman's four-part framing model: problem definition, causal
-      interpretation, moral evaluation, treatment recommendation. YAML file implemented.
+      interpretation, moral evaluation, treatment recommendation. The primary
+      structural framing framework. Use for: mapping what a frame says.
+      YAML and companion .md implemented. Not yet verified against original sources.
+
+  - id: framing-lakoff
+    maturity: draft
+    note: >
+      George Lakoff's cognitive framing theory: conceptual metaphors, frame
+      activation, moral models (strict father / nurturant parent), and the
+      reframing problem. Use for: understanding why a frame works cognitively
+      and why rebuttal can reinforce frames. YAML and companion .md implemented.
       Not yet verified against original sources.
+
   - id: rhetoric-aristotle
     maturity: draft
     note: >
-      Aristotle's Rhetoric: ethos, pathos, logos, enthymeme, and audience positioning.
-      YAML file implemented. Not yet verified against original sources.
+      Aristotle's Rhetoric: ethos, pathos, logos, enthymeme, and audience
+      positioning. The primary rhetoric framework. Use for: classifying the
+      three modes of appeal and identifying unstated premises.
+      YAML and companion .md implemented. Not yet verified against original sources.
+
   - id: rhetoric-perelman
-    maturity: planned
+    maturity: draft
     note: >
-      Chaïm Perelman and Lucie Olbrechts-Tyteca's New Rhetoric. Extends Aristotle
-      with a detailed taxonomy of argumentation schemes and attention to the role of
-      the audience in argument acceptability. Framework YAML not yet written.
-  - id: framing-lakoff
-    maturity: planned
-    note: >
-      George Lakoff's cognitive framing theory. Focuses on how conceptual metaphors
-      and frames shape political understanding — including why rebuttal can reinforce
-      a frame rather than defeating it. Framework YAML not yet written.
+      Chaïm Perelman and Lucie Olbrechts-Tyteca's New Rhetoric: universal
+      audience, presence, dissociation, and a systematic taxonomy of
+      argumentation schemes (quasi-logical arguments, argument from analogy,
+      argument from authority). Use for: identifying specific argument scheme
+      types beyond ethos/pathos/logos, especially in value-based reasoning.
+      YAML and companion .md implemented. Not yet verified against original sources.

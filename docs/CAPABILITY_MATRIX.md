@@ -44,9 +44,9 @@ Each cell shows the framework's status for that capability, or is blank if not a
 | **discourse-fairclough** | | | **●** | **●** | | | | | **●** |
 | **discourse-wodak** | | | **●** | **●** | | | | | **●** |
 | **framing-entman** | | | | | **●** | | | | **●** |
-| **framing-lakoff** | | | | | ○ | | | | |
+| **framing-lakoff** | | | | | **●** | | | | |
 | **rhetoric-aristotle** | | | | | | **●** | | | |
-| **rhetoric-perelman** | | | | | | ○ | | | |
+| **rhetoric-perelman** | | | | | **●** | **●** | | | |
 | **propaganda-ipa** | | | | | | | ○ | | ○ |
 | **propaganda-jowett-odonnell** | | | | | | | ○ | | ○ |
 | **psychology-kahneman-tversky** | | | | | | | | ○ | ○ |
@@ -62,17 +62,18 @@ Each cell shows the framework's status for that capability, or is blank if not a
 | `fallacy_detection` | 4 (walton, toulmin, weston, damer) | 0 | 4 |
 | `discourse_analysis` | 3 (van-dijk, fairclough, wodak) | 0 | 3 |
 | `group_representation_analysis` | 3 (van-dijk, fairclough, wodak) | 0 | 3 |
-| `framing_analysis` | 1 (entman) | 2 (lakoff, perelman¹) | 3 |
-| `rhetoric_analysis` | 1 (aristotle) | 2 (perelman¹, …) | 3 |
+| `framing_analysis` | 3 (entman, lakoff, perelman²) | 0 | 3 |
+| `rhetoric_analysis` | 2 (aristotle, perelman²) | 0 | 2 |
 | `propaganda_analysis` | 0 | 2 (ipa, jowett-odonnell) | 2 |
 | `cognitive_effect_analysis` | 0 | 2 (kahneman-tversky, haidt) | 2 |
 | `social_effect_analysis` | 5 (van-dijk, entman, fairclough, wodak, …) | 3 | 8 |
 
-¹ Perelman contributes to both `rhetoric_analysis` and `framing_analysis` (pack: `framing-rhetoric`).
+² Perelman contributes to both `rhetoric_analysis` and `framing_analysis` (pack: `framing-rhetoric`).
 
 **Uncovered today (no draft framework):** `propaganda_analysis`, `cognitive_effect_analysis`.
 **Logic Pack fully implemented:** all four logic frameworks are now draft.
 **Discourse Pack fully implemented:** all three discourse frameworks are now draft.
+**Framing-Rhetoric Pack fully implemented:** all four framing/rhetoric frameworks are now draft.
 
 ---
 
@@ -86,6 +87,8 @@ Each cell shows the framework's status for that capability, or is blank if not a
 | `discourse-van-dijk` | Teun A. van Dijk — Critical Discourse Analysis | `discourse` | draft |
 | `framing-entman` | Robert Entman — Framing Analysis | `framing-rhetoric` | draft |
 | `rhetoric-aristotle` | Aristotle — Rhetoric | `framing-rhetoric` | draft |
+| `framing-lakoff` | George Lakoff — Cognitive Framing | `framing-rhetoric` | draft |
+| `rhetoric-perelman` | Chaïm Perelman & Lucie Olbrechts-Tyteca — New Rhetoric | `framing-rhetoric` | draft |
 | `logic-toulmin` | Stephen Toulmin — Argument Model | `logic` | draft |
 | `logic-weston` | Anthony Weston — Practical Argument | `logic` | draft |
 | `logic-damer` | T. Edward Damer — Fallacy Taxonomy | `logic` | draft |
@@ -96,8 +99,6 @@ Each cell shows the framework's status for that capability, or is blank if not a
 
 | ID | Name | Pack | Primary source |
 |---|---|---|---|
-| `framing-lakoff` | George Lakoff — Cognitive Framing | `framing-rhetoric` | *Don't Think of an Elephant!* (2004) |
-| `rhetoric-perelman` | Chaïm Perelman & Lucie Olbrechts-Tyteca — New Rhetoric | `framing-rhetoric` | *The New Rhetoric* (1969) |
 | `propaganda-ipa` | Institute for Propaganda Analysis — Seven Devices | `propaganda` | *The Fine Art of Propaganda* (1939) |
 | `propaganda-jowett-odonnell` | Jowett & O'Donnell — Propaganda Analysis | `propaganda` | *Propaganda and Persuasion* (various) |
 | `psychology-kahneman-tversky` | Kahneman & Tversky — Dual-Process Theory | `psychology` | *Thinking, Fast and Slow* (2011) |
@@ -119,8 +120,8 @@ None currently.
 | `fallacy_detection` | Fallacy candidates with evidence labels | walton, (damer) |
 | `discourse_analysis` | In-group/out-group construction, discourse strategies, polarisation patterns | van-dijk, (fairclough, wodak) |
 | `group_representation_analysis` | How specific groups are represented positively or negatively | van-dijk, (fairclough, wodak) |
-| `framing_analysis` | Problem definition, causal interpretation, moral evaluation, treatment recommendation, omissions | entman, (lakoff) |
-| `rhetoric_analysis` | Ethos, pathos, logos, enthymeme, audience positioning | aristotle, (perelman) |
+| `framing_analysis` | Problem definition, causal interpretation, moral evaluation, treatment recommendation, omissions | entman, lakoff, perelman |
+| `rhetoric_analysis` | Ethos, pathos, logos, enthymeme, audience positioning, argumentation schemes, dissociation | aristotle, perelman |
 | `propaganda_analysis` | Systematic persuasion technique identification | (ipa, jowett-odonnell) — planned only |
 | `cognitive_effect_analysis` | Patterns associated with cognitive shortcuts — stated cautiously at C1/H1 | (kahneman-tversky) — planned only |
 | `social_effect_analysis` | Possible social effects — stated cautiously at S1/H1 | van-dijk, entman, (others) |
