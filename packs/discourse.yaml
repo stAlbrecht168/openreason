@@ -4,28 +4,40 @@ capabilities:
   - group_representation_analysis
   - social_effect_analysis
 description: >
-  The discourse pack provides critical discourse analysis capabilities. It covers
-  how language constructs in-groups and out-groups, how groups are positively or
-  negatively represented, how power relations are reproduced through text, and how
-  discourse may contribute to prejudice, ideological polarisation, or minority
-  splitting. It is the primary pack for analysing political language about migration,
-  ethnicity, religion, nationality, and group identity.
+  The Discourse Pack provides critical discourse analysis capabilities across
+  three complementary frameworks. Van Dijk is the primary framework for group
+  representation, in-group/out-group dynamics, and ideological polarisation.
+  Fairclough adds the three-dimensional model — text, discursive practice, and
+  social practice — and is strongest for intertextuality, genre analysis, and
+  the relationship between discourse and social change. Wodak's Discourse-Historical
+  Approach specialises in discriminatory and prejudiced language in political
+  and institutional contexts, with explicit attention to the historical dimension
+  and the use of topoi to legitimate exclusion.
 frameworks:
   - id: discourse-van-dijk
     maturity: draft
     note: >
       Teun A. van Dijk's Critical Discourse Analysis. Covers the ideological square,
       positive self-presentation, negative other-presentation, disclaimers, and
-      group hierarchy. YAML file implemented. Not yet verified against original sources.
+      group hierarchy. The primary framework for group representation and
+      in-group/out-group analysis. YAML and companion .md implemented.
+      Not yet verified against original sources.
+
   - id: discourse-fairclough
-    maturity: planned
+    maturity: draft
     note: >
-      Norman Fairclough's three-dimensional discourse analysis (text, discursive
-      practice, social practice). Adds a stronger emphasis on intertextuality and
-      the relationship between discourse and social change. Framework YAML not yet written.
+      Norman Fairclough's three-dimensional CDA (text, discursive practice, social
+      practice). Strongest for intertextuality, genre analysis, and tracing the
+      relationship between discourse and social change. Requires analysis at all
+      three levels; partial application weakens findings. YAML and companion .md
+      implemented. Not yet verified against original sources.
+
   - id: discourse-wodak
-    maturity: planned
+    maturity: draft
     note: >
-      Ruth Wodak's Discourse-Historical Approach. Specialises in the analysis of
-      prejudiced and discriminatory language in political and institutional contexts,
-      with attention to historical framing. Framework YAML not yet written.
+      Ruth Wodak's Discourse-Historical Approach. Specialises in discriminatory
+      and prejudiced language in political and institutional contexts. Distinctive
+      for its five discursive strategies (nomination, predication, argumentation,
+      perspectivisation, intensification/mitigation), the topos concept, and
+      explicit attention to historical discourse patterns. YAML and companion .md
+      implemented. Not yet verified against original sources.

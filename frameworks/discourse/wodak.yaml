@@ -1,0 +1,105 @@
+id: discourse-wodak
+name: Ruth Wodak — Discourse-Historical Approach
+version: 0.1.0
+domain: critical_discourse_analysis
+purpose: >
+  Analyse discriminatory and prejudiced language in political and institutional
+  contexts using the Discourse-Historical Approach (DHA). Identify the discursive
+  strategies through which social actors are constructed, legitimised, and
+  delegitimised, with explicit attention to the historical dimension of discourse.
+scope: >
+  Appropriate for: political speeches, parliamentary discourse, institutional
+  communications, and media texts where prejudice, discrimination, or political
+  identity construction are analytically relevant; contexts where the historical
+  development of a discourse matters; analysis of how topoi — argumentative
+  commonplaces — are used to justify exclusion or discrimination.
+  Not appropriate for: texts where discrimination or prejudice is not the primary
+  analytical concern (use discourse-van-dijk or discourse-fairclough); purely
+  logical arguments; texts without a political or institutional context.
+verification_status: draft
+capabilities:
+  - discourse_analysis
+  - group_representation_analysis
+  - social_effect_analysis
+intents:
+  - discourse_analysis
+  - political_language_analysis
+  - minority_effects
+triggers:
+  - discrimination
+  - prejudice
+  - national identity
+  - political speech
+  - parliament
+  - institutional
+  - exclusion
+  - populism
+  - topos
+anti_triggers:
+  - pure math
+  - pure logic
+core_concepts:
+  - discursive strategies
+  - topoi
+  - recontextualisation
+  - nomination
+  - predication
+  - historical dimension
+evidence_statuses:
+  - O1
+  - O2
+  - D1
+  - S1
+  - H1
+analysis_steps:
+  - Establish the historical and political context of the text.
+  - Identify how social actors are nominated — what names and categories are used?
+  - Identify how social actors are predicated — what qualities and characteristics are attributed?
+  - Identify topoi — argumentative commonplaces used to justify claims.
+  - Identify perspectivisation — from whose perspective is the situation presented?
+  - Identify intensification and mitigation strategies — how are claims strengthened or softened?
+  - Assess whether the text draws on or transforms historically established discourse patterns.
+decision_rules:
+  - IF social actors are referred to by dehumanising or objectifying terms THEN identify as nomination strategy [D1].
+  - IF negative qualities are attributed to a group as natural or inherent THEN identify as predication strategy [D1].
+  - IF an argument uses a widely shared cultural premise to justify exclusion or discrimination THEN identify the topos [D1].
+  - IF the speaker adopts a particular perspective and presents it as neutral THEN identify perspectivisation [D1].
+  - IF language softens a discriminatory claim THEN identify mitigation and its function [D1].
+  - IF discourse patterns recur across contexts or historical periods THEN note the recontextualisation [D1].
+analysis_questions:
+  - How are social actors named and categorised?
+  - What qualities and characteristics are attributed to them?
+  - What topoi (argumentative commonplaces) justify the claims being made?
+  - From whose perspective is the situation presented?
+  - How are claims intensified or mitigated?
+  - How does this text relate to historical discourse patterns in this domain?
+output_fields:
+  - nomination_strategies
+  - predication_strategies
+  - topoi_identified
+  - perspectivisation
+  - intensification_mitigation
+  - historical_context
+  - discrimination_indicators
+limitations:
+  - Requires substantial contextual and historical knowledge to apply fully.
+  - The historical dimension cannot be assessed from a single text; requires knowledge of prior discourse in the field.
+  - Topos identification is interpretive and requires knowledge of the cultural and political context.
+  - Does not prove speaker intent — findings are discourse-level, not motive-level.
+  - Primarily developed for political and institutional contexts; application to informal or everyday discourse requires adaptation.
+references:
+  - title: The Discursive Construction of National Identity
+    author: Ruth Wodak, Rudolf de Cillia, Martin Reisigl, Karin Liebhart
+    year: 1999
+    note: >
+      Primary source for the DHA as applied to national identity construction.
+      Introduces the discursive strategies framework (nomination, predication,
+      argumentation, perspectivisation, intensification/mitigation) and the
+      concept of topoi in political discourse analysis.
+  - title: Discourse and Discrimination
+    author: Martin Reisigl, Ruth Wodak
+    year: 2001
+    note: >
+      Extends the DHA specifically to discrimination analysis. Provides
+      the most detailed treatment of discursive strategies for discriminatory
+      language and the topoi used to legitimate prejudice.

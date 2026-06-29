@@ -41,8 +41,8 @@ Each cell shows the framework's status for that capability, or is blank if not a
 | **logic-weston** | **●** | **●** | | | | | | | |
 | **logic-damer** | **●** | **●** | | | | | | | |
 | **discourse-van-dijk** | | | **●** | **●** | | | | | **●** |
-| **discourse-fairclough** | | | ○ | ○ | | | | | ○ |
-| **discourse-wodak** | | | ○ | ○ | | | | | ○ |
+| **discourse-fairclough** | | | **●** | **●** | | | | | **●** |
+| **discourse-wodak** | | | **●** | **●** | | | | | **●** |
 | **framing-entman** | | | | | **●** | | | | **●** |
 | **framing-lakoff** | | | | | ○ | | | | |
 | **rhetoric-aristotle** | | | | | | **●** | | | |
@@ -60,18 +60,19 @@ Each cell shows the framework's status for that capability, or is blank if not a
 |---|---|---|---|
 | `argument_analysis` | 4 (walton, toulmin, weston, damer) | 0 | 4 |
 | `fallacy_detection` | 4 (walton, toulmin, weston, damer) | 0 | 4 |
-| `discourse_analysis` | 1 (van-dijk) | 2 (fairclough, wodak) | 3 |
-| `group_representation_analysis` | 1 (van-dijk) | 2 (fairclough, wodak) | 3 |
+| `discourse_analysis` | 3 (van-dijk, fairclough, wodak) | 0 | 3 |
+| `group_representation_analysis` | 3 (van-dijk, fairclough, wodak) | 0 | 3 |
 | `framing_analysis` | 1 (entman) | 2 (lakoff, perelman¹) | 3 |
 | `rhetoric_analysis` | 1 (aristotle) | 2 (perelman¹, …) | 3 |
 | `propaganda_analysis` | 0 | 2 (ipa, jowett-odonnell) | 2 |
 | `cognitive_effect_analysis` | 0 | 2 (kahneman-tversky, haidt) | 2 |
-| `social_effect_analysis` | 3 (van-dijk, entman, …) | 5 | 8 |
+| `social_effect_analysis` | 5 (van-dijk, entman, fairclough, wodak, …) | 3 | 8 |
 
 ¹ Perelman contributes to both `rhetoric_analysis` and `framing_analysis` (pack: `framing-rhetoric`).
 
 **Uncovered today (no draft framework):** `propaganda_analysis`, `cognitive_effect_analysis`.
 **Logic Pack fully implemented:** all four logic frameworks are now draft.
+**Discourse Pack fully implemented:** all three discourse frameworks are now draft.
 
 ---
 
@@ -88,13 +89,13 @@ Each cell shows the framework's status for that capability, or is blank if not a
 | `logic-toulmin` | Stephen Toulmin — Argument Model | `logic` | draft |
 | `logic-weston` | Anthony Weston — Practical Argument | `logic` | draft |
 | `logic-damer` | T. Edward Damer — Fallacy Taxonomy | `logic` | draft |
+| `discourse-fairclough` | Norman Fairclough — Critical Discourse Analysis | `discourse` | draft |
+| `discourse-wodak` | Ruth Wodak — Discourse-Historical Approach | `discourse` | draft |
 
 ### Planned (documented in packs, no YAML file)
 
 | ID | Name | Pack | Primary source |
 |---|---|---|---|
-| `discourse-fairclough` | Norman Fairclough — Three-Dimensional CDA | `discourse` | *Discourse and Social Change* (1992) |
-| `discourse-wodak` | Ruth Wodak — Discourse-Historical Approach | `discourse` | Various |
 | `framing-lakoff` | George Lakoff — Cognitive Framing | `framing-rhetoric` | *Don't Think of an Elephant!* (2004) |
 | `rhetoric-perelman` | Chaïm Perelman & Lucie Olbrechts-Tyteca — New Rhetoric | `framing-rhetoric` | *The New Rhetoric* (1969) |
 | `propaganda-ipa` | Institute for Propaganda Analysis — Seven Devices | `propaganda` | *The Fine Art of Propaganda* (1939) |

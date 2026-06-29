@@ -1,0 +1,103 @@
+id: discourse-fairclough
+name: Norman Fairclough — Critical Discourse Analysis
+version: 0.1.0
+domain: critical_discourse_analysis
+purpose: >
+  Analyse discourse as a form of social practice by examining how texts are
+  produced, distributed, and consumed, and how they both reflect and reshape
+  social structures. Central to this framework is intertextuality — how texts
+  draw on, reproduce, and transform prior texts and genres — and the relationship
+  between discourse change and social change.
+scope: >
+  Appropriate for: texts where the relationship between language and institutional
+  or social change matters; media texts, policy documents, and organisational
+  communication where intertextuality and genre mixing are analytically relevant;
+  contexts where the analyst wants to trace how a discursive practice reproduces
+  or challenges existing power relations.
+  Not appropriate for: short informal arguments (use logic-walton); texts where
+  group representation is the primary concern and intertextuality is not relevant
+  (use discourse-van-dijk); factual lookups.
+  Note: Fairclough's three-dimensional model requires attention to all three levels
+  (text, discursive practice, social practice). Partial application weakens findings.
+verification_status: draft
+capabilities:
+  - discourse_analysis
+  - group_representation_analysis
+  - social_effect_analysis
+intents:
+  - discourse_analysis
+  - political_language_analysis
+triggers:
+  - intertextuality
+  - genre
+  - institutional
+  - policy
+  - social practice
+  - discourse change
+  - hegemony
+  - power
+anti_triggers:
+  - pure math
+  - pure logic
+core_concepts:
+  - three-dimensional model
+  - intertextuality
+  - genre
+  - discursive practice
+  - social practice
+  - hegemony
+evidence_statuses:
+  - O1
+  - O2
+  - D1
+  - S1
+  - H1
+analysis_steps:
+  - Identify the text-level features (vocabulary, grammar, text structure).
+  - Identify the discursive practice — how is the text produced, distributed, consumed?
+  - Identify intertextuality — what other texts, genres, or discourses does this text draw on?
+  - Identify genre conventions being followed, mixed, or subverted.
+  - Analyse how the text positions social actors (includes, excludes, represents).
+  - Examine the relationship between the discursive practice and broader social practice.
+  - Assess whether the text reproduces or challenges existing power relations.
+decision_rules:
+  - IF the text draws on vocabulary or conventions from another genre or domain THEN identify the intertextual link and its function [D1].
+  - IF the text positions a social actor as passive or agentless THEN note the grammatical passivisation and its representational effect [D1].
+  - IF the text uses the authority of an institution or prior document THEN identify the intertextual authority claim [D1].
+  - IF a discourse practice appears to naturalise a particular social arrangement THEN identify the hegemonic function [D1].
+  - IF genres are mixed (e.g. news and advertising conventions in the same text) THEN identify the genre mixing and what it achieves [D1].
+analysis_questions:
+  - What text-level choices (vocabulary, syntax, structure) are notable?
+  - How is the text produced and in what institutional context?
+  - What other texts or genres does this text draw on?
+  - How are social actors represented — as active agents or passive objects?
+  - Does the text reproduce or challenge existing power relations?
+  - What social practice does this discursive practice correspond to?
+output_fields:
+  - text_features
+  - intertextual_links
+  - genre_analysis
+  - actor_representation
+  - power_relation_assessment
+  - social_practice_relationship
+limitations:
+  - The three-dimensional model requires analysis at all three levels; partial application reduces validity.
+  - Intertextuality identification depends on the analyst's knowledge of relevant prior texts and genre conventions.
+  - Does not prove speaker intent or strategic use of discourse.
+  - The relationship between discursive and social change is difficult to establish from a single text.
+  - Social practice analysis is the most interpretive level and most dependent on contextual knowledge.
+references:
+  - title: Discourse and Social Change
+    author: Norman Fairclough
+    year: 1992
+    note: >
+      Primary source. Introduces the three-dimensional model (text, discursive practice,
+      social practice) and the centrality of intertextuality. The theoretical foundation
+      for this framework.
+  - title: Critical Discourse Analysis
+    author: Norman Fairclough
+    year: 1995
+    note: >
+      Extends the 1992 work with more detailed treatment of media discourse and
+      the analysis of complex intertextual relationships. Provides most of the
+      analysis procedures operationalised in this framework.
